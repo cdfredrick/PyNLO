@@ -2,7 +2,8 @@
 """
 Python Nonlinear Optics
 
-TODO: brief overview of capabilities
+PyNLO provides an easy-to-use, object-oriented set of tools for modeling the
+nonlinear interaction of light with matter.
 
 Notes
 -----
