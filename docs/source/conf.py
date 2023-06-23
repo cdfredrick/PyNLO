@@ -48,6 +48,7 @@ extensions = [
     "numpydoc",
     "sphinx.ext.viewcode",
     "nbsphinx",
+    "sphinx_design",
 ]
 
 autodoc_default_options = {
