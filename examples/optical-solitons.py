@@ -43,6 +43,7 @@ T0 = 50e-15                 # 50 fs
 gamma = 1                   # 1 / W * m
 beta2 = -10 * 1e-12**2/1e3 # -10 ps**2 / km
 
+
 #---- Pulse Parameters
 n_points = 2**11
 v_min = 100e12  # 100 THz
@@ -54,17 +55,18 @@ t_fwhm = np.arccosh(2**0.5) * 2*T0
 
 pulse = pynlo.light.Pulse.Sech(n_points, v_min, v_max, v0, e_p, t_fwhm)
 
+
 #---- Length Scales
 L_D = T0**2/np.abs(beta2)
 L_NL = 2*T0 / (gamma * e_p)
 L_S = pi/2 * L_D
-L_C = 0.5*L_S/(N-1) # approximate, less accurate at large N
+L_0 = 0.5*L_S/(N-1) # approximate, less accurate at large N
 
 print("Soliton Number \t\t= {:.2g}".format((L_D/L_NL)**0.5))
 print("Dispersion Length \t= {:.3g} m".format(L_D))
 print("Nonlinear Length \t= {:.3g} m".format(L_NL))
 print("Soliton Period \t\t= {:.3g} m".format(L_S))
-print("Compression Length \t= {:.3g} m".format(L_C))
+print("Compression Length \t= {:.3g} m".format(L_0))
 
 
 # %% Unperturbed Soliton Dynamics
@@ -74,7 +76,7 @@ unperturbed soliton. Fundamental solitons (soliton number ``N=1``) do not
 change with propagation distance. However, for second- and higher-order
 solitons, the pulse shape and spectra oscillate over the soliton period `L_S`,
 a function of the dispersion length scale `L_D`. The compression length scale
-`L_C`, the approximate distance at which a soliton reaches its shortest
+`L_0`, the approximate distance at which a soliton reaches its shortest
 duration and widest spectral extent, is a function of both the dispersion
 length `L_D` and the soliton number `N`.
 
@@ -111,6 +113,7 @@ g3 = ut.chi3.gamma_to_g3(pulse.v_grid, gamma)
 
 mode = pynlo.media.Mode(pulse.v_grid, beta, g3=g3)
 
+
 #---- Model
 model = pynlo.model.NLSE(pulse, mode)
 
@@ -122,6 +125,7 @@ dz = model.estimate_step_size(local_error=local_error)
 #---- Simulate
 pulse_out, z, a_t, a_v = model.simulate(
     length, dz=dz, local_error=local_error, n_records=100, plot=None)
+
 
 #---- Plot Results
 fig = plt.figure("Soliton Dynamics", clear=True)
@@ -139,7 +143,7 @@ ax2.pcolormesh(1e-12*pulse.v_grid, z/L_S, p_v_dB,
 ax0.set_ylim(bottom=-45, top=5)
 ax2.set_xlabel('Frequency (THz)')
 
-L_F_idx = np.argmin(np.abs(z - L_C))
+L_F_idx = np.argmin(np.abs(z - L_0))
 ax0.plot(1e-12*pulse.v_grid, p_v_dB[L_F_idx], color="k", label=r"$z_{comp}$")
 ax2.axhline(z[L_F_idx]/L_S, color="k", linestyle=":")
 ax0.legend(loc=2, fontsize="small")
@@ -164,7 +168,7 @@ fig.show()
 For the second example we perturb the soliton with third-order dispersion.
 Perturbations cause second and higher-order solitons to break apart into
 fundamental solitons and dispersive waves. Soliton fission typically occurs
-near what would be the first compression point (`L_C`) of the unperturbed
+near what would be the first compression point (`L_0`) of the unperturbed
 soliton as the perturbation is strongest when the spectral width is at its
 greatest extent.
 
@@ -223,6 +227,7 @@ dz = model.estimate_step_size(local_error=local_error)
 pulse_out, z, a_t, a_v = model.simulate(
     length, dz=dz, local_error=local_error, n_records=100, plot=None)
 
+
 #---- Plot Results
 fig = plt.figure("Dispersive Wave Generation", clear=True)
 ax0 = plt.subplot2grid((3,2), (0, 0), rowspan=1)
@@ -239,7 +244,7 @@ ax2.pcolormesh(1e-12*pulse.v_grid, z/L_S, p_v_dB,
 ax0.set_ylim(bottom=-45, top=5)
 ax2.set_xlabel('Frequency (THz)')
 
-L_F_idx = np.argmin(np.abs(z - L_C))
+L_F_idx = np.argmin(np.abs(z - L_0))
 ax0.plot(1e-12*pulse.v_grid, p_v_dB[L_F_idx], color="k", label=r"$z_{comp}$")
 ax2.axhline(z[L_F_idx]/L_S, color="k", linestyle=":")
 ax0.legend(loc=2, fontsize="small")
@@ -306,6 +311,7 @@ rv_grid, raman = ut.chi3.raman(pulse.n, pulse.dt, r_weights, b_weights)
 
 mode = pynlo.media.Mode(pulse.v_grid, beta, g3=g3, rv_grid=rv_grid, r3=raman)
 
+
 #---- Model
 model = pynlo.model.NLSE(pulse, mode)
 
@@ -317,6 +323,7 @@ dz = model.estimate_step_size(local_error=local_error)
 #---- Simulate
 pulse_out, z, a_t, a_v = model.simulate(
     length, dz=dz, local_error=local_error, n_records=100, plot=None)
+
 
 #---- Plot Results
 fig = plt.figure("Raman-Induced Frequency Shift", clear=True)
@@ -334,7 +341,7 @@ ax2.pcolormesh(1e-12*pulse.v_grid, z/L_S, p_v_dB,
 ax0.set_ylim(bottom=-45, top=5)
 ax2.set_xlabel('Frequency (THz)')
 
-L_F_idx = np.argmin(np.abs(z - L_C))
+L_F_idx = np.argmin(np.abs(z - L_0))
 ax0.plot(1e-12*pulse.v_grid, p_v_dB[L_F_idx], color="k", label=r"$z_{comp}$")
 ax2.axhline(z[L_F_idx]/L_S, color="k", linestyle=":")
 ax0.legend(loc=1, fontsize="small")

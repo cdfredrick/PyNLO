@@ -101,7 +101,7 @@ d_eff = 27e-12 # 27 pm / V
 chi2_eff = 2 * d_eff
 g2 = ut.chi2.g2_shg(v0, pulse.v_grid, n_eff, a_eff, chi2_eff)
 
-# poling
+# Poling
 p0 = 30e-6 # 30 um poling period
 z_invs, domains, poled = ut.chi2.domain_inversions(length, 2*pi/p0)
 
@@ -132,7 +132,7 @@ point. To view real-time simulation results (updated whenever the simulation
 reaches a record point), set the `plot` keyword to "frq", "wvl", or "time".
 
 """
-pulse_out2, z, a_t, a_v = model.simulate(
+pulse_out, z, a_t, a_v = model.simulate(
     length, dz=dz, local_error=local_error, n_records=100, plot=None)
 
 
