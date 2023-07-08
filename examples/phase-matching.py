@@ -1,10 +1,10 @@
 # -*- coding: utf-8 -*-
 """
-These examples demonstrate the concepts of phase matching, quasi-phase
-matching, and the effects of pump depeletion through second harmonic
-generation (SHG) of a continuous wave (CW) laser. The simulations use the
+Through the process of second-harmonic generation (SHG) with a continuous
+wave (CW) laser, these examples demonstrate the concepts of coherence length,
+quasi-phase matching, and pump depletion. These simulations use the
 unidirectional propagation equation (UPE) and are roughly based on the
-parameters of thin-film lithium niobate.
+parameters of a thin-film lithium niobate waveguide.
 
 """
 
@@ -19,39 +19,48 @@ from pynlo import utility as ut
 
 # %% CW Properties
 """
-We initialize a CW laser using one of the built-in spectral shapes of the
-`Pulse` class. The fundamental is set at 200 THz, which gives a second harmonic
-at 400 THz (~1.5 um and ~750 nm respectively). Since the input is a single
-frequency, only a few points are nescessary for an accurate simulation.
+The CW laser is initialized using one of the built-in spectral shapes of the
+`Pulse` class. The fundamental is set at 200 THz, which puts the second
+harmonic at 400 THz (~1.5 um and ~750 nm respectively). The minimum and maximum
+of the frequency grid are chosen to place the fundamental and second harmonic
+exactly on the grid. Since the input is a single frequency, only a few grid
+points are necessary for an accurate simulation.
 
 """
 n_points = 4
 v_min = 100e12  # 100 THz
-v_max = 400e12  # 500 THz
+v_max = 400e12  # 400 THz
 
 v0 = 200e12     # 200 THz
 p_avg = 100e-3  # 100 mW
 
 pulse = pynlo.light.Pulse.CW(n_points, v_min, v_max, v0, p_avg, alias=2)
 
+# Index of the fundamental
 idx_fn = pulse.v0_idx
-idx_sh = np.abs(pulse.v_grid - pulse.v_grid[idx_fn]*2).argmin()
+# Index of the second harmonic
+idx_sh = np.abs(pulse.v_grid - 2*pulse.v0).argmin()
 
 
 # %% Mode Properties
 """
-The modal properties are rougly based on those found in thin-film lithium
-niobate waveguides. The refractive indices used are a low-order fit to the
+The waveguide properties are roughly based on those possible in thin-film
+lithium niobate. The refractive indices are derived from a low-order fit to the
 indices given by Zelmon for bulk lithium niobate in the 1.5 um region.
 
 Dispersion of the refractive index causes the nonlinear transfer of power to
-oscilate with propagation disstance. This is characterized by the coherence
-length (`L_C`), which is a function of the phase mismatch or the difference
-between the phase coeficient (`beta = n*w/c`) of the input and output
-frequencies of the nonlinear interaction. For second harmonic generation, the
-coherence length is as follows:
+oscillate with propagation distance. This oscillation is characterized by a
+coherence length `L_C`, which is a function of the phase mismatch or difference
+between the phase coefficients (`beta = n*w/c`) of the nonlinear interaction's
+input and output frequencies. In general, the concept of coherence length
+applies to all types of nonlinear interactions. For second-harmonic generation
+the coherence length is calculated as follows:
 
     L_C = pi/dk = pi/(beta(2*w0) - 2*beta(w0))
+
+In the following examples the coherence length is approximately 9 um long,
+i.e., the direction of the nonlinear power transfer switches direction every
+9 um in the absence of phase matching.
 
 References
 ----------
@@ -64,7 +73,7 @@ David E. Zelmon, David L. Small, and Dieter Jundt, "Infrared corrected
 """
 a_eff = 1e-6 * 1e-6 # 1 um**2
 
-#--- Phase Coefficient
+#---- Phase Coefficient
 n_n = [0]*4
 n_n[0] = 2.14
 n_n[1] = .275 * 1e-15 # fs
@@ -81,6 +90,7 @@ g2 = ut.chi2.g2_shg(pulse.v0, pulse.v_grid, n, a_eff, chi2_eff)
 #---- Length Scale
 delta_beta = beta[idx_sh] - 2*beta[idx_fn]
 L_C = pi/delta_beta # coherence length
+print("Coherence Length \t= {:.3g} m".format(L_C))
 
 
 # %% Phase Matching
@@ -88,22 +98,31 @@ L_C = pi/delta_beta # coherence length
 This example demonstrates the initial evolution of a phase-mismatched, a
 phase-matched, and a quasi-phase-matched SHG process. When phase mismatched,
 the direction of power transfer alternates every coherence length `L_C`. This
-severely limits the accumulative nonlinear effect compared to the phase-matched
-case, which grows quadratically with propagation distance. By changing the sign
-of the nonlinear interaction (i.e alternating the direction of the crystal
-axis) at the end of each coherence length, the nonlinear interaction can be
-quasi-phase matched and the power can be made to grow monotonically. While on
-aggregate a quasi-phase-matched process also grows quadratically, compared to
-the phase-matched case the effective nonlinearity is reduced by a factor of
-`sinc(m*pi/2)`, where `m` is the number of coherence lengths between the poled
-domains.
+severely limits the accumulative nonlinear effect as compared to the
+phase-matched case, which grows quadratically with propagation distance. By
+changing the sign of the nonlinear interaction (i.e. by alternating the
+direction of the crystal axis) at the end of each coherence length, the
+nonlinear interaction can be quasi-phase matched (QPM) and the SHG power can be
+made to grow monotonically. The length of each poled domain `L_P` must be an
+odd-integer multiple of the coherence length:
+
+    L_P = m * L_C = m * pi/dk
+
+where `m` is the quasi-phase-matching order. On aggregate, a
+quasi-phase-matched process also grows quadratically, but compared to the
+phase-matched case the effective nonlinearity is reduced by a factor of
+`sinc(m*pi/2)`. While less efficient, higher-order quasi-phase matching
+broadens the number of interactions that can be simultaneously phase matched
+and allows for phase matching of interactions that would otherwise require
+physically infeasible domains sizes.
 
 The simulation extends over 3 coherence lengths. The blue trace in the plot
-shows the oscillating phase-mismatched case, the orange the 1st-order
-quasi-phase-matched case, and the green the ideal phase-matched case. The
-phase-matched case is calculated using the `shg_conversion_efficiency` function
-of the `chi2` utility module. For more details on phase matching and the SHG
-process, see chapter 2 of Boyd.
+shows the oscillating phase-mismatched case, the orange shows the 1st-order
+quasi-phase-matched case, and the green shows the ideal phase-matched case. The
+ideal case is calculated using the `shg_conversion_efficiency` function of the
+`utility.chi2` submodule. Underlaid the orange trace is the equivalent
+quadratic approximation for the 1st-order quasi-phase-matched case. For more
+details on phase matching and the SHG process, see chapter 2 of Boyd.
 
 References
 ----------
@@ -112,8 +131,8 @@ Robert W. Boyd, Nonlinear Optics (Fourth Edition), Academic Press, 2020
 
 """
 #---- Poling
-length = L_C*3 # ~26 um
-z_invs, domains, poled = ut.chi2.domain_inversions(length, beta[idx_sh] - 2*beta[idx_fn])
+length = L_C*3 # ~25 um
+z_invs, domains, poled = ut.chi2.domain_inversions(length, delta_beta)
 
 mode_qpm = pynlo.media.Mode(pulse.v_grid, beta, g2=g2, g2_inv=z_invs) # Quasi-phase matched
 mode_pmm = pynlo.media.Mode(pulse.v_grid, beta, g2=g2) # Phase mismatched
@@ -181,21 +200,21 @@ fig.show()
 """
 The quadratic scaling of a phase-matched or quasi-phase-matched interaction
 breaks down if the interaction is maintained over a long enough propagation
-distance. This is due to depletion of power from the pump. For SHG, as long as
-the phase matching condition is upheld, the nonlinear transfer of power
-continues asymptotically at large propagation distances.
+distance. This is due to depletion of pump power. For SHG, as long as the
+phase-matching condition is upheld, the nonlinear power transfer asymptotically
+continues at large propagation distances.
 
-The simulation extends over about 2000 coherence lengths, at which point
-nearly all of the power from the fundamental (black trace) has been transfered
+The simulation extends over thousands of coherence lengths, at which point
+nearly all of the power from the fundamental (black trace) has been transferred
 to the second harmonic (blue trace). The breakdown of the quadratic, or
-undepleted-pump approximation can be seen about a third of the way through the
-simulation. Where the approximation predicts 100% power transfer the simulation
-yields a roughly 60:40 ratio.
+undepleted-pump approximation can be seen about one third of the way through
+the simulation. Where the approximation predicts 100% power transfer, the
+simulation only yields a ~60:40 ratio.
 
 """
 #---- Poling
 length = L_C*1750 # ~15 mm
-z_invs, domains, poled = ut.chi2.domain_inversions(length, 2*beta[idx_fn] - beta[idx_sh])
+z_invs, domains, poled = ut.chi2.domain_inversions(length, delta_beta)
 mode = pynlo.media.Mode(pulse.v_grid, beta, g2=g2, g2_inv=z_invs)
 
 
@@ -224,7 +243,8 @@ plt.ylim(plt.ylim())
 
 # Undepleted-pump approximation
 con_eff = ut.chi2.shg_conversion_efficiency(
-    pulse.v0, pulse.p_t.mean(), n[idx_fn], n[idx_sh], a_eff, d_eff, res.z, qpm_order=1)
+    pulse.v0, pulse.p_t.mean(), n[idx_fn], n[idx_sh], a_eff, d_eff, res.z,
+    qpm_order=1)
 plt.plot(
     res.z/length,
     100*con_eff,

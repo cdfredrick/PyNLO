@@ -423,7 +423,12 @@ def shg_conversion_efficiency(v0, p0, n_v, n_2v, a_eff, d_eff, z, qpm_order=None
         The propagation distance.
     qpm_order : int
         The order of the quasi-phase-matching. Only odd orders can be
-        quas-phase matched.
+        quasi-phase matched.
+
+    References
+    ----------
+    Robert W. Boyd, Nonlinear Optics (Fourth Edition), Academic Press, 2020
+     https://doi.org/10.1016/C2015-0-05510-1
 
     """
     w0 = 2*pi*v0

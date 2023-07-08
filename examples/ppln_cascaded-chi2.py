@@ -27,12 +27,12 @@ from pynlo import utility as ut
 
 # %% Pulse Properties
 """
-We start by initializing a Gaussian pulse using one of the built-in pulse
-shapes of the `Pulse` class. The first few parameters constrain the frequency
-grid, the number of points and the frequency range, while the last three set
-the initial pulse properties, its center frequency, pulse energy, and pulse
-width. Since we are going to be simulating 2nd-order effects, the `alias`
-parameter has been increased to support two alias-free Nyquist zones.
+We first initialize a Gaussian pulse using one of the built-in pulse shapes of
+the `Pulse` class. The first few parameters constrain the frequency grid, the
+number of points and the frequency range, while the last three set the initial
+pulse properties, its center frequency, pulse energy, and pulse width. Since we
+are going to be simulating 2nd-order effects, the `alias` parameter has been
+increased to support two alias-free Nyquist zones.
 
 """
 n_points = 2**13

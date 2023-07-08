@@ -45,17 +45,17 @@ pulse = pynlo.light.Pulse.Sech(n_points, v_min, v_max, v0, e_p, t_fwhm)
 
 # %% Mode Properties
 """
-We need to define both the linear and nonlinear properties of the waveguide. In
-this example, we are only given the waveguide properties at a single frequency
-so we must extrapolate to the rest of the frequency grid. For the beta
-parameter this is accomplished using a Taylor series, but for the nonlinearity
-we use the `gamma_to_g3` conversion function from the `utility.chi3` submodule.
-This function calculates the generalized 3rd-order nonlinear parameter
-(required by the PyNLO propagation models) from the gamma parameter and the
-optical shock time scale. If available, the nonlinear parameter can also be
-generated from the refractive index, effective area, and nonlinear
-susceptibility, see `utility.chi3` for more details. The Raman effect is
-implemented using the Raman response function given in section 2.3.3 of
+We next need to define both the linear and nonlinear properties of the
+waveguide. In this example, we are only given the waveguide properties at a
+single frequency so we must extrapolate to the rest of the frequency grid. For
+the beta parameter this is accomplished using a Taylor series, but for the
+nonlinearity we use the `gamma_to_g3` conversion function from the
+`utility.chi3` submodule. This function calculates the generalized 3rd-order
+nonlinear parameter (required by the PyNLO propagation models) from the gamma
+parameter and the optical shock time scale. If available, the nonlinear
+parameter can also be generated from the refractive index, effective area, and
+nonlinear susceptibility, see `utility.chi3` for more details. The Raman effect
+is implemented using the Raman response function given in section 2.3.3 of
 Agrawal.
 
 References

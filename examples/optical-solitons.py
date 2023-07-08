@@ -2,10 +2,10 @@
 """
 These examples demonstrate several effects due to the dynamics of second- and
 higher-order solitons: self-compression and oscillation at the soliton period,
-dispersive wave generation, and Raman-induced frequency shifts. The simulations
-use the nonlinear Schrödinger equation (NLSE) and are designed to highlight
-processes critical to supercontinuum generation in the anomalous dispersion
-regime.
+dispersive wave generation, and Raman-induced frequency shifts. These
+simulations use the nonlinear Schrödinger equation (NLSE) and are designed to
+highlight processes critical to supercontinuum generation in the anomalous
+dispersion regime.
 
 """
 
