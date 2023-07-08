@@ -281,6 +281,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="silica-pcf_supercontinuum.html">Silica PCF: Supercontinuum</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Optical Solitons</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ppln_cascaded-chi2.html">PPLN: Cascaded Chi2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="phase-matching.html">Phase Matching</a></li>
 </ul>
 </li>
 </ul>
@@ -351,10 +352,10 @@ document.write(`
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">These examples demonstrate several effects due to the dynamics of second- and</span>
 <span class="sd">higher-order solitons: self-compression and oscillation at the soliton period,</span>
-<span class="sd">dispersive wave generation, and Raman-induced frequency shifts. The simulations</span>
-<span class="sd">use the nonlinear Schrödinger equation (NLSE) and are designed to highlight</span>
-<span class="sd">processes critical to supercontinuum generation in the anomalous dispersion</span>
-<span class="sd">regime.</span>
+<span class="sd">dispersive wave generation, and Raman-induced frequency shifts. These</span>
+<span class="sd">simulations use the nonlinear Schrödinger equation (NLSE) and are designed to</span>
+<span class="sd">highlight processes critical to supercontinuum generation in the anomalous</span>
+<span class="sd">dispersion regime.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -392,6 +393,7 @@ document.write(`
 <span class="n">gamma</span> <span class="o">=</span> <span class="mi">1</span>                   <span class="c1"># 1 / W * m</span>
 <span class="n">beta2</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span> <span class="o">*</span> <span class="mf">1e-12</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="mf">1e3</span> <span class="c1"># -10 ps**2 / km</span>
 
+
 <span class="c1">#---- Pulse Parameters</span>
 <span class="n">n_points</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">11</span>
 <span class="n">v_min</span> <span class="o">=</span> <span class="mf">100e12</span>  <span class="c1"># 100 THz</span>
@@ -403,17 +405,18 @@ document.write(`
 
 <span class="n">pulse</span> <span class="o">=</span> <span class="n">pynlo</span><span class="o">.</span><span class="n">light</span><span class="o">.</span><span class="n">Pulse</span><span class="o">.</span><span class="n">Sech</span><span class="p">(</span><span class="n">n_points</span><span class="p">,</span> <span class="n">v_min</span><span class="p">,</span> <span class="n">v_max</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">e_p</span><span class="p">,</span> <span class="n">t_fwhm</span><span class="p">)</span>
 
+
 <span class="c1">#---- Length Scales</span>
 <span class="n">L_D</span> <span class="o">=</span> <span class="n">T0</span><span class="o">**</span><span class="mi">2</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">beta2</span><span class="p">)</span>
 <span class="n">L_NL</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">T0</span> <span class="o">/</span> <span class="p">(</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">e_p</span><span class="p">)</span>
 <span class="n">L_S</span> <span class="o">=</span> <span class="n">pi</span><span class="o">/</span><span class="mi">2</span> <span class="o">*</span> <span class="n">L_D</span>
-<span class="n">L_C</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">L_S</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># approximate, less accurate at large N</span>
+<span class="n">L_0</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="n">L_S</span><span class="o">/</span><span class="p">(</span><span class="n">N</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1"># approximate, less accurate at large N</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Soliton Number </span><span class="se">\t\t</span><span class="s2">= </span><span class="si">{:.2g}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">L_D</span><span class="o">/</span><span class="n">L_NL</span><span class="p">)</span><span class="o">**</span><span class="mf">0.5</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dispersion Length </span><span class="se">\t</span><span class="s2">= </span><span class="si">{:.3g}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">L_D</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Nonlinear Length </span><span class="se">\t</span><span class="s2">= </span><span class="si">{:.3g}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">L_NL</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Soliton Period </span><span class="se">\t\t</span><span class="s2">= </span><span class="si">{:.3g}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">L_S</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Compression Length </span><span class="se">\t</span><span class="s2">= </span><span class="si">{:.3g}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">L_C</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Compression Length </span><span class="se">\t</span><span class="s2">= </span><span class="si">{:.3g}</span><span class="s2"> m&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">L_0</span><span class="p">))</span>
 
 
 <span class="c1"># %% Unperturbed Soliton Dynamics</span>
@@ -423,7 +426,7 @@ document.write(`
 <span class="sd">change with propagation distance. However, for second- and higher-order</span>
 <span class="sd">solitons, the pulse shape and spectra oscillate over the soliton period `L_S`,</span>
 <span class="sd">a function of the dispersion length scale `L_D`. The compression length scale</span>
-<span class="sd">`L_C`, the approximate distance at which a soliton reaches its shortest</span>
+<span class="sd">`L_0`, the approximate distance at which a soliton reaches its shortest</span>
 <span class="sd">duration and widest spectral extent, is a function of both the dispersion</span>
 <span class="sd">length `L_D` and the soliton number `N`.</span>
 
@@ -460,6 +463,7 @@ document.write(`
 
 <span class="n">mode</span> <span class="o">=</span> <span class="n">pynlo</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">Mode</span><span class="p">(</span><span class="n">pulse</span><span class="o">.</span><span class="n">v_grid</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">g3</span><span class="o">=</span><span class="n">g3</span><span class="p">)</span>
 
+
 <span class="c1">#---- Model</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">pynlo</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">NLSE</span><span class="p">(</span><span class="n">pulse</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
 
@@ -471,6 +475,7 @@ document.write(`
 <span class="c1">#---- Simulate</span>
 <span class="n">pulse_out</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">a_t</span><span class="p">,</span> <span class="n">a_v</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span>
     <span class="n">length</span><span class="p">,</span> <span class="n">dz</span><span class="o">=</span><span class="n">dz</span><span class="p">,</span> <span class="n">local_error</span><span class="o">=</span><span class="n">local_error</span><span class="p">,</span> <span class="n">n_records</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
 
 <span class="c1">#---- Plot Results</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="s2">&quot;Soliton Dynamics&quot;</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -488,7 +493,7 @@ document.write(`
 <span class="n">ax0</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=-</span><span class="mi">45</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (THz)&#39;</span><span class="p">)</span>
 
-<span class="n">L_F_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">L_C</span><span class="p">))</span>
+<span class="n">L_F_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">L_0</span><span class="p">))</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e-12</span><span class="o">*</span><span class="n">pulse</span><span class="o">.</span><span class="n">v_grid</span><span class="p">,</span> <span class="n">p_v_dB</span><span class="p">[</span><span class="n">L_F_idx</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$z_</span><span class="si">{comp}</span><span class="s2">$&quot;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">L_F_idx</span><span class="p">]</span><span class="o">/</span><span class="n">L_S</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">&quot;small&quot;</span><span class="p">)</span>
@@ -513,7 +518,7 @@ document.write(`
 <span class="sd">For the second example we perturb the soliton with third-order dispersion.</span>
 <span class="sd">Perturbations cause second and higher-order solitons to break apart into</span>
 <span class="sd">fundamental solitons and dispersive waves. Soliton fission typically occurs</span>
-<span class="sd">near what would be the first compression point (`L_C`) of the unperturbed</span>
+<span class="sd">near what would be the first compression point (`L_0`) of the unperturbed</span>
 <span class="sd">soliton as the perturbation is strongest when the spectral width is at its</span>
 <span class="sd">greatest extent.</span>
 
@@ -572,6 +577,7 @@ document.write(`
 <span class="n">pulse_out</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">a_t</span><span class="p">,</span> <span class="n">a_v</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span>
     <span class="n">length</span><span class="p">,</span> <span class="n">dz</span><span class="o">=</span><span class="n">dz</span><span class="p">,</span> <span class="n">local_error</span><span class="o">=</span><span class="n">local_error</span><span class="p">,</span> <span class="n">n_records</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
+
 <span class="c1">#---- Plot Results</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="s2">&quot;Dispersive Wave Generation&quot;</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">ax0</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot2grid</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">rowspan</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -588,7 +594,7 @@ document.write(`
 <span class="n">ax0</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=-</span><span class="mi">45</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (THz)&#39;</span><span class="p">)</span>
 
-<span class="n">L_F_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">L_C</span><span class="p">))</span>
+<span class="n">L_F_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">L_0</span><span class="p">))</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e-12</span><span class="o">*</span><span class="n">pulse</span><span class="o">.</span><span class="n">v_grid</span><span class="p">,</span> <span class="n">p_v_dB</span><span class="p">[</span><span class="n">L_F_idx</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$z_</span><span class="si">{comp}</span><span class="s2">$&quot;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">L_F_idx</span><span class="p">]</span><span class="o">/</span><span class="n">L_S</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">&quot;small&quot;</span><span class="p">)</span>
@@ -655,6 +661,7 @@ document.write(`
 
 <span class="n">mode</span> <span class="o">=</span> <span class="n">pynlo</span><span class="o">.</span><span class="n">media</span><span class="o">.</span><span class="n">Mode</span><span class="p">(</span><span class="n">pulse</span><span class="o">.</span><span class="n">v_grid</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">g3</span><span class="o">=</span><span class="n">g3</span><span class="p">,</span> <span class="n">rv_grid</span><span class="o">=</span><span class="n">rv_grid</span><span class="p">,</span> <span class="n">r3</span><span class="o">=</span><span class="n">raman</span><span class="p">)</span>
 
+
 <span class="c1">#---- Model</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">pynlo</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">NLSE</span><span class="p">(</span><span class="n">pulse</span><span class="p">,</span> <span class="n">mode</span><span class="p">)</span>
 
@@ -666,6 +673,7 @@ document.write(`
 <span class="c1">#---- Simulate</span>
 <span class="n">pulse_out</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">a_t</span><span class="p">,</span> <span class="n">a_v</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span>
     <span class="n">length</span><span class="p">,</span> <span class="n">dz</span><span class="o">=</span><span class="n">dz</span><span class="p">,</span> <span class="n">local_error</span><span class="o">=</span><span class="n">local_error</span><span class="p">,</span> <span class="n">n_records</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
 
 <span class="c1">#---- Plot Results</span>
 <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="s2">&quot;Raman-Induced Frequency Shift&quot;</span><span class="p">,</span> <span class="n">clear</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -683,7 +691,7 @@ document.write(`
 <span class="n">ax0</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=-</span><span class="mi">45</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Frequency (THz)&#39;</span><span class="p">)</span>
 
-<span class="n">L_F_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">L_C</span><span class="p">))</span>
+<span class="n">L_F_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">z</span> <span class="o">-</span> <span class="n">L_0</span><span class="p">))</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">1e-12</span><span class="o">*</span><span class="n">pulse</span><span class="o">.</span><span class="n">v_grid</span><span class="p">,</span> <span class="n">p_v_dB</span><span class="p">[</span><span class="n">L_F_idx</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">r</span><span class="s2">&quot;$z_</span><span class="si">{comp}</span><span class="s2">$&quot;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">z</span><span class="p">[</span><span class="n">L_F_idx</span><span class="p">]</span><span class="o">/</span><span class="n">L_S</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
 <span class="n">ax0</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s2">&quot;small&quot;</span><span class="p">)</span>

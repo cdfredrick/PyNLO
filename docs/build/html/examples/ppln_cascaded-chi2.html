@@ -44,7 +44,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'examples/ppln_cascaded-chi2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Notes" href="../notes.html" />
+    <link rel="next" title="Phase Matching" href="phase-matching.html" />
     <link rel="prev" title="Optical Solitons" href="optical-solitons.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -281,6 +281,7 @@ document.write(`
 <li class="toctree-l2"><a class="reference internal" href="silica-pcf_supercontinuum.html">Silica PCF: Supercontinuum</a></li>
 <li class="toctree-l2"><a class="reference internal" href="optical-solitons.html">Optical Solitons</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">PPLN: Cascaded Chi2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="phase-matching.html">Phase Matching</a></li>
 </ul>
 </li>
 </ul>
@@ -376,12 +377,12 @@ document.write(`
 
 <span class="c1"># %% Pulse Properties</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">We start by initializing a Gaussian pulse using one of the built-in pulse</span>
-<span class="sd">shapes of the `Pulse` class. The first few parameters constrain the frequency</span>
-<span class="sd">grid, the number of points and the frequency range, while the last three set</span>
-<span class="sd">the initial pulse properties, its center frequency, pulse energy, and pulse</span>
-<span class="sd">width. Since we are going to be simulating 2nd-order effects, the `alias`</span>
-<span class="sd">parameter has been increased to support two alias-free Nyquist zones.</span>
+<span class="sd">We first initialize a Gaussian pulse using one of the built-in pulse shapes of</span>
+<span class="sd">the `Pulse` class. The first few parameters constrain the frequency grid, the</span>
+<span class="sd">number of points and the frequency range, while the last three set the initial</span>
+<span class="sd">pulse properties, its center frequency, pulse energy, and pulse width. Since we</span>
+<span class="sd">are going to be simulating 2nd-order effects, the `alias` parameter has been</span>
+<span class="sd">increased to support two alias-free Nyquist zones.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="n">n_points</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="mi">13</span>
@@ -450,7 +451,7 @@ document.write(`
 <span class="n">chi2_eff</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">d_eff</span>
 <span class="n">g2</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">g2_shg</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">pulse</span><span class="o">.</span><span class="n">v_grid</span><span class="p">,</span> <span class="n">n_eff</span><span class="p">,</span> <span class="n">a_eff</span><span class="p">,</span> <span class="n">chi2_eff</span><span class="p">)</span>
 
-<span class="c1"># poling</span>
+<span class="c1"># Poling</span>
 <span class="n">p0</span> <span class="o">=</span> <span class="mf">30e-6</span> <span class="c1"># 30 um poling period</span>
 <span class="n">z_invs</span><span class="p">,</span> <span class="n">domains</span><span class="p">,</span> <span class="n">poled</span> <span class="o">=</span> <span class="n">ut</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">domain_inversions</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="n">p0</span><span class="p">)</span>
 
@@ -481,7 +482,7 @@ document.write(`
 <span class="sd">reaches a record point), set the `plot` keyword to &quot;frq&quot;, &quot;wvl&quot;, or &quot;time&quot;.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="n">pulse_out2</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">a_t</span><span class="p">,</span> <span class="n">a_v</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span>
+<span class="n">pulse_out</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">a_t</span><span class="p">,</span> <span class="n">a_v</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">simulate</span><span class="p">(</span>
     <span class="n">length</span><span class="p">,</span> <span class="n">dz</span><span class="o">=</span><span class="n">dz</span><span class="p">,</span> <span class="n">local_error</span><span class="o">=</span><span class="n">local_error</span><span class="p">,</span> <span class="n">n_records</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 
 
@@ -557,11 +558,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="../notes.html"
+       href="phase-matching.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Notes</p>
+        <p class="prev-next-title">Phase Matching</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

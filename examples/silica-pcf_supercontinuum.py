@@ -45,17 +45,17 @@ pulse = pynlo.light.Pulse.Sech(n_points, v_min, v_max, v0, e_p, t_fwhm)
 
 # %% Mode Properties
 """
-We need to define both the linear and nonlinear properties of the waveguide. In
-this example, we are only given the waveguide properties at a single frequency
-so we must extrapolate to the rest of the frequency grid. For the beta
-parameter this is accomplished using a Taylor series, but for the nonlinearity
-we use the `gamma_to_g3` conversion function from the `utility.chi3` submodule.
-This function calculates the generalized 3rd-order nonlinear parameter
-(required by the PyNLO propagation models) from the gamma parameter and the
-optical shock time scale. If available, the nonlinear parameter can also be
-generated from the refractive index, effective area, and nonlinear
-susceptibility, see `utility.chi3` for more details. The Raman effect is
-implemented using the Raman response function given in section 2.3.3 of
+We next need to define both the linear and nonlinear properties of the
+waveguide. In this example, we are only given the waveguide properties at a
+single frequency so we must extrapolate to the rest of the frequency grid. For
+the beta parameter this is accomplished using a Taylor series, but for the
+nonlinearity we use the `gamma_to_g3` conversion function from the
+`utility.chi3` submodule. This function calculates the generalized 3rd-order
+nonlinear parameter (required by the PyNLO propagation models) from the gamma
+parameter and the optical shock time scale. If available, the nonlinear
+parameter can also be generated from the refractive index, effective area, and
+nonlinear susceptibility, see `utility.chi3` for more details. The Raman effect
+is implemented using the Raman response function given in section 2.3.3 of
 Agrawal.
 
 References
@@ -79,7 +79,7 @@ beta_n[8] = -2.5495e-15 * 1e-12**8/1e3   # -2.5495e-15 ps**8 / km
 beta_n[9] = 3.0524e-18 * 1e-12**9/1e3    # 3.0524e-18 ps**9 / km
 beta_n[10] = -1.7140e-21 * 1e-12**10/1e3 # -1.7140e-21 ps**10 / km
 
-beta = ut.taylor_series(2*pi*v0, beta_n)(2*pi*pulse.v_grid)
+beta = ut.taylor_series(2*pi*pulse.v0, beta_n)(2*pi*pulse.v_grid)
 
 #---- 3rd-Order Nonlinearity
 gamma = 0.11        # 0.11 / W * m

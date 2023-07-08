@@ -555,7 +555,7 @@ document.write(`
 
     <span class="c1">#---- Process Input</span>
     <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
-    <span class="n">dk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dk</span><span class="p">)</span>
+    <span class="n">dk</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">dk</span><span class="p">))</span>
     <span class="k">if</span> <span class="n">dk</span><span class="o">.</span><span class="n">size</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="k">assert</span> <span class="n">dk</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="n">z</span><span class="o">.</span><span class="n">size</span><span class="p">,</span> <span class="s2">&quot;If `dk` is given as an array it must have the same number of points as `z`.&quot;</span>
     <span class="k">if</span> <span class="n">z</span><span class="o">.</span><span class="n">size</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
@@ -724,6 +724,42 @@ document.write(`
 
 <span class="k">def</span> <span class="nf">effective_chi3</span><span class="p">():</span>
     <span class="k">pass</span> <span class="c1">#TODO: effective 3rd-order from cascaded 2nd</span>
+
+<span class="k">def</span> <span class="nf">shg_conversion_efficiency</span><span class="p">(</span><span class="n">v0</span><span class="p">,</span> <span class="n">p0</span><span class="p">,</span> <span class="n">n_v</span><span class="p">,</span> <span class="n">n_2v</span><span class="p">,</span> <span class="n">a_eff</span><span class="p">,</span> <span class="n">d_eff</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">qpm_order</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Conversion efficiency of second-harmonic generation in the undepleted-pump</span>
+<span class="sd">    approximation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    v0 : float</span>
+<span class="sd">        The fundamental frequency.</span>
+<span class="sd">    p0 : float</span>
+<span class="sd">        The average power.</span>
+<span class="sd">    n_v : float</span>
+<span class="sd">        The refractive index at the fundamental frequency.</span>
+<span class="sd">    n_2v : float</span>
+<span class="sd">        The refractive index at the second-harmonic frequency.</span>
+<span class="sd">    a_eff : float</span>
+<span class="sd">        The effective area.</span>
+<span class="sd">    d_eff : float</span>
+<span class="sd">        The effective second order nonlinearity.</span>
+<span class="sd">    z : float</span>
+<span class="sd">        The propagation distance.</span>
+<span class="sd">    qpm_order : int</span>
+<span class="sd">        The order of the quasi-phase-matching. Only odd orders can be</span>
+<span class="sd">        quasi-phase matched.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Robert W. Boyd, Nonlinear Optics (Fourth Edition), Academic Press, 2020</span>
+<span class="sd">     https://doi.org/10.1016/C2015-0-05510-1</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">w0</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="n">v0</span>
+    <span class="k">if</span> <span class="n">qpm_order</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">d_eff</span> <span class="o">=</span> <span class="n">d_eff</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">qpm_order</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+    <span class="k">return</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">d_eff</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">w0</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">p0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">n_v</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n_2v</span> <span class="o">*</span> <span class="n">a_eff</span> <span class="o">*</span> <span class="n">e0</span> <span class="o">*</span> <span class="n">c</span><span class="o">**</span><span class="mi">3</span><span class="p">)</span> <span class="o">*</span> <span class="n">z</span><span class="o">**</span><span class="mi">2</span>
 </pre></div>
 
                 </article>

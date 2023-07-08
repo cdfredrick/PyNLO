@@ -230,7 +230,7 @@ def domain_inversions(z, dk, intp_order=1):
 
     #---- Process Input
     z = np.asarray(z)
-    dk = np.asarray(dk)
+    dk = np.abs(np.asarray(dk))
     if dk.size > 1:
         assert dk.size == z.size, "If `dk` is given as an array it must have the same number of points as `z`."
     if z.size==1:
@@ -399,3 +399,39 @@ def dominant_paths(v_grid, beta, beta_qpm=None, full=False): #TODO: add extent (
 
 def effective_chi3():
     pass #TODO: effective 3rd-order from cascaded 2nd
+
+def shg_conversion_efficiency(v0, p0, n_v, n_2v, a_eff, d_eff, z, qpm_order=None):
+    """
+    Conversion efficiency of second-harmonic generation in the undepleted-pump
+    approximation.
+
+    Parameters
+    ----------
+    v0 : float
+        The fundamental frequency.
+    p0 : float
+        The average power.
+    n_v : float
+        The refractive index at the fundamental frequency.
+    n_2v : float
+        The refractive index at the second-harmonic frequency.
+    a_eff : float
+        The effective area.
+    d_eff : float
+        The effective second order nonlinearity.
+    z : float
+        The propagation distance.
+    qpm_order : int
+        The order of the quasi-phase-matching. Only odd orders can be
+        quasi-phase matched.
+
+    References
+    ----------
+    Robert W. Boyd, Nonlinear Optics (Fourth Edition), Academic Press, 2020
+     https://doi.org/10.1016/C2015-0-05510-1
+
+    """
+    w0 = 2*pi*v0
+    if qpm_order is not None:
+        d_eff = d_eff * np.abs(np.sinc(qpm_order/2))
+    return (2*d_eff**2 * w0**2 * p0)/(n_v**2 * n_2v * a_eff * e0 * c**3) * z**2

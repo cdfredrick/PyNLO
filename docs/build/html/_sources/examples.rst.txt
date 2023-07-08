@@ -19,3 +19,4 @@ The examples below explore various nonlinear effects and are organized by nonlin
    :caption: UPE
 
    examples/ppln_cascaded-chi2
+   examples/phase-matching
