@@ -200,9 +200,11 @@ fig.show()
 """
 The quadratic scaling of a phase-matched or quasi-phase-matched interaction
 breaks down if the interaction is maintained over a long enough propagation
-distance. This is due to depletion of pump power. For SHG, as long as the
-phase-matching condition is upheld, the nonlinear power transfer asymptotically
-continues at large propagation distances.
+distance. Due to conservation of energy, the power at the fundamental decreases
+as the power at the second harmonic increases. The rate of second-harmonic
+generation slows as the pump power is depleted. As long as the phase-matching
+condition is upheld, SHG will continue asymptotically towards a conversion
+efficiency of 100%.
 
 The simulation extends over thousands of coherence lengths, at which point
 nearly all of the power from the fundamental (black trace) has been transferred
