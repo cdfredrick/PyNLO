@@ -10,8 +10,8 @@ license = {file = "COPYING.LESSER.txt"}
 dependencies = [
     "numpy",
     "scipy",
-    "mkl_fft",
-    "numba"
+    "numba",
+    "mkl_fft"
 ]
 dynamic = ["version"]
 

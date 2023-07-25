@@ -2,7 +2,7 @@
 """
 Time and frequency grid utilities and other miscellaneous helper functions.
 
-The submodules contain calculator type functions for converting between
+The submodules contain calculator-type functions for converting between
 physically relevant parameters related to the linear and nonlinear
 susceptibilities, as well as an efficient interface to fast Fourier transforms.
 

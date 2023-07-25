@@ -14,7 +14,6 @@ Modules
    pynlo.utility.chi2
    pynlo.utility.chi3
    pynlo.utility.fft
-   pynlo.utility.misc
 
 Functions
 ---------
