@@ -5,7 +5,7 @@ Aliases to fast FFT implementations and associated helper functions.
 """
 
 __all__ = ["fft", "ifft", "rfft", "irfft",
-           "fftshift", "ifftshift", "next_fast_len"]
+           "fftshift", "ifftshift"]
 
 
 # %% Imports

@@ -87,10 +87,11 @@ exclude_patterns = []
 # a list of builtin themes.
 #
 html_theme = 'pydata_sphinx_theme'
-
-html_logo = "_static/pynlo.svg"
 html_theme_options = {
     "show_toc_level": 3,
+    "logo": {
+       "image_light": "_static/pynlo-light.svg",
+       "image_dark": "_static/pynlo-dark.svg",}
 }
 
 # Add any paths that contain custom static files (such as style sheets) here,

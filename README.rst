@@ -19,9 +19,17 @@ Features:
 
 Installation
 ------------
-PyNLO requires Python 3. If you do not already have Python, the Anaconda distribution is a good all-in-one collection of Python packages. PyNLO depends on the NumPy, SciPy, Numba, and mkl_fft packages. Matplotlib is necessary if viewing real-time simulation updates or if running the example code.
+PyNLO requires Python 3. If you do not already have Python, the `Miniconda <https://docs.conda.io/en/latest/miniconda.html>`_ distribution is a good place to start. PyNLO depends on the *numpy*, *scipy*, *numba*, and *mkl_fft* packages. The *matplotlib* package is necessary to view real-time simulation updates and to run the example code.
 
-The easiest way to install this fork is to download or clone the repository into a directory of your choice, and then insert that directory into your `sys.path <https://docs.python.org/3/library/sys.html#sys.path>`_ variable before importing the package. Test out the installation with the scripts in the examples folder.
+The most flexible way to install this fork is to download or clone the repository onto your computer, and then add the PyNLO directory to the `sys.path <https://docs.python.org/3/library/sys.html#sys.path>`_ variable before importing the package. If you have the `Spyder IDE <https://www.spyder-ide.org/>`_ you can add the PyNLO directory with its PYTHONPATH manager, found under "Tools" on the menu bar.
+
+Alternatively, you can install PyNLO using the `local project <https://pip.pypa.io/en/stable/topics/local-project-installs/#local-project-installs>`_ functionality of pip, i.e.::
+
+	pip install path/to/PyNLO --no-deps
+
+The path must be replaced with the actual path to the repository on your machine. Only use the ``--no-deps`` option if in a conda environment, in which case, you should separately install the dependencies using the ``conda install`` command.
+
+Test out your installation with the scripts in the examples folder.
 
 
 Contributing

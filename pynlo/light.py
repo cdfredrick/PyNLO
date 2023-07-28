@@ -22,7 +22,7 @@ import numpy as np
 from scipy.constants import pi
 
 from pynlo.utility import TFGrid, fft, resample_v, resample_t
-from pynlo.utility.misc import SettableArrayProperty, replace
+from pynlo.utility.misc import ndproperty, replace
 
 
 # %% Collections
@@ -372,7 +372,7 @@ class Pulse(TFGrid):
     def a_v(self, a_v):
         self.__a_v[...] = a_v
 
-    @SettableArrayProperty
+    @ndproperty
     def _a_v(self, key=...):
         """
         The root-power spectrum arranged in standard fft order.
@@ -389,7 +389,7 @@ class Pulse(TFGrid):
             _a_v = replace(self._a_v, _a_v, key)
         self.a_v = fft.fftshift(_a_v)
 
-    @SettableArrayProperty
+    @ndproperty
     def p_v(self, key=...):
         """
         The power spectrum, with units of ``J/Hz``.
@@ -404,7 +404,7 @@ class Pulse(TFGrid):
     def p_v(self, p_v, key=...):
         self.a_v[key] = p_v**0.5 * np.exp(1j*self.phi_v[key])
 
-    @SettableArrayProperty
+    @ndproperty
     def _p_v(self, key=...):
         """
         The power spectrum arranged in standard fft order.
@@ -421,7 +421,7 @@ class Pulse(TFGrid):
             _p_v = replace(self._p_v, _p_v, key)
         self.p_v = fft.fftshift(_p_v)
 
-    @SettableArrayProperty
+    @ndproperty
     def phi_v(self, key=...):
         """
         The spectral phase, in ``rad``.
@@ -436,7 +436,7 @@ class Pulse(TFGrid):
     def phi_v(self, phi_v, key=...):
         self.a_v[key] = self.p_v[key]**0.5 * np.exp(1j*phi_v)
 
-    @SettableArrayProperty
+    @ndproperty
     def _phi_v(self, key=...):
         """
         The spectral phase arranged in standard fft order.
@@ -453,8 +453,8 @@ class Pulse(TFGrid):
             _phi_v = replace(self._phi_v, _phi_v, key)
         self.phi_v = fft.fftshift(_phi_v)
 
-    @property
-    def tg_v(self):
+    @ndproperty
+    def tg_v(self, key=...):
         """
         The spectral group delay, with units of ``s``.
 
@@ -463,7 +463,7 @@ class Pulse(TFGrid):
         ndarray of float
 
         """
-        return self.t_ref - np.gradient(np.unwrap(self.phi_v)/(2*pi), self.v_grid, edge_order=2)
+        return self.t_ref - np.gradient(np.unwrap(self.phi_v)/(2*pi), self.v_grid, edge_order=2)[key]
 
     def v_width(self, m=None):
         """
@@ -523,7 +523,7 @@ class Pulse(TFGrid):
         return v_widths
 
     #---- Time Domain Properties
-    @SettableArrayProperty
+    @ndproperty
     def a_t(self, key=...):
         """
         The root-power complex envelope, with units of ``(J/s)**0.5``.
@@ -540,7 +540,7 @@ class Pulse(TFGrid):
             a_t = replace(self.a_t, a_t, key)
         self._a_t = fft.ifftshift(a_t)
 
-    @SettableArrayProperty
+    @ndproperty
     def _a_t(self, key=...):
         """
         The root-power complex envelope arranged in standard fft order.
@@ -557,7 +557,7 @@ class Pulse(TFGrid):
             _a_t = replace(self._a_t, _a_t, key)
         self._a_v = fft.fft(_a_t, fsc=self.dt)
 
-    @SettableArrayProperty
+    @ndproperty
     def p_t(self, key=...):
         """
         The power envelope, with units of ``J/s``.
@@ -582,7 +582,7 @@ class Pulse(TFGrid):
             p_t = replace(self.p_t, p_t, key)
         self._p_t = fft.ifftshift(p_t)
 
-    @SettableArrayProperty
+    @ndproperty
     def _p_t(self, key=...):
         """
         The power envelope arranged in standard fft order.
@@ -598,7 +598,7 @@ class Pulse(TFGrid):
     def _p_t(self, _p_t, key=...):
         self._a_t[key] = _p_t**0.5 * np.exp(1j*self._phi_t[key])
 
-    @SettableArrayProperty
+    @ndproperty
     def phi_t(self, key=...):
         """
         The phase of the complex envelope, in ``rad``.
@@ -615,7 +615,7 @@ class Pulse(TFGrid):
             phi_t = replace(self.phi_t, phi_t, key)
         self._phi_t = fft.ifftshift(phi_t)
 
-    @SettableArrayProperty
+    @ndproperty
     def _phi_t(self, key=...):
         """
         The phase of the complex envelope arranged in standard fft order.
@@ -630,8 +630,8 @@ class Pulse(TFGrid):
     def _phi_t(self, _phi_t, key=...):
         self._a_t[key] = self._p_t[key]**0.5 * np.exp(1j*_phi_t)
 
-    @property
-    def vg_t(self):
+    @ndproperty
+    def vg_t(self, key=...):
         """
         The instantaneous frequency of the complex envelope, with units of
         ``Hz``.
@@ -641,9 +641,9 @@ class Pulse(TFGrid):
         ndarray of float
 
         """
-        return self.v_ref + np.gradient(np.unwrap(self.phi_t)/(2*pi), self.t_grid, edge_order=2)
+        return self.v_ref + np.gradient(np.unwrap(self.phi_t)/(2*pi), self.t_grid, edge_order=2)[key]
 
-    @SettableArrayProperty
+    @ndproperty
     def ra_t(self, key=...):
         """
         The real-valued instantaneous root-power amplitude, with units of
@@ -661,7 +661,7 @@ class Pulse(TFGrid):
             ra_t = replace(self.ra_t, ra_t, key)
         self._ra_t = fft.ifftshift(ra_t)
 
-    @SettableArrayProperty
+    @ndproperty
     def _ra_t(self, key=...):
         """
         The real-valued instantaneous root-power amplitude arranged in standard
@@ -683,8 +683,8 @@ class Pulse(TFGrid):
         ra_v = fft.rfft(_ra_t, fsc=self.rdt)
         self.a_v = 2**0.5 * ra_v[self.rn_slice]
 
-    @property
-    def rp_t(self):
+    @ndproperty
+    def rp_t(self, key=...):
         """
         The instantaneous power, with units of ``J/s``.
 
@@ -693,10 +693,10 @@ class Pulse(TFGrid):
         ndarray of float
 
         """
-        return fft.fftshift(self._rp_t)
+        return fft.fftshift(self._rp_t)[key]
 
-    @property
-    def _rp_t(self):
+    @ndproperty
+    def _rp_t(self, key=...):
         """
         The instantaneous power arranged in standard fft order.
 
@@ -705,7 +705,7 @@ class Pulse(TFGrid):
         ndarray of float
 
         """
-        return self._ra_t**2
+        return self._ra_t[key]**2
 
     def t_width(self, m=None):
         """
