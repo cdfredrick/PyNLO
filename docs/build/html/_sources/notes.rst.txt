@@ -1,6 +1,6 @@
 Notes
 =====
-These notes introduce the mathematics and optical physics used by PyNLO. They cover the basics of Fourier transforms and the quirks of FFTs; linear optics as pertains to the propagation of light in optical modes; and how nonlinearity is theoretically and numerically implemented in propagation equations.
+These notes introduce the mathematics and optical physics used by PyNLO, covering the basics of Fourier transforms and the linear and nonlinear propagation of light in optical modes.
 
 Topics
 ------
