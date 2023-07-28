@@ -1,0 +1,927 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pynlo.medium &#8212; PyNLO 1.dev documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pynlo/medium';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/pynlo-light.svg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/pynlo-dark.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../guides.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../notes.html">
+                        Notes
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../guides.html">
+                        User Guide
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../notes.html">
+                        Notes
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../api.html">
+                        API Reference
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">pynlo.medium</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>Source code for pynlo.medium</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Optical modes in waveguides or other media.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Mode&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># %% Imports</span>
+
+<span class="kn">import</span> <span class="nn">bisect</span>
+<span class="kn">import</span> <span class="nn">collections</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">scipy.constants</span> <span class="kn">import</span> <span class="n">c</span><span class="p">,</span> <span class="n">pi</span>
+
+
+<span class="c1"># %% Collections</span>
+
+<span class="n">_LinearOperator</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;LinearOperator&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;u&quot;</span><span class="p">,</span> <span class="s2">&quot;gain&quot;</span><span class="p">,</span> <span class="s2">&quot;phase&quot;</span><span class="p">,</span> <span class="s2">&quot;phase_raw&quot;</span><span class="p">])</span>
+<span class="n">_LinearZ</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;LinearZ&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;any&quot;</span><span class="p">,</span> <span class="s2">&quot;alpha&quot;</span><span class="p">,</span> <span class="s2">&quot;beta&quot;</span><span class="p">])</span>
+<span class="n">_NonlinearZ</span> <span class="o">=</span> <span class="n">collections</span><span class="o">.</span><span class="n">namedtuple</span><span class="p">(</span><span class="s2">&quot;NonlinearZ&quot;</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;any&quot;</span><span class="p">,</span> <span class="s2">&quot;g2&quot;</span><span class="p">,</span> <span class="s2">&quot;pol&quot;</span><span class="p">,</span> <span class="s2">&quot;g3&quot;</span><span class="p">,</span> <span class="s2">&quot;r3&quot;</span><span class="p">])</span>
+
+
+<span class="c1"># %% Single Mode</span>
+
+<div class="viewcode-block" id="Mode"><a class="viewcode-back" href="../../api/pynlo.medium.Mode.html#pynlo.medium.Mode">[docs]</a><span class="k">class</span> <span class="nc">Mode</span><span class="p">():</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    An optical mode.</span>
+
+<span class="sd">    An optical mode is defined in the frequency domain. All properties must be</span>
+<span class="sd">    input as effective values, i.e. those found by integrating out the</span>
+<span class="sd">    transverse spatial dependence of the medium and mode. If a parameter is z</span>
+<span class="sd">    dependent, it can be input as a function who&#39;s first argument is the</span>
+<span class="sd">    propagation distance.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    v_grid : array_like of float</span>
+<span class="sd">        The frequency grid.</span>
+<span class="sd">    beta : array_like of float or callable</span>
+<span class="sd">        The phase coefficient, the real part of the complex wavenumber.</span>
+<span class="sd">    alpha : array_like of float or callable, optional</span>
+<span class="sd">        The gain coefficient, twice the imaginary part of the complex</span>
+<span class="sd">        wavenumber.</span>
+<span class="sd">    g2 : array_like of complex or callable, optional</span>
+<span class="sd">        The effective 2nd-order nonlinearity.</span>
+<span class="sd">    g2_inv : array_like of float, optional</span>
+<span class="sd">        The location of all poled domain inversion boundaries.</span>
+<span class="sd">    g3 : array_like of complex or callable, optional</span>
+<span class="sd">        The effective 3rd-order nonlinearity.</span>
+<span class="sd">    rv_grid : array_like of float, optional</span>
+<span class="sd">        An origin-contiguous frequency grid associated with the 3rd-order</span>
+<span class="sd">        nonlinear response function.</span>
+<span class="sd">    r3 : array_like of complex or callable, optional</span>
+<span class="sd">        The effective 3rd-order nonlinear response function containing both</span>
+<span class="sd">        the Raman and instantaneous nonlinearities.</span>
+<span class="sd">    z : float, optional</span>
+<span class="sd">        The initial position within the mode. The default is 0.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    Forward traveling waves of a mode are defined using the following</span>
+<span class="sd">    conventions:</span>
+
+<span class="sd">    .. math:: E, H \\sim a \\, e^{i(\\omega t - \\kappa z)} + \\text{c.c} \\\\</span>
+<span class="sd">              \\kappa = \\beta + i \\frac{\\alpha}{2}, \\quad</span>
+<span class="sd">              \\beta = n \\frac{\\omega}{c}</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v_grid</span><span class="p">,</span> <span class="n">beta</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">g2</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">g2_inv</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">g3</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">rv_grid</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">r3</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">z</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+        <span class="c1">#---- Position</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">=</span> <span class="n">z</span>
+
+        <span class="c1">#---- Frequency Grid</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_v_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">v_grid</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_w_grid</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_v_grid</span>
+
+        <span class="c1">#---- Refractive Index</span>
+        <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">beta</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">(</span><span class="n">z</span><span class="p">))</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">v_grid</span><span class="p">)),</span> <span class="s2">&quot;The length of beta must match v_grid.&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_beta</span> <span class="o">=</span> <span class="n">beta</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">beta</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">v_grid</span><span class="p">)),</span> <span class="s2">&quot;The length of beta must match v_grid.&quot;</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_beta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">beta</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+        <span class="c1">#---- Gain</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">alpha</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">callable</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span> <span class="o">=</span> <span class="n">alpha</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+        <span class="c1">#---- 2nd-Order Nonlinearity</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">g2</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">callable</span><span class="p">(</span><span class="n">g2</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_g2</span> <span class="o">=</span> <span class="n">g2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_g2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">g2</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">g2_inv</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_g2_inv</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_g2_inv_sorted</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="n">g2</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">g2_inv</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span>
+                <span class="s2">&quot;Poling can only be defined when g2 is defined&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_g2_inv_sorted</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">g2_inv</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_g2_inv</span> <span class="o">=</span> <span class="p">{</span><span class="n">z</span><span class="p">:(</span><span class="n">idx</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_g2_inv_sorted</span><span class="p">)}</span>
+
+
+        <span class="c1">#---- 3rd-Order Nonlinearity</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">g3</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">callable</span><span class="p">(</span><span class="n">g3</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_g3</span> <span class="o">=</span> <span class="n">g3</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_g3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">g3</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+
+        <span class="c1"># Nonlinear Response Function</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">rv_grid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">r3</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="n">g3</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">r3</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span>
+                <span class="s2">&quot;Raman nonlinearity can only be defined when g3 is defined&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rv_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">rv_grid</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="n">r3</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_r3</span> <span class="o">=</span> <span class="n">r3</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">assert</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">r3</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">rv_grid</span><span class="p">)),</span> <span class="s2">&quot;The length of r3 must match rv_grid.&quot;</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_r3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">r3</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">complex</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">assert</span> <span class="p">(</span><span class="n">rv_grid</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">r3</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">),</span> <span class="p">(</span>
+                <span class="s2">&quot;rv_grid and r3 must both be defined at the same time or not at all.&quot;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_rv_grid</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_r3</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1">#---- Z Dependence</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z_linear</span> <span class="o">=</span> <span class="n">_LinearZ</span><span class="p">(</span>
+            <span class="nb">any</span><span class="o">=</span><span class="nb">callable</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">callable</span><span class="p">(</span><span class="n">beta</span><span class="p">),</span>
+            <span class="n">alpha</span><span class="o">=</span><span class="nb">callable</span><span class="p">(</span><span class="n">alpha</span><span class="p">),</span> <span class="n">beta</span><span class="o">=</span><span class="nb">callable</span><span class="p">(</span><span class="n">beta</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z_nonlinear</span> <span class="o">=</span> <span class="n">_NonlinearZ</span><span class="p">(</span>
+            <span class="nb">any</span><span class="o">=</span><span class="nb">callable</span><span class="p">(</span><span class="n">g2</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">callable</span><span class="p">(</span><span class="n">g3</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">callable</span><span class="p">(</span><span class="n">r3</span><span class="p">),</span>
+            <span class="n">g2</span><span class="o">=</span><span class="nb">callable</span><span class="p">(</span><span class="n">g2</span><span class="p">),</span> <span class="n">pol</span><span class="o">=</span><span class="n">g2_inv</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">g3</span><span class="o">=</span><span class="nb">callable</span><span class="p">(</span><span class="n">g3</span><span class="p">),</span> <span class="n">r3</span><span class="o">=</span><span class="nb">callable</span><span class="p">(</span><span class="n">r3</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z_mode</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_linear</span><span class="o">.</span><span class="n">any</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_nonlinear</span><span class="o">.</span><span class="n">any</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">z_nonlinear</span><span class="o">.</span><span class="n">pol</span>
+
+    <span class="c1">#---- General Properties</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The position within the mode, with units of ``m``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z</span>
+    <span class="nd">@z</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">z</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">z</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_z</span> <span class="o">=</span> <span class="n">z</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">v_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The frequency grid, with units of ``Hz``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ndarray of float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v_grid</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">rv_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The origin-contiguous frequency grid associated with the Raman</span>
+<span class="sd">        response. Units are in ``Hz``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None or ndarray of float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rv_grid</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">z_mode</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The z dependence of the mode.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        bool</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z_mode</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">z_linear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The z dependence of the linear terms.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        any : bool</span>
+<span class="sd">            Whether there is any z dependence of the linearity.</span>
+<span class="sd">        alpha : bool</span>
+<span class="sd">            Z-dependent gain coefficient.</span>
+<span class="sd">        beta : bool</span>
+<span class="sd">            Z-dependent phase coefficient.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z_linear</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">z_nonlinear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The z dependence of the nonlinear terms.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        any : bool</span>
+<span class="sd">            Whether there is any z dependence of the nonlinearity (excluding</span>
+<span class="sd">            poling).</span>
+<span class="sd">        g2 : bool</span>
+<span class="sd">            Z-dependent 2nd-order nonlinear parameter.</span>
+<span class="sd">        pol : bool</span>
+<span class="sd">            Poled 2nd-order nonlinearity.</span>
+<span class="sd">        g3 : bool</span>
+<span class="sd">            Z-dependent 3rd-order nonlinear parameter.</span>
+<span class="sd">        r3 : bool</span>
+<span class="sd">            Z-dependent Raman response.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_z_nonlinear</span>
+
+    <span class="c1">#---- 1st-Order Properties</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">alpha</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The gain coefficient, with units of ``1/m``.</span>
+
+<span class="sd">        Positive values correspond to gain and negative values to loss.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None or ndarray of float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_alpha</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">beta</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The phase coefficient, or angular wavenumber, with units of ``1/m``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ndarray of float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_beta</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_beta</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_beta</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">n</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The refractive index.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ndarray of float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="o">*</span><span class="n">c</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">_w_grid</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">beta1</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The group walk-off parameter, with units of ``s/m``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ndarray of float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">beta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w_grid</span><span class="p">,</span> <span class="n">edge_order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Mode.d_12"><a class="viewcode-back" href="../../api/pynlo.medium.Mode.d_12.html#pynlo.medium.Mode.d_12">[docs]</a>    <span class="k">def</span> <span class="nf">d_12</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The group velocity mismatch, with units of ``s/m``.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        v0 : float, optional</span>
+<span class="sd">            The target reference frequency. The central frequency is selected</span>
+<span class="sd">            by default.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ndarray of float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">v0</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">v0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_grid</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">v_grid</span><span class="o">.</span><span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">v0_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">v0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_grid</span><span class="p">))</span>
+        <span class="n">beta1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta1</span>
+        <span class="k">return</span> <span class="n">beta1</span><span class="p">[</span><span class="n">v0_idx</span><span class="p">]</span> <span class="o">-</span> <span class="n">beta1</span></div>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">n_g</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The group index.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ndarray of float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">c</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">beta1</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">v_g</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The group velocity, with units of ``m/s``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ndarray of float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">beta1</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">beta2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The group velocity dispersion (GVD), with units of ``s**2/m``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ndarray of float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">beta1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_w_grid</span><span class="p">,</span> <span class="n">edge_order</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">D</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The dispersion parameter D, with units of ``s/m**2``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        ndarray of float</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="o">/</span><span class="n">c</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_grid</span><span class="o">**</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta2</span> <span class="c1">#TODO: test against chi1 helper functions</span>
+
+<div class="viewcode-block" id="Mode.linear_operator"><a class="viewcode-back" href="../../api/pynlo.medium.Mode.linear_operator.html#pynlo.medium.Mode.linear_operator">[docs]</a>    <span class="k">def</span> <span class="nf">linear_operator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dz</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The linear operator which advances a pulse over a distance `dz`.</span>
+
+<span class="sd">        The linear operator acts on the analytic spectrum through</span>
+<span class="sd">        multiplication.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        dz : float</span>
+<span class="sd">            The step size.</span>
+<span class="sd">        v0 : float, optional</span>
+<span class="sd">            The target reference frequency of the comoving frame. The default</span>
+<span class="sd">            selects the central frequency.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        u : ndarray of complex</span>
+<span class="sd">            The forward evolution operator.</span>
+<span class="sd">        gain : float or ndarray</span>
+<span class="sd">            The accumulated gain or loss (multiplicative).</span>
+<span class="sd">        phase : ndarray of float</span>
+<span class="sd">            The accumulated phase in the comoving frame (additive).</span>
+<span class="sd">        phase_raw : ndarray of float</span>
+<span class="sd">            The raw accumulated phase.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1">#---- Gain</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span>
+        <span class="k">if</span> <span class="n">alpha</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">gain</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">alpha</span><span class="o">*</span><span class="n">dz</span><span class="p">)</span>
+
+        <span class="c1">#---- Phase</span>
+        <span class="n">beta_raw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta</span>
+
+        <span class="c1"># Comoving frame</span>
+        <span class="k">if</span> <span class="n">v0</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">v0</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_grid</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">v_grid</span><span class="o">.</span><span class="n">size</span><span class="o">//</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">v0_idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">v0</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_grid</span><span class="p">))</span>
+        <span class="n">beta_cm</span> <span class="o">=</span> <span class="n">beta_raw</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">beta1</span><span class="p">[</span><span class="n">v0_idx</span><span class="p">]</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_w_grid</span>
+
+        <span class="c1">#---- Propagation Constant</span>
+        <span class="n">kappa</span> <span class="o">=</span> <span class="n">beta_cm</span> <span class="o">+</span> <span class="mf">0.5</span><span class="n">j</span><span class="o">*</span><span class="n">alpha</span>
+
+        <span class="c1">#---- Linear Operator</span>
+        <span class="n">operator</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="n">j</span><span class="o">*</span><span class="n">kappa</span><span class="o">*</span><span class="n">dz</span><span class="p">)</span>
+
+        <span class="n">lin_operator</span> <span class="o">=</span> <span class="n">_LinearOperator</span><span class="p">(</span>
+            <span class="n">u</span><span class="o">=</span><span class="n">operator</span><span class="p">,</span> <span class="n">gain</span><span class="o">=</span><span class="n">gain</span><span class="p">,</span> <span class="n">phase</span><span class="o">=</span><span class="n">dz</span><span class="o">*</span><span class="n">beta_cm</span><span class="p">,</span> <span class="n">phase_raw</span><span class="o">=</span><span class="n">dz</span><span class="o">*</span><span class="n">beta_raw</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">lin_operator</span></div>
+
+    <span class="c1">#---- 2nd-Order Properties</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">g2</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The magnitude of the effective 2nd-order nonlinear parameter, with</span>
+<span class="sd">        units of ``1/(W**0.5*m*Hz)``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None or ndarray of complex</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_g2</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g2</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">g2_inv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The location of all 2nd-order domain inversion boundaries within the</span>
+<span class="sd">        mode.</span>
+
+<span class="sd">        A value of 1 indicates the start of an inverted domain. A value of</span>
+<span class="sd">        0 indicates the start of an unpoled region.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None or dict of int</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g2_inv</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">g2_pol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The poling status at the current z position.</span>
+
+<span class="sd">        A value of 1 indicates that the current position is in a region with an</span>
+<span class="sd">        inverted domain. A value of 0 indicates an unpoled region.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">poled</span> <span class="o">=</span> <span class="n">bisect</span><span class="o">.</span><span class="n">bisect_right</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_g2_inv_sorted</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="o">%</span> <span class="mi">2</span>
+        <span class="k">return</span> <span class="n">poled</span>
+
+    <span class="c1">#---- 3rd-Order Properties</span>
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">g3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The effective 3rd-order nonlinear parameter, with units of</span>
+<span class="sd">        ``1/(W*m*Hz)``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None or ndarray of complex</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g3</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_g3</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_g3</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">gamma</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The nonlinear parameter :math:`\\gamma`, with units of ``1/(W*m)``.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None or ndarray of complex</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">g3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">g3</span>
+        <span class="k">if</span> <span class="n">g3</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">g3</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="o">&gt;=</span><span class="mi">2</span><span class="p">:</span>
+            <span class="n">g3</span> <span class="o">=</span> <span class="n">g3</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">g3</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">**</span><span class="mi">3</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="mi">3</span><span class="o">/</span><span class="mi">2</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">_w_grid</span><span class="o">*</span><span class="n">g3</span> <span class="k">if</span> <span class="n">g3</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span> <span class="c1">#TODO: test against chi3 helper functions</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">r3</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        The effective 3rd-order nonlinear response function containing both</span>
+<span class="sd">        the Raman and instantaneous nonlinearities.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        None or ndarray of complex</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_r3</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">z</span><span class="p">)</span> <span class="k">if</span> <span class="nb">callable</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_r3</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_r3</span>
+
+    <span class="c1">#---- Misc</span>
+<div class="viewcode-block" id="Mode.copy"><a class="viewcode-back" href="../../api/pynlo.medium.Mode.copy.html#pynlo.medium.Mode.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;A copy of the mode.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span></div></div>
+
+
+<span class="c1"># class GaussianMode():</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     Fundamental Gaussian modes for simulating single-mode free-space</span>
+<span class="c1">#     propagation.</span>
+<span class="c1">#     - effective area based on distance to nominal waist location</span>
+<span class="c1">#     - could also include convenience functions for setting up the beam</span>
+<span class="c1">#       through focusing, propagation, etc.</span>
+<span class="c1">#     - check Boyd 2.10 &quot;Nonlinear Optical Interactions with Focused Gaussian</span>
+<span class="c1">#       Beams&quot; for complicating factors.</span>
+<span class="c1">#</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+
+
+<span class="c1"># %% Multimode</span>
+
+<span class="c1"># class Waveguide():</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     Collection of modes and the nonlinear interactions between them</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     def __init__(self, modes, coupling):</span>
+<span class="c1">#         pass</span>
+
+<span class="c1"># class FreeSpace(Waveguide):</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     Collection of Hermite–Gaussian or Laguerre–Gaussian modes for simulating</span>
+<span class="c1">#     free space propagation of arbitrary distribution.</span>
+<span class="c1">#     - effective area based on distance to nominal waist location</span>
+<span class="c1">#     - could also include convenience functions for setting up the beam</span>
+<span class="c1">#       through focusing, propagation, etc.</span>
+<span class="c1">#</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2023, PyNLO authors.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
