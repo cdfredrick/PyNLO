@@ -15,7 +15,7 @@ from scipy.constants import pi, c
 
 #%% Converters
 
-# TODO: forward and backward transformations, test with equivalents from media.Mode
+# TODO: forward and backward transformations, test with equivalents from medium.Mode
 
 #---- Wavenumber and Linear Susceptibility chi1
 def chi1_to_k(v_grid, chi1):

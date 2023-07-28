@@ -12,7 +12,7 @@ Modules
    :recursive:
 
    pynlo.light
-   pynlo.media
+   pynlo.medium
    pynlo.device
    pynlo.model
    pynlo.utility

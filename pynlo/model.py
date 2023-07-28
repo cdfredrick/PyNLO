@@ -17,7 +17,7 @@ from scipy.constants import c, pi
 from numba import njit
 
 from pynlo.light import Pulse
-from pynlo.media import Mode
+from pynlo.medium import Mode
 from pynlo.utility import fft
 
 
@@ -97,7 +97,7 @@ class Model():
     ----------
     pulse : :py:class:`~pynlo.light.Pulse`
         The input pulse.
-    mode : :py:class:`~pynlo.media.Mode`
+    mode : :py:class:`~pynlo.medium.Mode`
         The optical mode in which the pulse propagates.
 
     See Also
@@ -802,7 +802,7 @@ class NLSE(Model):
     ----------
     pulse : :py:class:`~pynlo.light.Pulse`
         The input pulse.
-    mode : :py:class:`~pynlo.media.Mode`
+    mode : :py:class:`~pynlo.medium.Mode`
         The optical mode in which the pulse propagates.
 
     See Also
@@ -942,7 +942,7 @@ class UPE(Model):
     ----------
     pulse : :py:class:`~pynlo.light.Pulse`
         The input pulse.
-    mode : :py:class:`~pynlo.media.Mode`
+    mode : :py:class:`~pynlo.medium.Mode`
         The optical mode in which the pulse propagates.
 
     See Also

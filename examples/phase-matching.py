@@ -134,8 +134,8 @@ Robert W. Boyd, Nonlinear Optics (Fourth Edition), Academic Press, 2020
 length = L_C*3 # ~25 um
 z_invs, domains, poled = ut.chi2.domain_inversions(length, delta_beta)
 
-mode_qpm = pynlo.media.Mode(pulse.v_grid, beta, g2=g2, g2_inv=z_invs) # Quasi-phase matched
-mode_pmm = pynlo.media.Mode(pulse.v_grid, beta, g2=g2) # Phase mismatched
+mode_qpm = pynlo.medium.Mode(pulse.v_grid, beta, g2=g2, g2_inv=z_invs) # Quasi-phase matched
+mode_pmm = pynlo.medium.Mode(pulse.v_grid, beta, g2=g2) # Phase mismatched
 
 
 #---- Model
@@ -217,7 +217,7 @@ simulation only yields a ~60:40 ratio.
 #---- Poling
 length = L_C*1750 # ~15 mm
 z_invs, domains, poled = ut.chi2.domain_inversions(length, delta_beta)
-mode = pynlo.media.Mode(pulse.v_grid, beta, g2=g2, g2_inv=z_invs)
+mode = pynlo.medium.Mode(pulse.v_grid, beta, g2=g2, g2_inv=z_invs)
 
 
 #---- Model

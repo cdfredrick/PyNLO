@@ -15,12 +15,12 @@ Optical pulses are represented in PyNLO with :py:class:`pynlo.light.Pulse` objec
 
 Modes
 -----
-PyNLO represents the modes within an optical medium as :py:class:`pynlo.media.Mode` objects. In addition to the linear properties (i.e. the phase and gain coefficients :math:`\beta` and :math:`\alpha`), they also contain an optical mode's effective 2nd- and 3rd-order nonlinearity. If a material has properties that are :math:`z` dependent, those properties can be input as functions who's first argument is the propagation distance.
+PyNLO represents the modes within an optical medium as :py:class:`pynlo.medium.Mode` objects. In addition to the linear properties (i.e. the phase and gain coefficients :math:`\beta` and :math:`\alpha`), they also contain an optical mode's effective 2nd- and 3rd-order nonlinearity. If a material has properties that are :math:`z` dependent, those properties can be input as functions who's first argument is the propagation distance.
 
 
 Models
 ------
-The propagation models implemented in PyNLO are found in :py:mod:`pynlo.model`. While derived through modal expansion of Maxwell's equations (see the notes on :doc:`nonlinear optics </notes/nonlinear_optics>` for more details), only single-mode simulations are currently supported. Models are initialized with :py:class:`~pynlo.light.Pulse` and :py:class:`~pynlo.media.Mode` objects. Simulation specific parameters (propagation distance, local error, etc.) should be entered when running a model's :py:meth:`~pynlo.model.Model.simulate` method. Real-time visualizations of a simulation are available by setting the `simulate` method's `plot` keyword.
+The propagation models implemented in PyNLO are found in :py:mod:`pynlo.model`. While derived through modal expansion of Maxwell's equations (see the notes on :doc:`nonlinear optics </notes/nonlinear_optics>` for more details), only single-mode simulations are currently supported. Models are initialized with :py:class:`~pynlo.light.Pulse` and :py:class:`~pynlo.medium.Mode` objects. Simulation specific parameters (propagation distance, local error, etc.) should be entered when running a model's :py:meth:`~pynlo.model.Model.simulate` method. Real-time visualizations of a simulation are available by setting the `simulate` method's `plot` keyword.
 
 
 Utilities

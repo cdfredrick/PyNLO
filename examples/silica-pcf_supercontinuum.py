@@ -91,7 +91,7 @@ r_weights = [0.245*(1-0.21), 12.2e-15, 32e-15] # resonant contribution
 b_weights = [0.245*0.21, 96e-15] # boson contribution
 rv_grid, raman = ut.chi3.raman(pulse.n, pulse.dt, r_weights, b_weights)
 
-mode = pynlo.media.Mode(pulse.v_grid, beta, g3=g3, rv_grid=rv_grid, r3=raman)
+mode = pynlo.medium.Mode(pulse.v_grid, beta, g3=g3, rv_grid=rv_grid, r3=raman)
 
 
 # %% Model

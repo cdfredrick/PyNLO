@@ -111,7 +111,7 @@ beta = ut.taylor_series(2*pi*v0, beta_n)(2*pi*pulse.v_grid)
 # 3rd-Order Nonlinearity
 g3 = ut.chi3.gamma_to_g3(pulse.v_grid, gamma)
 
-mode = pynlo.media.Mode(pulse.v_grid, beta, g3=g3)
+mode = pynlo.medium.Mode(pulse.v_grid, beta, g3=g3)
 
 
 #---- Model
@@ -212,7 +212,7 @@ beta = ut.taylor_series(2*pi*v0, beta_n)(2*pi*pulse.v_grid)
 # 3rd-Order Nonlinearity
 g3 = ut.chi3.gamma_to_g3(pulse.v_grid, gamma)
 
-mode = pynlo.media.Mode(pulse.v_grid, beta, g3=g3)
+mode = pynlo.medium.Mode(pulse.v_grid, beta, g3=g3)
 
 
 #---- Model
@@ -309,7 +309,7 @@ r_weights = [0.245*(1-0.21), 12.2e-15, 32e-15] # resonant contribution
 b_weights = [0.245*0.21, 96e-15] # boson contribution
 rv_grid, raman = ut.chi3.raman(pulse.n, pulse.dt, r_weights, b_weights)
 
-mode = pynlo.media.Mode(pulse.v_grid, beta, g3=g3, rv_grid=rv_grid, r3=raman)
+mode = pynlo.medium.Mode(pulse.v_grid, beta, g3=g3, rv_grid=rv_grid, r3=raman)
 
 
 #---- Model
