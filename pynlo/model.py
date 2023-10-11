@@ -540,7 +540,7 @@ class Model():
             update those that are z dependent.
 
         """
-        #---- Gain self.mode.z_linear
+        #---- Gain
         if self.mode.z_linear.alpha or force_update:
             self.alpha = self.mode.alpha
 
@@ -552,10 +552,10 @@ class Model():
             self.beta_cm = self.beta - beta1_v0*self.w_grid
 
         #---- Propagation Constant
-        if self.alpha is not None:
-            self.kappa_cm = (self.beta_cm - self.alpha**2/(8*self.beta)) + 0.5j*self.alpha
-        else:
+        if self.alpha is None:
             self.kappa_cm = self.beta_cm
+        else:
+            self.kappa_cm = self.beta_cm + 0.5j*self.alpha
 
     def update_nonlinearity(self, force_update=False):
         """
