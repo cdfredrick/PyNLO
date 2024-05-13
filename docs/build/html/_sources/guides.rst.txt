@@ -2,7 +2,7 @@ User Guide
 ==========
 
 .. include:: ../../README.rst
-   :start-line: 7
+   :start-line: 8
 
 .. toctree::
    :hidden:

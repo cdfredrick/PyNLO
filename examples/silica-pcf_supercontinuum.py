@@ -33,10 +33,10 @@ pulse width.
 
 """
 n_points = 2**12
-v_min = c/1400e-9   # c / 1400 nm
-v_max = c/475e-9    # c / 475 nm
+v_min = c/1500e-9   # 200 THz
+v_max = c/500e-9    # 600 THz
 
-v0 = c/835e-9       # c / 835 nm
+v0 = c/835e-9       # 360 THz
 e_p = 285e-12       # 285 pJ
 t_fwhm = 50e-15     # 50 fs
 
@@ -115,7 +115,7 @@ propagation length, the initial step size, local error, and the number of
 simulation steps we wish to record. We receive the output pulse and the
 propagations distance, pulse spectrum, and complex envelope at each record
 point. To view real-time simulation results (updated whenever the simulation
-reaches a record point), set the `plot` keyword to "frq", "wvl", or "time".
+reaches a record point), set the `plot` keyword to "time", "frq", or "wvl".
 
 """
 pulse_out, z, a_t, a_v = model.simulate(

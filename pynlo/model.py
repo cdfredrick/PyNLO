@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Models for simulating the propagation of light through optical modes.
+Models for simulating the propagation of light through optical media.
 
 """
 
@@ -903,8 +903,8 @@ class NLSE(Model):
         """
         The action of the nonlinear operator on the given pulse spectrum.
 
-        This model only implements the 3rd-order Kerr and Raman effects. In
-        general, it does not support 3rd-order sum- and difference-frequency
+        This model only implements the 3rd-order Kerr and Raman effects. It
+        does not in general support 3rd-order sum- and difference-frequency
         generation.
 
         Parameters

@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -18,27 +18,28 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=32c6448d"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -56,7 +57,15 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -91,15 +100,17 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
 <div class="bd-header__inner bd-page-width">
   <label class="sidebar-toggle primary-toggle" for="__primary">
     <span class="fa-solid fa-bars"></span>
   </label>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -107,31 +118,26 @@
   
   
   
+  
     
     
       
     
     
-    <img src="../_static/pynlo-light.svg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/pynlo-dark.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/pynlo-light.svg" class="logo__image only-light" alt="PyNLO 1.dev documentation - Home"/>
+    <script>document.write(`<img src="../_static/pynlo-dark.svg" class="logo__image only-dark" alt="PyNLO 1.dev documentation - Home"/>`);</script>
   
   
 </a></div>
     
   </div>
   
-  
   <div class="col-lg-9 navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
-        <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+        <div class="navbar-item">
+<nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -164,23 +170,27 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -191,27 +201,33 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
       <span class="fa-solid fa-outdent"></span>
     </label>
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -222,13 +238,8 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          <div class="navbar-item">
+<nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -261,12 +272,13 @@ document.write(`
       <div class="sidebar-header-items__end">
         
           <div class="navbar-item">
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -276,7 +288,8 @@ document.write(`
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
@@ -313,8 +326,8 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumbs">
-  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="../index.html" class="nav-link" aria-label="Home">
@@ -339,12 +352,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="Nonlinear-Optics">
-<h1>Nonlinear Optics<a class="headerlink" href="#Nonlinear-Optics" title="Permalink to this heading">#</a></h1>
+<h1>Nonlinear Optics<a class="headerlink" href="#Nonlinear-Optics" title="Link to this heading">#</a></h1>
 <section id="Local-Modes">
-<h2>Local Modes<a class="headerlink" href="#Local-Modes" title="Permalink to this heading">#</a></h2>
+<h2>Local Modes<a class="headerlink" href="#Local-Modes" title="Link to this heading">#</a></h2>
 <p>An arbitrary field may be described through the linear combinations of an orthogonal set, and with local modes each point along the waveguide can be represented by a distinct set. Such a generalized representation allows modal expansion to separate the physical properties of the waveguide from the underlying physics under non-longitudinally invariant conditions. Local modes are defined as the set of <span class="math notranslate nohighlight">\(z\)</span> dependent modes that locally satisfy Maxwell’s equations under idealized waveguide
 conditions. In other words, local modes are the modes of a waveguide’s instantaneous cross section. Local modes at different points along a waveguide are considered the same mode if they are related to one another through an adiabatic transformation.</p>
 <p>The expansions used below are restricted to positive mode designators <span class="math notranslate nohighlight">\(\left(n\right)\)</span> and explicitly include both the forward and backward propagating modes. In the frequency-space domain <span class="math notranslate nohighlight">\(\left(\omega, \mathbf{x}\right)\)</span>:</p>
@@ -388,7 +401,7 @@ conditions. In other words, local modes are the modes of a waveguide’s instant
 \end{align}\end{split}\]</div>
 </section>
 <section id="Multi-Mode-Propagation-Equations">
-<h2>Multi-Mode Propagation Equations<a class="headerlink" href="#Multi-Mode-Propagation-Equations" title="Permalink to this heading">#</a></h2>
+<h2>Multi-Mode Propagation Equations<a class="headerlink" href="#Multi-Mode-Propagation-Equations" title="Link to this heading">#</a></h2>
 <p>Maxwell’s equations in the frequency-space domain <span class="math notranslate nohighlight">\(\left(\omega, \mathbf{x}\right)\)</span> are as follows:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -411,7 +424,7 @@ conditions. In other words, local modes are the modes of a waveguide’s instant
 \end{cases}
 \end{gather}\end{split}\]</div>
 <section id="Forward-Mode-Equation">
-<h3>Forward Mode Equation<a class="headerlink" href="#Forward-Mode-Equation" title="Permalink to this heading">#</a></h3>
+<h3>Forward Mode Equation<a class="headerlink" href="#Forward-Mode-Equation" title="Link to this heading">#</a></h3>
 <p>The forward mode propagation equation is found by adding the two curl relations (4c + 4d).</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -435,7 +448,7 @@ conditions. In other words, local modes are the modes of a waveguide’s instant
 \end{align}\end{split}\]</div>
 </section>
 <section id="Backward-Mode-Equation">
-<h3>Backward Mode Equation<a class="headerlink" href="#Backward-Mode-Equation" title="Permalink to this heading">#</a></h3>
+<h3>Backward Mode Equation<a class="headerlink" href="#Backward-Mode-Equation" title="Link to this heading">#</a></h3>
 <p>The backward mode propagation equation is found by subtracting the two curl relations (4c - 4d).</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -459,7 +472,7 @@ conditions. In other words, local modes are the modes of a waveguide’s instant
 \end{align}\end{split}\]</div>
 </section>
 <section id="Linear-Dispersion">
-<h3>Linear Dispersion<a class="headerlink" href="#Linear-Dispersion" title="Permalink to this heading">#</a></h3>
+<h3>Linear Dispersion<a class="headerlink" href="#Linear-Dispersion" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{gather}
 \frac{\partial}{\partial z} a_n\!\left[\nu\right] = \ldots - i \, \beta_n \, a_n
@@ -470,7 +483,7 @@ conditions. In other words, local modes are the modes of a waveguide’s instant
 a_n\!\left[z\right] \approx a_n\!\left[0\right] \, e^{-i \int^z \beta_n \, dz^\prime}
 \end{gather}\]</div>
 <section id="Phase-Matching">
-<h4>Phase Matching<a class="headerlink" href="#Phase-Matching" title="Permalink to this heading">#</a></h4>
+<h4>Phase Matching<a class="headerlink" href="#Phase-Matching" title="Link to this heading">#</a></h4>
 <p>Phase matching is the most important factor determining the strength of a linear or nonlinear interaction. To see this, we examine an alternative form of the modal amplitude that explicitly separates out contributions due to linear dispersion:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -500,7 +513,7 @@ b\!\left[L\right] &amp;\approx -i \frac{f}{\Delta\beta} \left(1 - e^{-i \, \Delt
 </section>
 </section>
 <section id="Gain-and-Loss">
-<h3>Gain and Loss<a class="headerlink" href="#Gain-and-Loss" title="Permalink to this heading">#</a></h3>
+<h3>Gain and Loss<a class="headerlink" href="#Gain-and-Loss" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{gather}
 \frac{\partial}{\partial z} a_n\!\left[\nu\right] = \ldots - \sum_{m} \left(a_m + a_{-m}\right) \iint_{A_\infty} \frac{1}{2} \left(
@@ -543,7 +556,7 @@ b\!\left[L\right] &amp;\approx -i \frac{f}{\Delta\beta} \left(1 - e^{-i \, \Delt
 <p>From the orthogonality relationship, <span class="math notranslate nohighlight">\({\hat{\mathbf{e}}_n^*}_t \cdot {\hat{\mathbf{e}}_m}_t\)</span> only integrates to a Kronecker delta <span class="math notranslate nohighlight">\(\delta_{m n}\)</span> if the longitudinal components of the electric fields (<span class="math notranslate nohighlight">\(\hat{e}_z\)</span>) are negligible. Thus, besides an inhomogeneous <span class="math notranslate nohighlight">\(\alpha\)</span>, gain and loss can also couple modes together because of a large <span class="math notranslate nohighlight">\(\hat{e}_z\)</span> component.</p>
 </section>
 <section id="Changing-Mode-Profiles">
-<h3>Changing Mode Profiles<a class="headerlink" href="#Changing-Mode-Profiles" title="Permalink to this heading">#</a></h3>
+<h3>Changing Mode Profiles<a class="headerlink" href="#Changing-Mode-Profiles" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \frac{\partial}{\partial z} a_n\!\left[\nu\right] = \ldots &amp; - \sum_{m} a_m \iint_{A_\infty} \frac{1}{2} \left(
@@ -557,7 +570,7 @@ b\!\left[L\right] &amp;\approx -i \frac{f}{\Delta\beta} \left(1 - e^{-i \, \Delt
 <p>These terms couple forward and backward propagating modes together due to changes in the modal profiles themselves. These can occur due to changes in the underlying geometry or material properties that determine the local modes. The terms bear a resemblance to the <a class="reference internal" href="linear_optics.html#Orthogonality"><span class="std std-ref">orthogonality relationship</span></a> and can be thought of as a differential orthogonality relationship that applies when smoothly changing from one set of local modes to another.</p>
 </section>
 <section id="Free-Sources-and-Nonlinearity">
-<h3>Free Sources and Nonlinearity<a class="headerlink" href="#Free-Sources-and-Nonlinearity" title="Permalink to this heading">#</a></h3>
+<h3>Free Sources and Nonlinearity<a class="headerlink" href="#Free-Sources-and-Nonlinearity" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \frac{\partial}{\partial z} a_n\!\left[\nu\right] = \ldots &amp; -\iint_{A_\infty} \frac{1}{2} {\hat{\mathbf{e}}_n^*}_t \cdot {\mathbf{J}_{f}}_t \, dA &amp; \quad \text{free sources}
@@ -573,7 +586,7 @@ b\!\left[L\right] &amp;\approx -i \frac{f}{\Delta\beta} \left(1 - e^{-i \, \Delt
 <p>Individually, these terms are convolutions of the time-domain electric field and the nonlinear optical susceptibilities <span class="math notranslate nohighlight">\((\chi^{\left(2\right)}, \chi^{\left(3\right)})\)</span>. See <a class="reference external" href="https://doi.org/10.1016/C2015-0-05510-1">Nonlinear Optics (Boyd 2020)</a> for an exhaustive discussion of the important properties and symmetries associated with the nonlinear susceptibilities. In the frequency domain this corresponds to the sum of all possible interactions that yield a particular output frequency.
 Given the modal expansion, the nonlinear terms are represented as the sum of all possible terms given by the product of the sum of modes.</p>
 <section id="Second-Order-Nonlinearity">
-<h4>Second-Order Nonlinearity<a class="headerlink" href="#Second-Order-Nonlinearity" title="Permalink to this heading">#</a></h4>
+<h4>Second-Order Nonlinearity<a class="headerlink" href="#Second-Order-Nonlinearity" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \frac{\partial}{\partial z} a_n\!\left[\nu\right] = \ldots -i \, \omega \sum_{r s} \iint_{-\infty}^{\infty} &amp; g_{n r s}^{\left(2\right)}\!\left[\nu_1, \nu_2\right] a_r\!\left[\nu_1\right] a_s\!\left[\nu_2\right]
@@ -613,7 +626,7 @@ g_{n r s}^{\left(2\right)} = \frac{1}{2} \sqrt{\frac{{A_\text{eff}}_n}{{A_\text{
 <p>The frequency dependence of each mode in the above equation is implicitly assumed. By definition this is the same quantity as given by the first definition of <span class="math notranslate nohighlight">\(g^{\left(2\right)}\)</span>.</p>
 </section>
 <section id="Third-Order-Nonlinearity">
-<h4>Third-Order Nonlinearity<a class="headerlink" href="#Third-Order-Nonlinearity" title="Permalink to this heading">#</a></h4>
+<h4>Third-Order Nonlinearity<a class="headerlink" href="#Third-Order-Nonlinearity" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \frac{\partial}{\partial z} a_n\!\left[\nu\right] = \ldots -i \, \omega \sum_{q r s} \iiint_{-\infty}^{\infty} &amp; g_{n q r s}^{\left(3\right)}\!\left[\nu_1, \nu_2, \nu_3\right] a_q\!\left[\nu_1\right] a_r\!\left[\nu_2\right] a_s\!\left[\nu_3\right]
@@ -656,7 +669,7 @@ g_{n q r s}^{\left(3\right)} = \frac{1}{2} \sqrt{\frac{{A_\text{eff}}_n}{{A_\tex
 </section>
 </section>
 <section id="Single-Mode-UPE">
-<h2>Single-Mode UPE<a class="headerlink" href="#Single-Mode-UPE" title="Permalink to this heading">#</a></h2>
+<h2>Single-Mode UPE<a class="headerlink" href="#Single-Mode-UPE" title="Link to this heading">#</a></h2>
 <p>Considering only a single forward propagating mode simplifies the propagation equation. Due to phase mismatch between different modes this is typically a good approximation:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -672,7 +685,7 @@ g_{n q r s}^{\left(3\right)} = \frac{1}{2} \sqrt{\frac{{A_\text{eff}}_n}{{A_\tex
 \right) \ dA &amp; \quad \text{nonlinearity}
 \end{align}\end{split}\]</div>
 <section id="id1">
-<h3>Gain and Loss<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>Gain and Loss<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \frac{\partial}{\partial z} a\!\left[\nu\right] &amp;= \ldots
@@ -704,7 +717,7 @@ a\!\left[z\right] \approx a\!\left[0\right] e^{\int^{z} \left(-i \ \left(\beta -
 \end{gather}\]</div>
 </section>
 <section id="id2">
-<h3>Second Order Nonlinearity<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h3>
+<h3>Second Order Nonlinearity<a class="headerlink" href="#id2" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \frac{\partial}{\partial z} a\!\left[\nu\right] = \ldots - i \, \omega \iint_{-\infty}^{\infty} &amp; g^{\left(2\right)}\!\left[\nu_1, \nu_2\right] a\!\left[\nu_1\right] a\!\left[\nu_2\right]
@@ -723,7 +736,7 @@ g^{\left(2\right)}\!\left[\nu_1, \nu_2\right] = \frac{1}{2} \sqrt{\frac{{A_\text
 \end{gather}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\nu\)</span> is the sum of <span class="math notranslate nohighlight">\(\nu_1\)</span> and <span class="math notranslate nohighlight">\(\nu_2\)</span>.</p>
 <section id="Cascaded-Effects">
-<h4>Cascaded Effects<a class="headerlink" href="#Cascaded-Effects" title="Permalink to this heading">#</a></h4>
+<h4>Cascaded Effects<a class="headerlink" href="#Cascaded-Effects" title="Link to this heading">#</a></h4>
 <p>The second-order nonlinearity is best known for sum <span class="math notranslate nohighlight">\((\omega = \omega_1 + \omega_2)\)</span> and difference <span class="math notranslate nohighlight">\((\omega = \omega_1 - \omega_2)\)</span> frequency generation, but in certain cases cascaded effects can also be important. Cascaded nonlinearity produces a higher-order nonlinearity through repeated action of a lower-order nonlinearity. One of the more interesting phenomena is the effective nonlinear refractive index <span class="math notranslate nohighlight">\(n_2^\text{eff}\)</span> due to phase-mismatched second-harmonic generation.
 This effect has the same properties as the equivalent third-order nonlinearity <a class="reference internal" href="#Nonlinear-Refractive-Index"><span class="std std-ref">discussed below</span></a>. For sufficiently large values of the phase mismatch <span class="math notranslate nohighlight">\(\Delta\beta\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -732,7 +745,7 @@ This effect has the same properties as the equivalent third-order nonlinearity <
 </section>
 </section>
 <section id="id3">
-<h3>Third-Order Nonlinearity<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h3>
+<h3>Third-Order Nonlinearity<a class="headerlink" href="#id3" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \frac{\partial}{\partial z} a\!\left[\nu\right] = \ldots - i \, \omega \iiint_{-\infty}^{\infty} &amp; g^{\left(3\right)}\!\left[\nu_1, \nu_2, \nu_3\right] a\!\left[\nu_1\right] a\!\left[\nu_2\right] a\!\left[\nu_3\right]
@@ -751,7 +764,7 @@ g^{\left(3\right)}\!\left[\nu_1, \nu_2, \nu_3\right] = \frac{1}{2} \sqrt{\frac{A
 \end{gather}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\nu\)</span> is the sum of <span class="math notranslate nohighlight">\(\nu_1\)</span>, <span class="math notranslate nohighlight">\(\nu_2\)</span>, and <span class="math notranslate nohighlight">\(\nu_3\)</span>.</p>
 <section id="Self-Phase-Modulation">
-<h4>Self-Phase Modulation<a class="headerlink" href="#Self-Phase-Modulation" title="Permalink to this heading">#</a></h4>
+<h4>Self-Phase Modulation<a class="headerlink" href="#Self-Phase-Modulation" title="Link to this heading">#</a></h4>
 <p>Of the <span class="math notranslate nohighlight">\(\chi^{\left(3\right)}\)</span> processes, self-phase modulation is always phase matched and corresponds to the nonlinear interaction between positive and negative frequency components from the same three modes <span class="math notranslate nohighlight">\(\left(\omega = \omega + \omega - \omega\right)\)</span>. In this case the effective nonlinearity collapses to a function of a single variable:</p>
 <div class="math notranslate nohighlight">
 \[\begin{gather}
@@ -784,7 +797,7 @@ L = \text{propagation length}
 \end{gather}\end{split}\]</div>
 </section>
 <section id="Nonlinear-Refractive-Index">
-<h4>Nonlinear Refractive Index<a class="headerlink" href="#Nonlinear-Refractive-Index" title="Permalink to this heading">#</a></h4>
+<h4>Nonlinear Refractive Index<a class="headerlink" href="#Nonlinear-Refractive-Index" title="Link to this heading">#</a></h4>
 <p>The <span class="math notranslate nohighlight">\(\gamma\)</span> factor is often cast in terms of the nonlinear Kerr parameter <span class="math notranslate nohighlight">\(n_2\)</span>, which describes the change in refractive index due to the instantaneous, time-averaged optical power. For single frequency, linearly polarized light:</p>
 <div class="math notranslate nohighlight">
 \[\begin{gather}
@@ -800,7 +813,7 @@ n = n_0 + n_2 \left&lt;I\right&gt;
 \end{align}\end{split}\]</div>
 </section>
 <section id="Optical-Shock">
-<h4>Optical Shock<a class="headerlink" href="#Optical-Shock" title="Permalink to this heading">#</a></h4>
+<h4>Optical Shock<a class="headerlink" href="#Optical-Shock" title="Link to this heading">#</a></h4>
 <p>The shock term <span class="math notranslate nohighlight">\(\gamma_1\)</span> typically seen in the literature is an artifact of approximating the time derivative applied to the nonlinear polarization. In practice this means using a constant nonlinear parameter, i.e. <span class="math notranslate nohighlight">\(\gamma_0 = \gamma\!\left[\omega_0\right]\)</span>. If everything is properly accounted for the shock term <span class="math notranslate nohighlight">\(\gamma_1\)</span> and the standard nonlinear term <span class="math notranslate nohighlight">\(\gamma_0\)</span> collapse into the frequency-dependent nonlinear parameter <span class="math notranslate nohighlight">\(\gamma\!\left[\omega\right]\)</span> consistent
 with the previous sections:</p>
 <div class="math notranslate nohighlight">
@@ -830,7 +843,7 @@ a\!\left[\omega - \omega_0\right] &amp;= \int_{-\infty}^{\infty} a\!\left[t\righ
 \end{align}\end{split}\]</div>
 </section>
 <section id="Raman-Nonlinearity">
-<h4>Raman Nonlinearity<a class="headerlink" href="#Raman-Nonlinearity" title="Permalink to this heading">#</a></h4>
+<h4>Raman Nonlinearity<a class="headerlink" href="#Raman-Nonlinearity" title="Link to this heading">#</a></h4>
 <p>Raman nonlinearity is a third-order effect that couples energy between light and vibrational modes of the substrate. It is represented in terms of a unitless nonlinear response parameter <span class="math notranslate nohighlight">\(R\)</span> that takes two of the three frequencies as input. The symmetrized form is given below:</p>
 <div class="math notranslate nohighlight">
 \[\begin{gather}
@@ -853,14 +866,14 @@ R\!\left[t\right] = f_R \, h_R\!\left[t\right] + \left(1 - f_R\right) \, \delta\
 </section>
 </section>
 <section id="Numerical-Implementation">
-<h2>Numerical Implementation<a class="headerlink" href="#Numerical-Implementation" title="Permalink to this heading">#</a></h2>
+<h2>Numerical Implementation<a class="headerlink" href="#Numerical-Implementation" title="Link to this heading">#</a></h2>
 <p>The goal of a fast and accurate numerical implementation is to cast the equations into a form that minimizes both the numerical complexity and the degree of approximation. Besides just reducing the numerical complexity of individual terms, it is also important to use an accurate and efficient numerical differential equation solver. For this purpose, PyNLO uses the embedded 4th-order Runge-Kutta method of <a class="reference external" href="https://doi.org/10.1016/j.cpc.2012.12.020">Balac and Mahé (2013)</a>.</p>
 <section id="Nonlinear-Terms">
-<h3>Nonlinear Terms<a class="headerlink" href="#Nonlinear-Terms" title="Permalink to this heading">#</a></h3>
+<h3>Nonlinear Terms<a class="headerlink" href="#Nonlinear-Terms" title="Link to this heading">#</a></h3>
 <p>The numerical complexity of the convolutions required to calculate the second- and third-order nonlinear terms go as <span class="math notranslate nohighlight">\(N^2\)</span> and <span class="math notranslate nohighlight">\(N^3\)</span> respectively. However, if the nonlinear terms can be put in separable form, i.e. as the product of single variable functions, then the convolution can be recast as a product of Fourier transforms. Using the fast Fourier transform (fft) the complexity of the resulting convolutions scale as <span class="math notranslate nohighlight">\(N \log\left[N\right]\)</span>. For the number of points typically
 used in nonlinear simulations, that difference can mean orders of magnitude improvement to the run time.</p>
 <section id="Vector-Decomposition">
-<h4>Vector Decomposition<a class="headerlink" href="#Vector-Decomposition" title="Permalink to this heading">#</a></h4>
+<h4>Vector Decomposition<a class="headerlink" href="#Vector-Decomposition" title="Link to this heading">#</a></h4>
 <p>The most general procedure involves numerically calculating all terms in the 2nd- and 3rd-order <span class="math notranslate nohighlight">\(g\)</span> parameters and then decomposing the tensors as the sum of the product of separable functions. In general, the <span class="math notranslate nohighlight">\(g\)</span> parameters may be written as the product of a function <span class="math notranslate nohighlight">\(h\)</span>, dependent on the output frequency <span class="math notranslate nohighlight">\(\nu\)</span>, and the sum of the products of functions <span class="math notranslate nohighlight">\(\eta\)</span>, dependent on the input frequencies <span class="math notranslate nohighlight">\(\nu_i\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -881,7 +894,7 @@ b_n\!\left[\nu\right] = a \, \eta_n
 \end{align}\end{split}\]</div>
 </section>
 <section id="Unit-Decomposition">
-<h4>Unit Decomposition<a class="headerlink" href="#Unit-Decomposition" title="Permalink to this heading">#</a></h4>
+<h4>Unit Decomposition<a class="headerlink" href="#Unit-Decomposition" title="Link to this heading">#</a></h4>
 <p>If effects due to mode overlap can be ignored and the nonlinear susceptibility only depends on the output frequency, separability occurs naturally. In this case, the summation collapses to a single <span class="math notranslate nohighlight">\(h\)</span> and <span class="math notranslate nohighlight">\(\eta\)</span> term dependent on the effective refractive index, area, and nonlinear susceptibilities. The decomposition below is based on unit analysis of the effective nonlinear parameters (see the <a class="reference internal" href="supplemental.html#Unit-Analysis-of-the-Effective-Nonlinear-Parameters"><span class="std std-ref">supplemental</span></a>
 for more details) and is equivalent to calculating the nonlinear terms as powers of the electric field:</p>
 <div class="math notranslate nohighlight">
@@ -892,7 +905,7 @@ h\!\left[\nu\right] \approx \frac{1}{2} \sqrt{\frac{\epsilon_0 \, A_\text{eff}}{
 \end{gather}\end{split}\]</div>
 </section>
 <section id="Phase-Matched-Pathways">
-<h4>Phase-Matched Pathways<a class="headerlink" href="#Phase-Matched-Pathways" title="Permalink to this heading">#</a></h4>
+<h4>Phase-Matched Pathways<a class="headerlink" href="#Phase-Matched-Pathways" title="Link to this heading">#</a></h4>
 <p>The most straightforward approximation takes advantage of the selective nature of phase matching. Phase-matched frequency combinations dominate over all other nonlinear interactions. For a particular output frequency, the <span class="math notranslate nohighlight">\(g\)</span> parameters that correspond to these interactions can be pulled out of the integral and the unweighted spectral amplitudes can be Fourier transformed. The unweighted terms still contain a multitude of nonlinear pathways, but as phase mismatch suppresses all other
 contributions only the phase-matched pathway needs to have an accurate coupling term:</p>
 <div class="math notranslate nohighlight">
@@ -910,7 +923,7 @@ g^{\left(3\right)}\!\left[\nu_1, \nu_2, \nu_3\right] &amp;\approx g^{\left(3\rig
 </section>
 </section>
 <section id="The-Analytic-Representation">
-<h3>The Analytic Representation<a class="headerlink" href="#The-Analytic-Representation" title="Permalink to this heading">#</a></h3>
+<h3>The Analytic Representation<a class="headerlink" href="#The-Analytic-Representation" title="Link to this heading">#</a></h3>
 <p>The analytic representation is an important concept for the theoretical and numerical manipulation of optical pulses. Since the physical <span class="math notranslate nohighlight">\(\mathbf{E}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{H}\)</span> fields are real, as mentioned in <a class="reference internal" href="fourier_transforms.html#Real-Functions-and-the-Analytic-Representation"><span class="std std-ref">Fourier Transforms</span></a>, it is possible to represent them in analytic form using amplitudes from only the positive-frequency side of the spectrum. This is straightforward when only linear interactions are considered
 but becomes more difficult when nonlinear terms are involved. Nonlinearity mixes positive and negative frequency components together in an inseparable way.</p>
 <p>For the second-order nonlinearity the following interactions are possible:</p>
@@ -985,14 +998,14 @@ but becomes more difficult when nonlinear terms are involved. Nonlinearity mixes
 </table>
 <p>where <span class="math notranslate nohighlight">\(\nu_c\)</span> is the central or average frequency of the pulse.</p>
 <section id="Analytic-Nonlinear-Terms">
-<h4>Analytic Nonlinear Terms<a class="headerlink" href="#Analytic-Nonlinear-Terms" title="Permalink to this heading">#</a></h4>
+<h4>Analytic Nonlinear Terms<a class="headerlink" href="#Analytic-Nonlinear-Terms" title="Link to this heading">#</a></h4>
 <p>Negative frequency components at the input to a nonlinear process can always be replaced by conjugated positive frequency components, the difficulty arises when restricting the range of output frequencies to positive values. To reduce the numerical complexity, nonlinear terms are best calculated as products in the time domain. However, the time-domain products are not strictly analytic as in general they each span both positive and negative frequencies. If one were to perform these products in
 the time domain with analytic grids that only support the positive half of the spectrum, the negative frequency components would alias into positive frequencies. This could lead to erroneous results, especially if an aliased term is inadvertently phase matched.</p>
 <p>The simplest way around this is to cheat the analyticity and perform the frequency-to-time-domain Fourier transform with enough extra points to allow the negative frequency components to alias outside of the frequency range of interest. The “analytic” nonlinear terms are thus all entries in the above tables with the potential to generate positive output frequencies. After Fourier transforming back to the frequency domain, the extra points are dropped and only the analytic results remain. If the
 analytic grid has a support from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(\nu_\text{max}\)</span>, then the second-order nonlinearity would need a grid that supports at least another <span class="math notranslate nohighlight">\(\nu_\text{max}\)</span> worth of points, while the third-order nonlinearity would need an extra <span class="math notranslate nohighlight">\(2 \, \nu_\text{max}\)</span>, requiring a grid that supports a total of <span class="math notranslate nohighlight">\(2 \, \nu_\text{max}\)</span> and <span class="math notranslate nohighlight">\(3 \, \nu_\text{max}\)</span> points respectively.</p>
 </section>
 <section id="Analytic-Nonlinear-Propagation-Equations">
-<h4>Analytic Nonlinear Propagation Equations<a class="headerlink" href="#Analytic-Nonlinear-Propagation-Equations" title="Permalink to this heading">#</a></h4>
+<h4>Analytic Nonlinear Propagation Equations<a class="headerlink" href="#Analytic-Nonlinear-Propagation-Equations" title="Link to this heading">#</a></h4>
 <p>In the limit of constant mode area and instantaneous nonlinear susceptibility, the analytic second- and third-order nonlinear propagation equations have the following form:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{gather}
@@ -1014,7 +1027,7 @@ the same number of points, the <em>rffts</em> used in the real-valued representa
 benefit for nonlinear effects.</p>
 </section>
 <section id="Analytic-Normalization">
-<h4>Analytic Normalization<a class="headerlink" href="#Analytic-Normalization" title="Permalink to this heading">#</a></h4>
+<h4>Analytic Normalization<a class="headerlink" href="#Analytic-Normalization" title="Link to this heading">#</a></h4>
 <p>When comparing against other formulas in the literature it is important to consider the normalization of the analytic amplitudes. There are two common alternatives to formulas given above, which use the amplitudes as given by the positive half of the double-sided spectrum:</p>
 <p>The first rescales the analytic representation such that the integral of the absolute-squared amplitude over positive frequencies is equal to the total energy <span class="math notranslate nohighlight">\(E\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -1040,11 +1053,10 @@ a''\!\left[t\right] = a + i \, \mathcal{H}\!\left[a\right]
               
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="linear_optics.html"
@@ -1064,10 +1076,7 @@ a''\!\left[t\right] = a + i \, \mathcal{H}\!\left[a\right]
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1076,11 +1085,14 @@ a''\!\left[t\right] = a + i \, \mathcal{H}\!\left[a\right]
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Local-Modes">Local Modes</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Multi-Mode-Propagation-Equations">Multi-Mode Propagation Equations</a><ul class="visible nav section-nav flex-column">
@@ -1145,8 +1157,8 @@ a''\!\left[t\right] = a + i \, \mathcal{H}\!\left[a\right]
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1154,17 +1166,19 @@ a''\!\left[t\right] = a + i \, \mathcal{H}\!\left[a\right]
     <div class="footer-items__start">
       
         <div class="footer-item">
+
   <p class="copyright">
     
-      © Copyright 2023, PyNLO authors.
+      © Copyright 2024, PyNLO authors.
       <br/>
     
   </p>
 </div>
       
         <div class="footer-item">
+
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     <br/>
   </p>
 </div>
@@ -1172,10 +1186,12 @@ a''\!\left[t\right] = a + i \, \mathcal{H}\!\left[a\right]
     </div>
   
   
+  
     <div class="footer-items__end">
       
-        <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
 </p></div>
       
     </div>

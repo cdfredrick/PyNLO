@@ -496,7 +496,7 @@ class Mode():
 
     #---- Misc
     def copy(self):
-        """A copy of the mode."""
+        """Copy the mode."""
         return copy.deepcopy(self)
 
 

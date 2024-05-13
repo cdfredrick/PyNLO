@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -18,27 +18,28 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=32c6448d"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -56,7 +57,15 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -91,15 +100,17 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
 <div class="bd-header__inner bd-page-width">
   <label class="sidebar-toggle primary-toggle" for="__primary">
     <span class="fa-solid fa-bars"></span>
   </label>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -107,31 +118,26 @@
   
   
   
+  
     
     
       
     
     
-    <img src="../_static/pynlo-light.svg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/pynlo-dark.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/pynlo-light.svg" class="logo__image only-light" alt="PyNLO 1.dev documentation - Home"/>
+    <script>document.write(`<img src="../_static/pynlo-dark.svg" class="logo__image only-dark" alt="PyNLO 1.dev documentation - Home"/>`);</script>
   
   
 </a></div>
     
   </div>
   
-  
   <div class="col-lg-9 navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
-        <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+        <div class="navbar-item">
+<nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -164,23 +170,27 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -191,27 +201,33 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
       <span class="fa-solid fa-outdent"></span>
     </label>
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -222,13 +238,8 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          <div class="navbar-item">
+<nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -261,12 +272,13 @@ document.write(`
       <div class="sidebar-header-items__end">
         
           <div class="navbar-item">
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -276,7 +288,8 @@ document.write(`
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
@@ -313,8 +326,8 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumbs">
-  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="../index.html" class="nav-link" aria-label="Home">
@@ -339,12 +352,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="Linear-Optics">
-<h1>Linear Optics<a class="headerlink" href="#Linear-Optics" title="Permalink to this heading">#</a></h1>
+<h1>Linear Optics<a class="headerlink" href="#Linear-Optics" title="Link to this heading">#</a></h1>
 <section id="Maxwell's-Equations">
-<h2>Maxwell’s Equations<a class="headerlink" href="#Maxwell's-Equations" title="Permalink to this heading">#</a></h2>
+<h2>Maxwell’s Equations<a class="headerlink" href="#Maxwell's-Equations" title="Link to this heading">#</a></h2>
 <p>Maxwell’s equations fully describe the dynamical evolution of classical electromagnetic fields. In the time-space domain <span class="math notranslate nohighlight">\(\left(t, \mathbf{x}\right)\)</span>, the equations are as follows:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -370,7 +383,7 @@ document.write(`
 \mu_{0} \, \epsilon_{0} = \frac{1}{c^{2}}
 \end{gather}\]</div>
 <section id="Electric-and-Magnetic-Polarization">
-<h3>Electric and Magnetic Polarization<a class="headerlink" href="#Electric-and-Magnetic-Polarization" title="Permalink to this heading">#</a></h3>
+<h3>Electric and Magnetic Polarization<a class="headerlink" href="#Electric-and-Magnetic-Polarization" title="Link to this heading">#</a></h3>
 <p>The magnetic response is negligible for common optical materials, so the electric polarization typically dominates light-matter interactions. Given as a power series, the electric polarization can be expanded in the time-space domain <span class="math notranslate nohighlight">\(\left(t, \mathbf{x}\right)\)</span> as tensor product convolutions of electric susceptibilities with the electric field:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -402,10 +415,10 @@ M_{i} &amp;\approx 0
 <p>The linear susceptibility <span class="math notranslate nohighlight">\(\chi^{(1)}\)</span> has been absorbed into the relative permittivity term <span class="math notranslate nohighlight">\(\mathbf{\epsilon}\)</span>, while the higher-order terms have been condensed into the nonlinear polarization <span class="math notranslate nohighlight">\(\mathbf{P}_{NL}\)</span>. For more details on the nonlinear polarization see the note on <a class="reference internal" href="nonlinear_optics.html#Free-Sources-and-Nonlinearity"><span class="std std-ref">nonlinear optics</span></a>.</p>
 </section>
 <section id="Boundary-Conditions">
-<h3>Boundary Conditions<a class="headerlink" href="#Boundary-Conditions" title="Permalink to this heading">#</a></h3>
+<h3>Boundary Conditions<a class="headerlink" href="#Boundary-Conditions" title="Link to this heading">#</a></h3>
 <p>Boundary conditions are necessary at the interface between different materials. With <span class="math notranslate nohighlight">\(\hat{\mathbf{n}}\)</span> being the unit normal to a surface, the following boundary conditions are always true for the normal and tangential components (in the space domain):</p>
 <section id="Normal-Components">
-<h4>Normal Components<a class="headerlink" href="#Normal-Components" title="Permalink to this heading">#</a></h4>
+<h4>Normal Components<a class="headerlink" href="#Normal-Components" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \sigma &amp;= \hat{\mathbf{n}} \cdot \left( \mathbf{D}_{2} - \mathbf{D}_{1} \right)
@@ -415,7 +428,7 @@ M_{i} &amp;\approx 0
 <p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the free charge density on the surface.</p>
 </section>
 <section id="Tangential-Components">
-<h4>Tangential Components<a class="headerlink" href="#Tangential-Components" title="Permalink to this heading">#</a></h4>
+<h4>Tangential Components<a class="headerlink" href="#Tangential-Components" title="Link to this heading">#</a></h4>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \mathbf{K} &amp;= \hat{\mathbf{n}} \times \left( \mathbf{H}_{2} - \mathbf{H}_{1} \right)
@@ -427,7 +440,7 @@ M_{i} &amp;\approx 0
 </section>
 </section>
 <section id="Traveling-Waves">
-<h2>Traveling Waves<a class="headerlink" href="#Traveling-Waves" title="Permalink to this heading">#</a></h2>
+<h2>Traveling Waves<a class="headerlink" href="#Traveling-Waves" title="Link to this heading">#</a></h2>
 <p>A wave equation can be derived by taking the curl of 1c and 1d of Maxwell’s equations. Assuming that the medium is <em>linear, isotropic, homogenous, and without any free charges or currents</em>, this equation simplifies to the following in the doubly Fourier transformed frequency-wavenumber domain <span class="math notranslate nohighlight">\(\left(\omega, \mathbf{k}\right)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -460,7 +473,7 @@ k^2 = \epsilon \frac{\omega^2}{c^2}
 \mathbf{H} &amp;= \frac{1}{\mu_0} \frac{\mathbf{k}}{\omega} \times \mathbf{E}
 \end{align}\end{split}\]</div>
 <section id="A-Note-on-Fourier-Transforms-and-Units">
-<h3>A Note on Fourier Transforms and Units<a class="headerlink" href="#A-Note-on-Fourier-Transforms-and-Units" title="Permalink to this heading">#</a></h3>
+<h3>A Note on Fourier Transforms and Units<a class="headerlink" href="#A-Note-on-Fourier-Transforms-and-Units" title="Link to this heading">#</a></h3>
 <p>Fourier transforms convert between complementary reciprocal quantities:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -487,7 +500,7 @@ F\!\left[\mathbf{\tilde{\nu}}\right] &amp;= \int_{-\infty}^{\infty} f\!\left[\ma
 <p>The sign difference between the exponent in the time-domain transform and the space-domain transform is chosen to be consistent with our convention on forward and backward traveling waves.</p>
 </section>
 <section id="Relative-Permittivity">
-<h3>Relative Permittivity<a class="headerlink" href="#Relative-Permittivity" title="Permalink to this heading">#</a></h3>
+<h3>Relative Permittivity<a class="headerlink" href="#Relative-Permittivity" title="Link to this heading">#</a></h3>
 <p>The relative permittivity <span class="math notranslate nohighlight">\(\epsilon\)</span> may be cast in terms of the angular frequency and wavenumber of the traveling wave. This quantity can further be broken apart into two real quantities representing the index of refraction <span class="math notranslate nohighlight">\(n\)</span> and the gain <span class="math notranslate nohighlight">\(\alpha\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -507,7 +520,7 @@ k\ &amp;= \beta + i \frac{\alpha}{2}
 \beta &amp;= \frac{\omega}{c} n
 \end{align}\end{split}\]</div>
 <section id="Gain-and-Loss">
-<h4>Gain and Loss<a class="headerlink" href="#Gain-and-Loss" title="Permalink to this heading">#</a></h4>
+<h4>Gain and Loss<a class="headerlink" href="#Gain-and-Loss" title="Link to this heading">#</a></h4>
 <p>Power rises or falls off at the exponential of the gain coefficient <span class="math notranslate nohighlight">\(\left(\exp\!{\left(\alpha \, z\right)}\right)\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -517,7 +530,7 @@ k\ &amp;= \beta + i \frac{\alpha}{2}
 \end{align}\end{split}\]</div>
 </section>
 <section id="Dispersion">
-<h4>Dispersion<a class="headerlink" href="#Dispersion" title="Permalink to this heading">#</a></h4>
+<h4>Dispersion<a class="headerlink" href="#Dispersion" title="Link to this heading">#</a></h4>
 <p>The change of <span class="math notranslate nohighlight">\(\beta\)</span> with respect to frequency determines the group velocity of a traveling wave and the rate at which frequency components spread apart during propagation:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -539,11 +552,11 @@ k\ &amp;= \beta + i \frac{\alpha}{2}
 </section>
 </section>
 <section id="Waveguides">
-<h2>Waveguides<a class="headerlink" href="#Waveguides" title="Permalink to this heading">#</a></h2>
+<h2>Waveguides<a class="headerlink" href="#Waveguides" title="Link to this heading">#</a></h2>
 <p>An interesting class of devices takes advantage of materials in which the refractive index is greater in some cross-sectional area than in any other. Such a configuration guides optical radiation along a set of spatial modes. <a class="reference external" href="https://doi.org/10.1007/978-1-4613-2813-1">Optical Waveguide Theory (1983)</a> by Snyder and Love is an invaluable reference on this topic and the reader is encouraged to browse this resource for a more in-depth discussion of orthogonality, waveguide modes, and propagation
 equations.</p>
 <section id="Eigenmodes-Equations">
-<h3>Eigenmodes Equations<a class="headerlink" href="#Eigenmodes-Equations" title="Permalink to this heading">#</a></h3>
+<h3>Eigenmodes Equations<a class="headerlink" href="#Eigenmodes-Equations" title="Link to this heading">#</a></h3>
 <p>Waveguide modes may be derived assuming that the optical medium is <em>source free</em>, that there is <em>no nonlinearity</em>, and that the <em>relative electric permittivity is longitudinally invariant, separable into transverse and longitudinal components, and is lossless</em>. With these conditions the wave equations in the time-space domain <span class="math notranslate nohighlight">\(\left(t, \mathbf{x}\right)\)</span> represent eigenvalue equations for the electric and magnetic fields:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -559,7 +572,7 @@ equations.</p>
 \end{align}\end{split}\]</div>
 <p>These eigenvalue equations are derived by breaking apart Maxwell’s equations into transverse and longitudinal components (see the <a class="reference internal" href="supplemental.html#Transverse-and-Longitudinal-Maxwell's-Equations"><span class="std std-ref">supplemental</span></a> for more details).</p>
 <section id="Transverse-Wave-Equations">
-<h4>Transverse Wave Equations<a class="headerlink" href="#Transverse-Wave-Equations" title="Permalink to this heading">#</a></h4>
+<h4>Transverse Wave Equations<a class="headerlink" href="#Transverse-Wave-Equations" title="Link to this heading">#</a></h4>
 <p>In the <span class="math notranslate nohighlight">\(\left(\omega, \left[\mathbf{x}_t, k_z\right]\right)\)</span> mixed Fourier domain:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -602,7 +615,7 @@ equations.</p>
 solver that implements the transverse wave equations using finite difference techniques.</p>
 </section>
 <section id="Longitudinal-Modes">
-<h4>Longitudinal Modes<a class="headerlink" href="#Longitudinal-Modes" title="Permalink to this heading">#</a></h4>
+<h4>Longitudinal Modes<a class="headerlink" href="#Longitudinal-Modes" title="Link to this heading">#</a></h4>
 <p>By inspection of Maxwell’s equations in the <span class="math notranslate nohighlight">\(\left(\omega, \left[\mathbf{x}_t, k_z\right]\right)\)</span> mixed Fourier domain, the modal solutions of the electric and magnetic field must take the following form:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -625,7 +638,7 @@ solver that implements the transverse wave equations using finite difference tec
 </section>
 </section>
 <section id="Forward-and-Backward-Modes">
-<h3>Forward and Backward Modes<a class="headerlink" href="#Forward-and-Backward-Modes" title="Permalink to this heading">#</a></h3>
+<h3>Forward and Backward Modes<a class="headerlink" href="#Forward-and-Backward-Modes" title="Link to this heading">#</a></h3>
 <p>Forward travelling and backward travelling modes both satisfy Maxwell’s equations. Given the relationship between transverse and longitudinal components there must be a fixed sign difference between the complementary modes. Of the two possible transformations between the forward and backward fields, the following convention will be used throughout the rest of this document.</p>
 <div class="math notranslate nohighlight">
 \[\begin{gather}
@@ -639,7 +652,7 @@ solver that implements the transverse wave equations using finite difference tec
 \end{align}\end{split}\]</div>
 </section>
 <section id="Reciprocity-Theorem">
-<h3>Reciprocity Theorem<a class="headerlink" href="#Reciprocity-Theorem" title="Permalink to this heading">#</a></h3>
+<h3>Reciprocity Theorem<a class="headerlink" href="#Reciprocity-Theorem" title="Link to this heading">#</a></h3>
 <p>The reciprocity theorem is derived from the two-dimensional form of the divergence theorem:</p>
 <div class="math notranslate nohighlight">
 \[\begin{gather}
@@ -654,7 +667,7 @@ integral:</p>
 \end{gather}\]</div>
 </section>
 <section id="Orthogonality">
-<h3>Orthogonality<a class="headerlink" href="#Orthogonality" title="Permalink to this heading">#</a></h3>
+<h3>Orthogonality<a class="headerlink" href="#Orthogonality" title="Link to this heading">#</a></h3>
 <p>Optical modes are orthogonal to each other. This relationship is derived by applying the reciprocity theorem to Poynting-vector-like combinations of waveguide modes. We start by defining a composite vector function <span class="math notranslate nohighlight">\(\mathbf{F}_c\)</span> in the frequency-space <span class="math notranslate nohighlight">\(\left(\omega, \mathbf{x}\right)\)</span> domain containing two arbitrary modes of the waveguide (<span class="math notranslate nohighlight">\(\mathbf{E}_r\)</span>, <span class="math notranslate nohighlight">\(\mathbf{H}_r\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{E}_s\)</span>, <span class="math notranslate nohighlight">\(\mathbf{H}_s\)</span>):</p>
 <div class="math notranslate nohighlight">
 \[\mathbf{F}_c = \mathbf{E}_r \times \mathbf{H}_s^* + \mathbf{E}_s^* \times \mathbf{H}_r\]</div>
@@ -696,7 +709,7 @@ integral:</p>
 \end{gather}\end{split}\]</div>
 </section>
 <section id="Orthonormal-Modes">
-<h3>Orthonormal Modes<a class="headerlink" href="#Orthonormal-Modes" title="Permalink to this heading">#</a></h3>
+<h3>Orthonormal Modes<a class="headerlink" href="#Orthonormal-Modes" title="Link to this heading">#</a></h3>
 <p>Orthogonal sets can reconstruct arbitrary distributions through linear combination. For electromagnetic fields these sets are best given as the product of amplitudes and orthonormal spatial modes. In the frequency-space <span class="math notranslate nohighlight">\(\left(\omega, \mathbf{x}\right)\)</span> domain:</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -712,7 +725,7 @@ I_n = \mathbf{S}_n \cdot \hat{\mathbf{z}} &amp;= \left(\mathbf{E}_n \times \math
 &amp;= \left|a_n\right|^2 \left(\hat{\mathbf{e}}_n \times \hat{\mathbf{h}}_n^*\right) \cdot \hat{\mathbf{z}}
 \end{align}\end{split}\]</div>
 <section id="Normalization">
-<h4>Normalization<a class="headerlink" href="#Normalization" title="Permalink to this heading">#</a></h4>
+<h4>Normalization<a class="headerlink" href="#Normalization" title="Link to this heading">#</a></h4>
 <p>The modes <span class="math notranslate nohighlight">\(\hat{e}_n\)</span> and <span class="math notranslate nohighlight">\(\hat{h}_n\)</span> are normalized so that the integral over the transverse plane is equal to 1:</p>
 <div class="math notranslate nohighlight">
 \[\begin{gather}
@@ -743,7 +756,7 @@ E_n = \int_{-\infty}^{+\infty} \left|a_n\right|^2 d\nu = \int_{-\infty}^{+\infty
 <p>Thus, smaller <span class="math notranslate nohighlight">\(\beta\)</span> (lower frequencies) and smaller waveguide cross sections or higher order modes (larger spatial derivatives) increase the importance of this term. The first and second term become comparable when the transverse spatial derivative is of the same order of magnitude as the phase coefficient <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
 </section>
 <section id="Units">
-<h4>Units<a class="headerlink" href="#Units" title="Permalink to this heading">#</a></h4>
+<h4>Units<a class="headerlink" href="#Units" title="Link to this heading">#</a></h4>
 <p>The above normalization relations fix the units of their respective quantities:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -765,7 +778,7 @@ E_n = \int_{-\infty}^{+\infty} \left|a_n\right|^2 d\nu = \int_{-\infty}^{+\infty
 \end{align}\]</div>
 </section>
 <section id="Effective-Area">
-<h4>Effective Area<a class="headerlink" href="#Effective-Area" title="Permalink to this heading">#</a></h4>
+<h4>Effective Area<a class="headerlink" href="#Effective-Area" title="Link to this heading">#</a></h4>
 <p>The effective or equivalent area provides a reasonable measure of a mode’s spatial extent. It is a derived quantity and is defined as the ratio of the squared integral of the transverse intensity to the integral of the squared transverse intensity:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -784,11 +797,10 @@ A_\text{eff} = \frac{\left(\int_{A_\infty} \mathbf{S}_n \cdot \hat{\mathbf{z}} \
               
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="fourier_transforms.html"
@@ -808,10 +820,7 @@ A_\text{eff} = \frac{\left(\int_{A_\infty} \mathbf{S}_n \cdot \hat{\mathbf{z}} \
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -820,11 +829,14 @@ A_\text{eff} = \frac{\left(\int_{A_\infty} \mathbf{S}_n \cdot \hat{\mathbf{z}} \
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Maxwell's-Equations">Maxwell’s Equations</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Electric-and-Magnetic-Polarization">Electric and Magnetic Polarization</a></li>
@@ -877,8 +889,8 @@ A_\text{eff} = \frac{\left(\int_{A_\infty} \mathbf{S}_n \cdot \hat{\mathbf{z}} \
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -886,17 +898,19 @@ A_\text{eff} = \frac{\left(\int_{A_\infty} \mathbf{S}_n \cdot \hat{\mathbf{z}} \
     <div class="footer-items__start">
       
         <div class="footer-item">
+
   <p class="copyright">
     
-      © Copyright 2023, PyNLO authors.
+      © Copyright 2024, PyNLO authors.
       <br/>
     
   </p>
 </div>
       
         <div class="footer-item">
+
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     <br/>
   </p>
 </div>
@@ -904,10 +918,12 @@ A_\text{eff} = \frac{\left(\int_{A_\infty} \mathbf{S}_n \cdot \hat{\mathbf{z}} \
     </div>
   
   
+  
     <div class="footer-items__end">
       
-        <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
 </p></div>
       
     </div>

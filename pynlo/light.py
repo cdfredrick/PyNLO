@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Light in the time and frequency domains.
+Pulses of light in the time and frequency domains.
 
 Notes
 -----
@@ -1000,5 +1000,5 @@ class Pulse(TFGrid):
 
     #---- Misc
     def copy(self):
-        """A copy of the pulse."""
+        """Copy the pulse."""
         return super().copy()

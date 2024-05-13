@@ -143,9 +143,9 @@ ax2.pcolormesh(1e-12*pulse.v_grid, z/L_S, p_v_dB,
 ax0.set_ylim(bottom=-45, top=5)
 ax2.set_xlabel('Frequency (THz)')
 
-L_F_idx = np.argmin(np.abs(z - L_0))
-ax0.plot(1e-12*pulse.v_grid, p_v_dB[L_F_idx], color="k", label=r"$z_{comp}$")
-ax2.axhline(z[L_F_idx]/L_S, color="k", linestyle=":")
+L_C_idx = np.argmin(np.abs(z - L_0))
+ax0.plot(1e-12*pulse.v_grid, p_v_dB[L_C_idx], color="k", label=r"$z_{comp}$")
+ax2.axhline(z[L_C_idx]/L_S, color="k", linestyle=":")
 ax0.legend(loc=2, fontsize="small")
 
 p_t_dB = 10*np.log10(np.abs(a_t)**2)
@@ -244,9 +244,9 @@ ax2.pcolormesh(1e-12*pulse.v_grid, z/L_S, p_v_dB,
 ax0.set_ylim(bottom=-45, top=5)
 ax2.set_xlabel('Frequency (THz)')
 
-L_F_idx = np.argmin(np.abs(z - L_0))
-ax0.plot(1e-12*pulse.v_grid, p_v_dB[L_F_idx], color="k", label=r"$z_{comp}$")
-ax2.axhline(z[L_F_idx]/L_S, color="k", linestyle=":")
+L_C_idx = np.argmin(np.abs(z - L_0))
+ax0.plot(1e-12*pulse.v_grid, p_v_dB[L_C_idx], color="k", label=r"$z_{comp}$")
+ax2.axhline(z[L_C_idx]/L_S, color="k", linestyle=":")
 ax0.legend(loc=2, fontsize="small")
 
 p_t_dB = 10*np.log10(np.abs(a_t)**2)
@@ -341,9 +341,9 @@ ax2.pcolormesh(1e-12*pulse.v_grid, z/L_S, p_v_dB,
 ax0.set_ylim(bottom=-45, top=5)
 ax2.set_xlabel('Frequency (THz)')
 
-L_F_idx = np.argmin(np.abs(z - L_0))
-ax0.plot(1e-12*pulse.v_grid, p_v_dB[L_F_idx], color="k", label=r"$z_{comp}$")
-ax2.axhline(z[L_F_idx]/L_S, color="k", linestyle=":")
+L_C_idx = np.argmin(np.abs(z - L_0))
+ax0.plot(1e-12*pulse.v_grid, p_v_dB[L_C_idx], color="k", label=r"$z_{comp}$")
+ax2.axhline(z[L_C_idx]/L_S, color="k", linestyle=":")
 ax0.legend(loc=1, fontsize="small")
 
 p_t_dB = 10*np.log10(np.abs(a_t)**2)

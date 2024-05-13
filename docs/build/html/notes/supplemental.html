@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -18,27 +18,28 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=32c6448d"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -56,7 +57,15 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -91,15 +100,17 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
 <div class="bd-header__inner bd-page-width">
   <label class="sidebar-toggle primary-toggle" for="__primary">
     <span class="fa-solid fa-bars"></span>
   </label>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -107,31 +118,26 @@
   
   
   
+  
     
     
       
     
     
-    <img src="../_static/pynlo-light.svg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/pynlo-dark.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/pynlo-light.svg" class="logo__image only-light" alt="PyNLO 1.dev documentation - Home"/>
+    <script>document.write(`<img src="../_static/pynlo-dark.svg" class="logo__image only-dark" alt="PyNLO 1.dev documentation - Home"/>`);</script>
   
   
 </a></div>
     
   </div>
   
-  
   <div class="col-lg-9 navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
-        <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+        <div class="navbar-item">
+<nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -164,23 +170,27 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -191,27 +201,33 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
       <span class="fa-solid fa-outdent"></span>
     </label>
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -222,13 +238,8 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          <div class="navbar-item">
+<nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -261,12 +272,13 @@ document.write(`
       <div class="sidebar-header-items__end">
         
           <div class="navbar-item">
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -276,7 +288,8 @@ document.write(`
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
@@ -313,8 +326,8 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumbs">
-  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="../index.html" class="nav-link" aria-label="Home">
@@ -324,7 +337,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../notes.html" class="nav-link">Notes</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">Supplementary Material</li>
+    <li class="breadcrumb-item active" aria-current="page">Supplementar...</li>
   </ul>
 </nav>
 </div>
@@ -339,12 +352,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="Supplementary-Material">
-<h1>Supplementary Material<a class="headerlink" href="#Supplementary-Material" title="Permalink to this heading">#</a></h1>
+<h1>Supplementary Material<a class="headerlink" href="#Supplementary-Material" title="Link to this heading">#</a></h1>
 <section id="Transverse-and-Longitudinal-Vector-Components">
-<h2>Transverse and Longitudinal Vector Components<a class="headerlink" href="#Transverse-and-Longitudinal-Vector-Components" title="Permalink to this heading">#</a></h2>
+<h2>Transverse and Longitudinal Vector Components<a class="headerlink" href="#Transverse-and-Longitudinal-Vector-Components" title="Link to this heading">#</a></h2>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \hat{\mathbf{z}} \times \left(\mathbf{A} \times \hat{\mathbf{z}}\right) &amp;= \mathbf{A}_t
@@ -352,7 +365,7 @@ document.write(`
 \hat{\mathbf{z}} \cdot \mathbf{A} &amp;= A_z
 \end{align}\end{split}\]</div>
 <section id="Curl">
-<h3>Curl<a class="headerlink" href="#Curl" title="Permalink to this heading">#</a></h3>
+<h3>Curl<a class="headerlink" href="#Curl" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \hat{\mathbf{z}} \times \left(\left(\nabla \times \mathbf{A}\right) \times \hat{\mathbf{z}}\right) &amp;= \hat{\mathbf{z}} \times \left(\frac{\partial}{\partial z} \mathbf{A}_t - \nabla_t A_z\right)
@@ -365,7 +378,7 @@ document.write(`
 \end{align}\end{split}\]</div>
 </section>
 <section id="Gradient">
-<h3>Gradient<a class="headerlink" href="#Gradient" title="Permalink to this heading">#</a></h3>
+<h3>Gradient<a class="headerlink" href="#Gradient" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \hat{\mathbf{z}} \times \left(\nabla a \times \hat{\mathbf{z}}\right) &amp;= \nabla_t a
@@ -378,7 +391,7 @@ document.write(`
 \end{align}\end{split}\]</div>
 </section>
 <section id="Matrix-Multiplication">
-<h3>Matrix Multiplication<a class="headerlink" href="#Matrix-Multiplication" title="Permalink to this heading">#</a></h3>
+<h3>Matrix Multiplication<a class="headerlink" href="#Matrix-Multiplication" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \epsilon &amp;= \left(
@@ -461,7 +474,7 @@ document.write(`
 </section>
 </section>
 <section id="Transverse-and-Longitudinal-Maxwell's-Equations">
-<h2>Transverse and Longitudinal Maxwell’s Equations<a class="headerlink" href="#Transverse-and-Longitudinal-Maxwell's-Equations" title="Permalink to this heading">#</a></h2>
+<h2>Transverse and Longitudinal Maxwell’s Equations<a class="headerlink" href="#Transverse-and-Longitudinal-Maxwell's-Equations" title="Link to this heading">#</a></h2>
 <p>Maxwell’s equations are separable into transverse and longitudinal components assuming a source free medium, longitudinal invariance <span class="math notranslate nohighlight">\(\left(\frac{\partial}{\partial z} \epsilon = 0\right)\)</span>, and with <span class="math notranslate nohighlight">\(\epsilon\)</span> of the general form given in the previous section. In the frequency-space mixed Fourier domain <span class="math notranslate nohighlight">\(\left(\omega, \mathbf{x}\right)\)</span>, and <span class="math notranslate nohighlight">\(\mathbf{D}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{B}\)</span> defined as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -470,7 +483,7 @@ document.write(`
 \mathbf{B} &amp;= \mu_0 \mathbf{H}
 \end{align}\end{split}\]</div>
 <section id="Maxwell's-equations">
-<h3>Maxwell’s equations<a class="headerlink" href="#Maxwell's-equations" title="Permalink to this heading">#</a></h3>
+<h3>Maxwell’s equations<a class="headerlink" href="#Maxwell's-equations" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 0 &amp;= \nabla \cdot \left(\epsilon \cdot \mathbf{E}\right)
@@ -483,7 +496,7 @@ document.write(`
 \end{align}\end{split}\]</div>
 </section>
 <section id="Wave-Equations">
-<h3>Wave Equations<a class="headerlink" href="#Wave-Equations" title="Permalink to this heading">#</a></h3>
+<h3>Wave Equations<a class="headerlink" href="#Wave-Equations" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \mathbf{0} &amp;= \nabla \times \left(\nabla \times \mathbf{E} \right) - \frac{\omega^2}{c^2} \left(\epsilon \cdot \mathbf{E} \right)
@@ -492,7 +505,7 @@ document.write(`
 \end{align}\end{split}\]</div>
 </section>
 <section id="Divergence-Equations">
-<h3>Divergence Equations<a class="headerlink" href="#Divergence-Equations" title="Permalink to this heading">#</a></h3>
+<h3>Divergence Equations<a class="headerlink" href="#Divergence-Equations" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 0 &amp;= \nabla_t \cdot \left(\epsilon_t \cdot \mathbf{E}_t\right) + \epsilon_{zz} \, \frac{\partial}{\partial z} E_z
@@ -501,7 +514,7 @@ document.write(`
 \end{align}\end{split}\]</div>
 </section>
 <section id="Transverse-Curl-Equations">
-<h3>Transverse Curl Equations<a class="headerlink" href="#Transverse-Curl-Equations" title="Permalink to this heading">#</a></h3>
+<h3>Transverse Curl Equations<a class="headerlink" href="#Transverse-Curl-Equations" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \mathbf{0} &amp;= \hat{\mathbf{z}} \times \left(\frac{\partial}{\partial z} \mathbf{E}_t - \nabla_t E_z\right) + i \, \omega \, \mu_0 \, \mathbf{H}_t
@@ -510,7 +523,7 @@ document.write(`
 \end{align}\end{split}\]</div>
 </section>
 <section id="Longitudinal-Curl-Equations">
-<h3>Longitudinal Curl Equations<a class="headerlink" href="#Longitudinal-Curl-Equations" title="Permalink to this heading">#</a></h3>
+<h3>Longitudinal Curl Equations<a class="headerlink" href="#Longitudinal-Curl-Equations" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \mathbf{0} &amp;= \nabla_t \times \mathbf{E}_t + i \, \omega \, \mu_0 \, H_z \hat{\mathbf{z}}
@@ -519,7 +532,7 @@ document.write(`
 \end{align}\end{split}\]</div>
 </section>
 <section id="Transverse-Wave-Equations">
-<h3>Transverse Wave Equations<a class="headerlink" href="#Transverse-Wave-Equations" title="Permalink to this heading">#</a></h3>
+<h3>Transverse Wave Equations<a class="headerlink" href="#Transverse-Wave-Equations" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 \mathbf{0} &amp;= -\frac{\partial^2}{\partial z^2} \mathbf{E}_t - \nabla^2_t \mathbf{E}_t + \nabla_t \left(\nabla \cdot \mathbf{E}\right) - \frac{\omega^2}{c^2} \left(\epsilon_t \cdot \mathbf{E}_t\right)
@@ -540,7 +553,7 @@ document.write(`
 </section>
 </section>
 <section id="Derivation-of-the-Forward-and-Backward-Propagation-Equations">
-<h2>Derivation of the Forward and Backward Propagation Equations<a class="headerlink" href="#Derivation-of-the-Forward-and-Backward-Propagation-Equations" title="Permalink to this heading">#</a></h2>
+<h2>Derivation of the Forward and Backward Propagation Equations<a class="headerlink" href="#Derivation-of-the-Forward-and-Backward-Propagation-Equations" title="Link to this heading">#</a></h2>
 <p>The propagation equations are derived by substituting the modal expansion into the curl equations, with the only additional assumption being that <span class="math notranslate nohighlight">\(\epsilon\)</span> is separable into transverse and longitudinal components.</p>
 <p>As seen in the following results, the evolution of the amplitude is driven by the following effects:</p>
 <div class="math notranslate nohighlight">
@@ -553,7 +566,7 @@ document.write(`
 \end{cases}
 \end{gather}\end{split}\]</div>
 <section id="Modal-Expansion-of-4c">
-<h3>Modal Expansion of 4c<a class="headerlink" href="#Modal-Expansion-of-4c" title="Permalink to this heading">#</a></h3>
+<h3>Modal Expansion of 4c<a class="headerlink" href="#Modal-Expansion-of-4c" title="Link to this heading">#</a></h3>
 <p>Inserting the expansion of eq-1 into eq-4c of Maxwell’s equations from <a class="reference internal" href="nonlinear_optics.html#Multi-Mode-Propagation-Equations"><span class="std std-ref">Nonlinear Optics</span></a> section yields:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -653,7 +666,7 @@ document.write(`
 \end{align}\end{split}\]</div>
 </section>
 <section id="Modal-Expansion-of-4d">
-<h3>Modal Expansion of 4d<a class="headerlink" href="#Modal-Expansion-of-4d" title="Permalink to this heading">#</a></h3>
+<h3>Modal Expansion of 4d<a class="headerlink" href="#Modal-Expansion-of-4d" title="Link to this heading">#</a></h3>
 <p>Inserting the expansion of eq-1 into eq-4d of Maxwell’s equations from the <a class="reference internal" href="nonlinear_optics.html#Multi-Mode-Propagation-Equations"><span class="std std-ref">Nonlinear Optics</span></a> section yields:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -815,7 +828,7 @@ document.write(`
 \end{align}\end{split}\]</div>
 </section>
 <section id="Forward-Mode-Propagation-Equation">
-<h3>Forward Mode Propagation Equation<a class="headerlink" href="#Forward-Mode-Propagation-Equation" title="Permalink to this heading">#</a></h3>
+<h3>Forward Mode Propagation Equation<a class="headerlink" href="#Forward-Mode-Propagation-Equation" title="Link to this heading">#</a></h3>
 <p>The forward mode propagation equation is found by adding the two curl relations (eq-4c + eq-4d) from the <a class="reference internal" href="nonlinear_optics.html#Multi-Mode-Propagation-Equations"><span class="std std-ref">Nonlinear Optics</span></a> section.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -870,7 +883,7 @@ document.write(`
 \end{align}\end{split}\]</div>
 </section>
 <section id="Backward-Mode-Propagation-Equation">
-<h3>Backward Mode Propagation Equation<a class="headerlink" href="#Backward-Mode-Propagation-Equation" title="Permalink to this heading">#</a></h3>
+<h3>Backward Mode Propagation Equation<a class="headerlink" href="#Backward-Mode-Propagation-Equation" title="Link to this heading">#</a></h3>
 <p>The backward mode propagation equation is found by subtracting the two curl relations (eq-4c - eq-4d) from the <a class="reference internal" href="nonlinear_optics.html#Multi-Mode-Propagation-Equations"><span class="std std-ref">Nonlinear Optics</span></a> section.</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -925,7 +938,7 @@ document.write(`
 </section>
 </section>
 <section id="Unit-Analysis-of-the-Effective-Nonlinear-Parameters">
-<h2>Unit Analysis of the Effective Nonlinear Parameters<a class="headerlink" href="#Unit-Analysis-of-the-Effective-Nonlinear-Parameters" title="Permalink to this heading">#</a></h2>
+<h2>Unit Analysis of the Effective Nonlinear Parameters<a class="headerlink" href="#Unit-Analysis-of-the-Effective-Nonlinear-Parameters" title="Link to this heading">#</a></h2>
 <p>The effective nonlinear parameter combines multiple effects attributable to the waveguide mode. Through unit analysis the effective nonlinearity may be written in terms of the effective mode area, refractive index, and nonlinear susceptibility. The steps taken to arrive at this result are only drawn out for the second-order nonlinearity but are extendible to the third-order through the same procedure.</p>
 <p>For mode <span class="math notranslate nohighlight">\(n\)</span> the second-order nonlinearity is written as the product of sums over modes <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(s\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -988,7 +1001,7 @@ g_{n q r s}^{\left(3\right)} = \frac{1}{2} \sqrt{\frac{{A_\text{eff}}_n}{{A_\tex
 \end{equation}\]</div>
 </section>
 <section id="Relationship-Between-the-Kerr-Parameter-and-the-Nonlinear-Susceptibility">
-<h2>Relationship Between the Kerr Parameter and the Nonlinear Susceptibility<a class="headerlink" href="#Relationship-Between-the-Kerr-Parameter-and-the-Nonlinear-Susceptibility" title="Permalink to this heading">#</a></h2>
+<h2>Relationship Between the Kerr Parameter and the Nonlinear Susceptibility<a class="headerlink" href="#Relationship-Between-the-Kerr-Parameter-and-the-Nonlinear-Susceptibility" title="Link to this heading">#</a></h2>
 <p>The nonlinear Kerr parameter <span class="math notranslate nohighlight">\(n_2\)</span> describes the change in refractive index due to the instantaneous, time-averaged optical power. For single-frequency, linearly-polarized light:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -1035,11 +1048,10 @@ P_{NL} = \epsilon_0 \, \chi^{\left(3\right)} \, E\left[t\right]^3 = \epsilon_0 \
               
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="nonlinear_optics.html"
@@ -1059,10 +1071,7 @@ P_{NL} = \epsilon_0 \, \chi^{\left(3\right)} \, E\left[t\right]^3 = \epsilon_0 \
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1071,11 +1080,14 @@ P_{NL} = \epsilon_0 \, \chi^{\left(3\right)} \, E\left[t\right]^3 = \epsilon_0 \
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Transverse-and-Longitudinal-Vector-Components">Transverse and Longitudinal Vector Components</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Curl">Curl</a></li>
@@ -1117,8 +1129,8 @@ P_{NL} = \epsilon_0 \, \chi^{\left(3\right)} \, E\left[t\right]^3 = \epsilon_0 \
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1126,17 +1138,19 @@ P_{NL} = \epsilon_0 \, \chi^{\left(3\right)} \, E\left[t\right]^3 = \epsilon_0 \
     <div class="footer-items__start">
       
         <div class="footer-item">
+
   <p class="copyright">
     
-      © Copyright 2023, PyNLO authors.
+      © Copyright 2024, PyNLO authors.
       <br/>
     
   </p>
 </div>
       
         <div class="footer-item">
+
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     <br/>
   </p>
 </div>
@@ -1144,10 +1158,12 @@ P_{NL} = \epsilon_0 \, \chi^{\left(3\right)} \, E\left[t\right]^3 = \epsilon_0 \
     </div>
   
   
+  
     <div class="footer-items__end">
       
-        <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
 </p></div>
       
     </div>

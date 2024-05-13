@@ -2,6 +2,7 @@ PyNLO: Python Nonlinear Optics
 ==============================
 This is a fork of the original PyNLO, a package for modeling the nonlinear interaction of light with matter. It started as an attempt to add 2nd-order nonlinearities to the pulse propagation model and grew into a large-scale rewrite. It is not yet at feature parity with the original, but it is getting close! Contributions and suggestions are welcome.
 
+Complete documentation for PyNLO can be found on the repository's GitHub Pages website.
 
 Introduction
 ------------
@@ -34,7 +35,7 @@ Test out your installation with the scripts in the examples folder.
 
 Contributing
 ------------
-Open a new issue or discussion on the GitHub repository to add suggestions for improvement, ask questions, or make other comments. Contributions to the documentation, tests, and examples are highly appreciated. New additions should be based off the `develop` branch.
+Open an issue or discussion on the GitHub repository to add suggestions for improvement, ask questions, or make other comments. Additions to the tests, examples, and documentation are highly appreciated. New contributions should be based off the `develop` branch.
 
 
 License

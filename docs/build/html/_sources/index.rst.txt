@@ -1,5 +1,5 @@
 .. include:: ../../README.rst
-   :end-line: 5
+   :end-line: 3
 
 Contents
 --------
