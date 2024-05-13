@@ -129,7 +129,7 @@ propagation length, the initial step size, local error, and the number of
 simulation steps we wish to record. We receive the output pulse and the
 propagations distance, pulse spectrum, and complex envelope at each record
 point. To view real-time simulation results (updated whenever the simulation
-reaches a record point), set the `plot` keyword to "frq", "wvl", or "time".
+reaches a record point), set the `plot` keyword to "time", "frq", or "wvl".
 
 """
 pulse_out, z, a_t, a_v = model.simulate(

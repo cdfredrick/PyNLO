@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../" >
 
   <head>
     <meta charset="utf-8" />
@@ -17,27 +17,28 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-    <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/sphinx_highlight.js"></script>
-    <script src="../../_static/design-tabs.js"></script>
+    <script src="../../_static/documentation_options.js?v=32c6448d"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/design-tabs.js?v=36754332"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pynlo/light';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -51,7 +52,15 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -86,15 +95,17 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
 <div class="bd-header__inner bd-page-width">
   <label class="sidebar-toggle primary-toggle" for="__primary">
     <span class="fa-solid fa-bars"></span>
   </label>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
+
   
 
 <a class="navbar-brand logo" href="../../index.html">
@@ -102,31 +113,26 @@
   
   
   
+  
     
     
       
     
     
-    <img src="../../_static/pynlo-light.svg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../_static/pynlo-dark.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../_static/pynlo-light.svg" class="logo__image only-light" alt="PyNLO 1.dev documentation - Home"/>
+    <script>document.write(`<img src="../../_static/pynlo-dark.svg" class="logo__image only-dark" alt="PyNLO 1.dev documentation - Home"/>`);</script>
   
   
 </a></div>
     
   </div>
   
-  
   <div class="col-lg-9 navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
-        <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+        <div class="navbar-item">
+<nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -159,23 +165,27 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -186,23 +196,31 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
       
       <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
         
@@ -213,13 +231,8 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          <div class="navbar-item">
+<nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -252,12 +265,13 @@ document.write(`
       <div class="sidebar-header-items__end">
         
           <div class="navbar-item">
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -290,8 +304,8 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumbs">
-  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="../../index.html" class="nav-link" aria-label="Home">
@@ -316,12 +330,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <h1>Source code for pynlo.light</h1><div class="highlight"><pre>
 <span></span><span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">Light in the time and frequency domains.</span>
+<span class="sd">Pulses of light in the time and frequency domains.</span>
 
 <span class="sd">Notes</span>
 <span class="sd">-----</span>
@@ -359,7 +373,9 @@ document.write(`
 
 <span class="c1"># %% Pulse</span>
 
-<div class="viewcode-block" id="Pulse"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.html#pynlo.light.Pulse">[docs]</a><span class="k">class</span> <span class="nc">Pulse</span><span class="p">(</span><span class="n">TFGrid</span><span class="p">):</span>
+<div class="viewcode-block" id="Pulse">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.html#pynlo.light.Pulse">[docs]</a>
+<span class="k">class</span> <span class="nc">Pulse</span><span class="p">(</span><span class="n">TFGrid</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    An optical pulse.</span>
 
@@ -430,7 +446,9 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">a_v</span> <span class="o">=</span> <span class="n">a_v</span>
 
     <span class="c1">#---- Class Methods</span>
-<div class="viewcode-block" id="Pulse.FromPowerSpectrum"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.FromPowerSpectrum.html#pynlo.light.Pulse.FromPowerSpectrum">[docs]</a>    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="Pulse.FromPowerSpectrum">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.FromPowerSpectrum.html#pynlo.light.Pulse.FromPowerSpectrum">[docs]</a>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">FromPowerSpectrum</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">p_v</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">v_min</span><span class="p">,</span> <span class="n">v_max</span><span class="p">,</span> <span class="n">v0</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">e_p</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">phi_v</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a pulse using existing spectral data.</span>
@@ -483,7 +501,10 @@ document.write(`
             <span class="bp">self</span><span class="o">.</span><span class="n">e_p</span> <span class="o">=</span> <span class="n">e_p</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Pulse.Gaussian"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.Gaussian.html#pynlo.light.Pulse.Gaussian">[docs]</a>    <span class="nd">@classmethod</span>
+
+<div class="viewcode-block" id="Pulse.Gaussian">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.Gaussian.html#pynlo.light.Pulse.Gaussian">[docs]</a>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">Gaussian</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">v_min</span><span class="p">,</span> <span class="n">v_max</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">e_p</span><span class="p">,</span> <span class="n">t_fwhm</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a Gaussian or super-Gaussian pulse.</span>
@@ -523,7 +544,10 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">e_p</span> <span class="o">=</span> <span class="n">e_p</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Pulse.Sech"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.Sech.html#pynlo.light.Pulse.Sech">[docs]</a>    <span class="nd">@classmethod</span>
+
+<div class="viewcode-block" id="Pulse.Sech">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.Sech.html#pynlo.light.Pulse.Sech">[docs]</a>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">Sech</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">v_min</span><span class="p">,</span> <span class="n">v_max</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">e_p</span><span class="p">,</span> <span class="n">t_fwhm</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a squared hyperbolic secant pulse.</span>
@@ -562,7 +586,10 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">e_p</span> <span class="o">=</span> <span class="n">e_p</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Pulse.Parabolic"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.Parabolic.html#pynlo.light.Pulse.Parabolic">[docs]</a>    <span class="nd">@classmethod</span>
+
+<div class="viewcode-block" id="Pulse.Parabolic">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.Parabolic.html#pynlo.light.Pulse.Parabolic">[docs]</a>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">Parabolic</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">v_min</span><span class="p">,</span> <span class="n">v_max</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">e_p</span><span class="p">,</span> <span class="n">t_fwhm</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a parabolic pulse.</span>
@@ -601,7 +628,10 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">e_p</span> <span class="o">=</span> <span class="n">e_p</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Pulse.Lorentzian"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.Lorentzian.html#pynlo.light.Pulse.Lorentzian">[docs]</a>    <span class="nd">@classmethod</span>
+
+<div class="viewcode-block" id="Pulse.Lorentzian">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.Lorentzian.html#pynlo.light.Pulse.Lorentzian">[docs]</a>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">Lorentzian</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">v_min</span><span class="p">,</span> <span class="n">v_max</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">e_p</span><span class="p">,</span> <span class="n">t_fwhm</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a squared Lorentzian pulse.</span>
@@ -639,7 +669,10 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">e_p</span> <span class="o">=</span> <span class="n">e_p</span>
         <span class="k">return</span> <span class="bp">self</span></div>
 
-<div class="viewcode-block" id="Pulse.CW"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.CW.html#pynlo.light.Pulse.CW">[docs]</a>    <span class="nd">@classmethod</span>
+
+<div class="viewcode-block" id="Pulse.CW">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.CW.html#pynlo.light.Pulse.CW">[docs]</a>
+    <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="nf">CW</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">n</span><span class="p">,</span> <span class="n">v_min</span><span class="p">,</span> <span class="n">v_max</span><span class="p">,</span> <span class="n">v0</span><span class="p">,</span> <span class="n">p_avg</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize a continuous wave.</span>
@@ -676,6 +709,7 @@ document.write(`
         <span class="n">e_p</span> <span class="o">=</span> <span class="n">p_avg</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">t_window</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">e_p</span> <span class="o">=</span> <span class="n">e_p</span>
         <span class="k">return</span> <span class="bp">self</span></div>
+
 
     <span class="c1">#---- Frequency Domain Properties</span>
     <span class="nd">@property</span>
@@ -786,7 +820,9 @@ document.write(`
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">t_ref</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">unwrap</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">phi_v</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">pi</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">v_grid</span><span class="p">,</span> <span class="n">edge_order</span><span class="o">=</span><span class="mi">2</span><span class="p">)[</span><span class="n">key</span><span class="p">]</span>
 
-<div class="viewcode-block" id="Pulse.v_width"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.v_width.html#pynlo.light.Pulse.v_width">[docs]</a>    <span class="k">def</span> <span class="nf">v_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Pulse.v_width">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.v_width.html#pynlo.light.Pulse.v_width">[docs]</a>
+    <span class="k">def</span> <span class="nf">v_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the width of the pulse in the frequency domain.</span>
 
@@ -842,6 +878,7 @@ document.write(`
         <span class="c1">#---- Construct PowerSpectralWidth</span>
         <span class="n">v_widths</span> <span class="o">=</span> <span class="n">PowerSpectralWidth</span><span class="p">(</span><span class="n">fwhm</span><span class="o">=</span><span class="n">v_fwhm</span><span class="p">,</span> <span class="n">rms</span><span class="o">=</span><span class="n">v_rms</span><span class="p">,</span> <span class="n">eqv</span><span class="o">=</span><span class="n">v_eqv</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v_widths</span></div>
+
 
     <span class="c1">#---- Time Domain Properties</span>
     <span class="nd">@ndproperty</span>
@@ -1028,7 +1065,9 @@ document.write(`
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_ra_t</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">**</span><span class="mi">2</span>
 
-<div class="viewcode-block" id="Pulse.t_width"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.t_width.html#pynlo.light.Pulse.t_width">[docs]</a>    <span class="k">def</span> <span class="nf">t_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Pulse.t_width">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.t_width.html#pynlo.light.Pulse.t_width">[docs]</a>
+    <span class="k">def</span> <span class="nf">t_width</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the width of the pulse in the time domain.</span>
 
@@ -1085,6 +1124,7 @@ document.write(`
         <span class="n">t_widths</span> <span class="o">=</span> <span class="n">PowerEnvelopeWidth</span><span class="p">(</span><span class="n">fwhm</span><span class="o">=</span><span class="n">t_fwhm</span><span class="p">,</span> <span class="n">rms</span><span class="o">=</span><span class="n">t_rms</span><span class="p">,</span> <span class="n">eqv</span><span class="o">=</span><span class="n">t_eqv</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">t_widths</span></div>
 
+
     <span class="c1">#---- Energy Properties</span>
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">e_p</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -1133,7 +1173,9 @@ document.write(`
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_v0_idx</span>
 
     <span class="c1">#---- Indirect Measures</span>
-<div class="viewcode-block" id="Pulse.autocorrelation"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.autocorrelation.html#pynlo.light.Pulse.autocorrelation">[docs]</a>    <span class="k">def</span> <span class="nf">autocorrelation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="viewcode-block" id="Pulse.autocorrelation">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.autocorrelation.html#pynlo.light.Pulse.autocorrelation">[docs]</a>
+    <span class="k">def</span> <span class="nf">autocorrelation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the intensity autocorrelation and related diagnostic</span>
 <span class="sd">        information.</span>
@@ -1198,7 +1240,10 @@ document.write(`
         <span class="n">ac</span> <span class="o">=</span> <span class="n">Autocorrelation</span><span class="p">(</span><span class="n">t_grid</span><span class="o">=</span><span class="n">t_grid</span><span class="p">,</span> <span class="n">ac_t</span><span class="o">=</span><span class="n">ac_t</span><span class="p">,</span> <span class="n">fwhm</span><span class="o">=</span><span class="n">t_fwhm</span><span class="p">,</span> <span class="n">rms</span><span class="o">=</span><span class="n">t_rms</span><span class="p">,</span> <span class="n">eqv</span><span class="o">=</span><span class="n">t_eqv</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ac</span></div>
 
-<div class="viewcode-block" id="Pulse.spectrogram"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.spectrogram.html#pynlo.light.Pulse.spectrogram">[docs]</a>    <span class="k">def</span> <span class="nf">spectrogram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_fwhm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">v_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t_range</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Pulse.spectrogram">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.spectrogram.html#pynlo.light.Pulse.spectrogram">[docs]</a>
+    <span class="k">def</span> <span class="nf">spectrogram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t_fwhm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">v_range</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">n_t</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">t_range</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Calculate the spectrogram of the pulse through convolution with a</span>
 <span class="sd">        Gaussian window.</span>
@@ -1319,31 +1364,34 @@ document.write(`
         <span class="n">spg</span> <span class="o">=</span> <span class="n">Spectrogram</span><span class="p">(</span><span class="n">v_grid</span><span class="o">=</span><span class="n">v_grid</span><span class="p">,</span> <span class="n">t_grid</span><span class="o">=</span><span class="n">delay_t_grid</span><span class="p">,</span> <span class="n">spg</span><span class="o">=</span><span class="n">p_spg</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">spg</span></div>
 
+
     <span class="c1">#---- Misc</span>
-<div class="viewcode-block" id="Pulse.copy"><a class="viewcode-back" href="../../api/pynlo.light.Pulse.copy.html#pynlo.light.Pulse.copy">[docs]</a>    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;A copy of the pulse.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div></div>
+<div class="viewcode-block" id="Pulse.copy">
+<a class="viewcode-back" href="../../api/pynlo.light.Pulse.copy.html#pynlo.light.Pulse.copy">[docs]</a>
+    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Copy the pulse.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span></div>
+</div>
+
 </pre></div>
 
                 </article>
               
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
@@ -1356,8 +1404,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -1365,17 +1413,19 @@ document.write(`
     <div class="footer-items__start">
       
         <div class="footer-item">
+
   <p class="copyright">
     
-      © Copyright 2023, PyNLO authors.
+      © Copyright 2024, PyNLO authors.
       <br/>
     
   </p>
 </div>
       
         <div class="footer-item">
+
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     <br/>
   </p>
 </div>
@@ -1383,10 +1433,12 @@ document.write(`
     </div>
   
   
+  
     <div class="footer-items__end">
       
-        <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
 </p></div>
       
     </div>

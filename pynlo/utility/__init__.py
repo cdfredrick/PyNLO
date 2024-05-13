@@ -826,7 +826,7 @@ class TFGrid():
             This parameter has no effect when the `alias` is 0.
         update : bool, optional
             A flag that determines whether to update the real-valued time and
-            frequency domain grids of the parent object with the results of
+            frequency domain grids of the parent object with the output of
             this method. The default is to return the calculated grids without
             updating the associated values stored in the class. This parameter
             is only valid when `alias` is greater than or equal to 1.
@@ -926,5 +926,5 @@ class TFGrid():
 
     #---- Misc
     def copy(self):
-        """A copy of the time and frequency grids."""
+        """Copy the time and frequency grids."""
         return copy.deepcopy(self)

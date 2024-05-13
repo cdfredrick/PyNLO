@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Models for simulating the propagation of light through optical modes.
+Models for simulating the propagation of light through optical media.
 
 """
 
@@ -214,11 +214,11 @@ class Model():
             ending points.
         plot : None or string, optional
             A flag that activates real-time visualization of the simulation.
-            The options are ``"frq"``, ``"time"``, or ``"wvl"``, corresponding
-            to the frequency, time, and wavelength domains. If set, the plot is
+            The options are ``"time"``, ``"frq"``, or ``"wvl"``, corresponding
+            to the time, frequency, and wavelength domains. If set, the plot is
             updated each time the simulation reaches one of the z positions
-            returned at the output. If ``None``, the default is to run the
-            simulation without real-time plotting.
+            returned at the output. If ``None``, the simulation is run without
+            real-time plotting.
 
         Returns
         -------
@@ -246,7 +246,7 @@ class Model():
             assert (n_records >= 2), "The output must include atleast 2 points."
             z_record = np.linspace(z_grid.min(), z_grid.max(), n_records)
             z_grid = np.unique(np.append(z_grid, z_record))
-        z_record = {z:idx for idx, z in enumerate(z_record)}
+        z_idx = {z:idx for idx, z in enumerate(z_record)}
 
         if self.mode.z_nonlinear.pol: # support subclasses with poling
             # always simulate up to the edge of a poled domain
@@ -257,12 +257,12 @@ class Model():
         pulse_out = self.pulse.copy()
 
         # Frequency Domain
-        a_v_record = np.empty((n_records,pulse_out.n), dtype=complex)
-        a_v_record[0,:] = pulse_out.a_v
+        a_v = np.empty((n_records, pulse_out.n), dtype=complex)
+        a_v[0,:] = pulse_out.a_v
 
         # Time Domain
-        a_t_record = np.empty((n_records,pulse_out.n), dtype=complex)
-        a_t_record[0,:] = pulse_out.a_t
+        a_t = np.empty((n_records, pulse_out.n), dtype=complex)
+        a_t[0,:] = pulse_out.a_t
 
         # Step Size
         if dz is None:
@@ -271,10 +271,9 @@ class Model():
 
         # Plotting
         if plot is not None:
-            assert (plot in ["frq", "time", "wvl"]), (
-                "Plot choice '{:}' is unrecognized").format(plot)
+            assert (plot in ["time","frq","wvl"]), f"'{plot=}' is unrecognized"
             # Setup Plots
-            self._setup_plots(plot, pulse_out, z)
+            self._setup_plots(plot, pulse_out, z_record)
 
         #---- Propagate
         k5_v = None
@@ -289,24 +288,21 @@ class Model():
                 cont=cont)
 
             # Record
-            if z in z_record:
-                idx = z_record[z]
-                a_t_record[idx,:] = pulse_out.a_t
-                a_v_record[idx,:] = pulse_out.a_v
+            if z in z_idx:
+                idx = z_idx[z]
+                a_t[idx,:] = pulse_out.a_t
+                a_v[idx,:] = pulse_out.a_v
 
                 # Plot
                 if plot is not None:
-                    # Update Plots
-                    self._update_plots(plot, pulse_out, z)
-
+                    # Advance Animation
+                    self._advance_plots(plot, pulse_out, z)
                     if z==z_grid[-1]:
-                        # End animation with the last step
-                        for artist in self._artists:
-                            artist.set_animated(False)
+                        # End Animation
+                        self._finish_plots(plot, pulse_out, a_v, z_idx)
 
-            sim_res = SimulationResult(
-                pulse=pulse_out, z=np.fromiter(z_record.keys(), dtype=float),
-                a_t=a_t_record, a_v=a_v_record)
+        sim_res = SimulationResult(
+            pulse=pulse_out, z=z_record, a_t=a_t, a_v=a_v)
         return sim_res
 
     def propagate(self, a_v, z, z_stop, dz, local_error, k5_v=None, cont=False):
@@ -540,7 +536,7 @@ class Model():
             update those that are z dependent.
 
         """
-        #---- Gain self.mode.z_linear
+        #---- Gain
         if self.mode.z_linear.alpha or force_update:
             self.alpha = self.mode.alpha
 
@@ -552,10 +548,10 @@ class Model():
             self.beta_cm = self.beta - beta1_v0*self.w_grid
 
         #---- Propagation Constant
-        if self.alpha is not None:
-            self.kappa_cm = (self.beta_cm - self.alpha**2/(8*self.beta)) + 0.5j*self.alpha
-        else:
+        if self.alpha is None:
             self.kappa_cm = self.beta_cm
+        else:
+            self.kappa_cm = self.beta_cm + 0.5j*self.alpha
 
     def update_nonlinearity(self, force_update=False):
         """
@@ -588,205 +584,224 @@ class Model():
             warnings.warn("Poling is not implemented in this model", stacklevel=2)
 
     #---- Plotting
-    def _setup_plots(self, plot, pulse_out, z):
+    def _setup_plots(self, plot, pulse, z_grid):
         """
-        Initialize a figure for real-time visualization of a simulation.
+        Initialize a figure for real-time visualization.
 
         Parameters
         ----------
         plot : string
-            The type of plot. The options are "frq", "time", or "wvl" and
-            correspond to the frequency, time, and wavelength domains.
-        pulse_out : :py:class:`~pynlo.light.Pulse`
-            The pulse to be plotted.
-        z : float
-            The z position in the mode.
+            The plot type. The options are "time", "frq", or "wvl" and
+            correspond to the time, frequency, and wavelength domains.
+        pulse : :py:class:`~pynlo.light.Pulse`
+            The initial pulse.
+        z_grid : array_like
+            The simulated z positions.
 
         """
-        # Import if needed
-        try:
-            self._plt
-        except AttributeError:
-            import matplotlib.pyplot as plt
-            self._plt = plt
+        from matplotlib import pyplot as plt, widgets
+        self._artists = []
 
         #---- Figure and Axes
-        self._rt_fig = self._plt.figure("Real-Time Simulation", clear=True)
-        self._ax_0 = self._plt.subplot2grid((2,1), (0,0), fig=self._rt_fig)
-        self._ax_1 = self._plt.subplot2grid((2,1), (1,0), sharex=self._ax_0, fig=self._rt_fig)
-        self._rt_fig.show()
+        self._fig = fig = plt.figure("Real-Time Simulation", clear=True)
+        assert fig.canvas.supports_blit==True, (
+            "The configured matplotlib backend must support blit.")
+        ax0 = fig.add_subplot(2, 1, 1)
+        ax1 = fig.add_subplot(2, 1, 2, sharex=ax0)
 
         #---- Time Domain
         if plot=="time":
             # Lines
-            self._ln_pwr, = self._ax_0.semilogy(
+            power, = ax0.semilogy(
                 1e12*self.t_grid,
-                pulse_out.p_t,
+                pulse.p_t,
                 '.',
-                markersize=1,
-                animated=True)
-            self._ln_phs, = self._ax_1.plot(
+                markersize=1)
+            phase, = ax1.plot(
                 1e12*self.t_grid,
-                1e-12*pulse_out.vg_t,
+                1e-12*pulse.vg_t,
                 '.',
-                markersize=1,
-                animated=True)
+                markersize=1)
 
             # Labels
-            self._ax_0.set_title("Instantaneous Power")
-            self._ax_0.set_ylabel("J / s")
-            self._ax_0.set_xlabel("Delay (ps)")
-            self._ax_1.set_ylabel("Frequency (THz)")
-            self._ax_1.set_xlabel("Delay (ps)")
+            ax0.set_title("Instantaneous Power")
+            ax0.set_ylabel("W")
+            ax0.set_xlabel("Delay (ps)")
+            ax1.set_ylabel("Frequency (THz)")
+            ax1.set_xlabel("Delay (ps)")
 
             # Y Boundaries
-            self._ax_0.set_ylim(
-                top=max(self._ln_pwr.get_ydata())*1e1,
-                bottom=max(self._ln_pwr.get_ydata())*1e-9)
-            excess = 0.05*(self.v_grid.max()-self.v_grid.min())
-            self._ax_1.set_ylim(
-                top=1e-12*(self.v_grid.max() + excess),
-                bottom=1e-12*(self.v_grid.min() - excess))
+            margin = 0.05*(self.v_grid.max()-self.v_grid.min())
+            ax1.set_ylim(
+                top=1e-12*(self.v_grid.max() + margin),
+                bottom=1e-12*(self.v_grid.min() - margin))
 
         #---- Frequency Domain
         if plot=="frq":
             # Lines
-            self._ln_pwr, = self._ax_0.semilogy(
+            power, = ax0.semilogy(
                 1e-12*self.v_grid,
-                pulse_out.p_v,
+                1e12 * pulse.p_v,
                 '.',
-                markersize=1,
-                animated=True)
-            self._ln_phs, = self._ax_1.plot(
+                markersize=1)
+            phase, = ax1.plot(
                 1e-12*self.v_grid,
-                1e12*pulse_out.tg_v,
+                1e12*pulse.tg_v,
                 '.',
-                markersize=1,
-                animated=True)
+                markersize=1)
 
             # Labels
-            self._ax_0.set_title("Power Spectrum")
-            self._ax_0.set_ylabel("J / Hz")
-            self._ax_0.set_xlabel("Frequency (THz)")
-            self._ax_1.set_ylabel("Delay (ps)")
-            self._ax_1.set_xlabel("Frequency (THz)")
+            ax0.set_title("Power Spectrum")
+            ax0.set_ylabel("J / THz")
+            ax0.set_xlabel("Frequency (THz)")
+            ax1.set_ylabel("Delay (ps)")
+            ax1.set_xlabel("Frequency (THz)")
 
             # Y Boundaries
-            self._ax_0.set_ylim(
-                top=max(self._ln_pwr.get_ydata())*1e1,
-                bottom=max(self._ln_pwr.get_ydata())*1e-9)
-            excess = 0.05*(self.t_grid.max()-self.t_grid.min())
-            self._ax_1.set_ylim(
-                top=1e12*(self.t_grid.max() + excess),
-                bottom=1e12*(self.t_grid.min() - excess))
+            margin = 0.05*(self.t_grid.max()-self.t_grid.min())
+            ax1.set_ylim(
+                top=1e12*(self.t_grid.max() + margin),
+                bottom=1e12*(self.t_grid.min() - margin))
 
         #---- Wavelength Domain
         if plot=="wvl":
             # Lines
-            self._ln_pwr, = self._ax_0.semilogy(
+            power, = ax0.semilogy(
                 1e9*self.l_grid,
-                self.dv_dl * pulse_out.p_v,
+                1e-9*self.dv_dl * pulse.p_v,
                 '.',
-                markersize=1,
-                animated=True)
-            self._ln_phs, = self._ax_1.plot(
+                markersize=1)
+            phase, = ax1.plot(
                 1e9*self.l_grid,
-                1e12*pulse_out.tg_v,
+                1e12*pulse.tg_v,
                 '.',
-                markersize=1,
-                animated=True)
+                markersize=1)
 
             # Labels
-            self._ax_0.set_title("Power Spectrum")
-            self._ax_0.set_ylabel("J / m")
-            self._ax_0.set_xlabel("Wavelength (nm)")
-            self._ax_1.set_ylabel("Delay (ps)")
-            self._ax_1.set_xlabel("Wavelength (nm)")
+            ax0.set_title("Power Spectrum")
+            ax0.set_ylabel("J / nm")
+            ax0.set_xlabel("Wavelength (nm)")
+            ax1.set_ylabel("Delay (ps)")
+            ax1.set_xlabel("Wavelength (nm)")
 
             # Y Boundaries
-            self._ax_0.set_ylim(
-                top=max(self._ln_pwr.get_ydata())*1e1,
-                bottom=max(self._ln_pwr.get_ydata())*1e-9)
-            excess = 0.05*(self.t_grid.max()-self.t_grid.min())
-            self._ax_1.set_ylim(
-                top=1e12*(self.t_grid.max() + excess),
-                bottom=1e12*(self.t_grid.min() - excess))
-
-        #---- Z Label
-        #TODO: change to plt.barh, progress bar
-        self._z_label = self._ax_1.legend(
-            [],[],
-            title='z = {:.6g} m'.format(z),
-            loc=9,
-            labelspacing=0,
-            framealpha=1,
-            shadow=False)
-        self._z_label.set_animated(True)
+            margin = 0.05*(self.t_grid.max()-self.t_grid.min())
+            ax1.set_ylim(
+                top=1e12*(self.t_grid.max() + margin),
+                bottom=1e12*(self.t_grid.min() - margin))
+        ax0.set_ylim(
+            top=max(power.get_ydata())*1e1,
+            bottom=max(power.get_ydata())*1e-9)
+        self._lines = (power, phase)
+        self._artists.extend(self._lines)
 
         #---- Layout
-        self._rt_fig.tight_layout()
-        self._rt_fig.canvas.draw()
+        fig.tight_layout()
+        fig.subplots_adjust(bottom=0.175)
 
-        #---- Blit
-        self._artists = (self._ln_pwr, self._ln_phs, self._z_label)
+        #---- Z
+        axs = fig.add_axes([0.15, 0.03, 0.66, 0.03])
+        self._slider = z = widgets.Slider(
+            axs, "z", min(z_grid), max(z_grid), valstep=z_grid,
+            initcolor="none", valfmt="%11.3e m")
+        z.drawon = z.eventson = False
+        self._artists.extend((z.poly, z._handle, z.valtext))
 
-        self._rt_fig_bkg_0 = self._rt_fig.canvas.copy_from_bbox(self._ax_0.bbox)
-        self._rt_fig_bkg_1 = self._rt_fig.canvas.copy_from_bbox(self._ax_1.bbox)
+        #---- Blit Prep
+        for artist in self._artists:
+            artist.set_animated(True)
+        fig.show()
+        fig.canvas.draw()
+        self._bkg = fig.canvas.copy_from_bbox(fig.bbox)
 
-    def _update_plots(self, plot, pulse_out, z):
+    def _update_plots(self, plot, pulse):
         """
-        Update the figure used for real-time visualization of a simulation.
+        Update the plot with new data.
 
         Parameters
         ----------
         plot : string
-            The type of plot. The options are "frq", "time", or "wvl" and
-            correspond to the frequency, time, and wavelength domains.
-        pulse_out : :py:class:`~pynlo.light.Pulse`
-            The pulse to be plotted.
+            The plot type. The options are "time", "frq", or "wvl" and
+            correspond to the time, frequency, and wavelength domains.
+        pulse : :py:class:`~pynlo.light.Pulse`
+            The new pulse.
+
+        """
+        #---- Time Domain
+        if plot=="time":
+            self._lines[0].set_ydata(pulse.p_t)
+            self._lines[1].set_ydata(1e-12*pulse.vg_t)
+
+        #---- Frequency Domain
+        if plot=="frq":
+            self._lines[0].set_ydata(1e12*pulse.p_v)
+            self._lines[1].set_ydata(1e12*pulse.tg_v)
+
+        #---- Wavelength Domain
+        if plot=="wvl":
+            self._lines[0].set_ydata(1e-9*self.dv_dl * pulse.p_v)
+            self._lines[1].set_ydata(1e12*pulse.tg_v)
+
+    def _advance_plots(self, plot, pulse, z):
+        """
+        Draw the latest simulation results.
+
+        Parameters
+        ----------
+        plot : string
+            The plot type. The options are "time", "frq", or "wvl" and
+            correspond to the time, frequency, and wavelength domains.
+        pulse : :py:class:`~pynlo.light.Pulse`
+            The new pulse.
         z : float
             The z position in the mode.
 
         """
         #---- Restore Background
-        self._rt_fig.canvas.restore_region(self._rt_fig_bkg_0)
-        self._rt_fig.canvas.restore_region(self._rt_fig_bkg_1)
+        self._fig.canvas.restore_region(self._bkg)
 
         #---- Update Data
-        if plot=="time":
-            self._ln_pwr.set_data(
-                1e12*self.t_grid,
-                pulse_out.p_t)
-            self._ln_phs.set_data(
-                1e12*self.t_grid,
-                1e-12*pulse_out.vg_t)
+        self._update_plots(plot, pulse)
 
-        if plot=="frq":
-            self._ln_pwr.set_data(
-                1e-12*self.v_grid,
-                pulse_out.p_v)
-            self._ln_phs.set_data(
-                1e-12*self.v_grid,
-                1e12*pulse_out.tg_v)
-
-        if plot=="wvl":
-            self._ln_pwr.set_data(
-                1e9*self.l_grid,
-                self.dv_dl * pulse_out.p_v)
-            self._ln_phs.set_data(
-                1e9*self.l_grid,
-                1e12*pulse_out.tg_v)
-
-        #---- Update Z Label
-        self._z_label.set_title('z = {:.6g} m'.format(z))
+        #---- Update Z
+        self._slider.set_val(z)
 
         #---- Blit
         for artist in self._artists:
-            artist.axes.draw_artist(artist)
+            self._fig.draw_artist(artist)
 
-        self._rt_fig.canvas.blit(self._ax_0.bbox)
-        self._rt_fig.canvas.blit(self._ax_1.bbox)
-        self._rt_fig.canvas.flush_events()
+        self._fig.canvas.blit(self._fig.bbox)
+        self._fig.canvas.flush_events()
+
+    def _finish_plots(self, plot, pulse, a_v, z_idx):
+        """
+        Prepare the figure for user interaction.
+
+        Parameters
+        ----------
+        plot : string
+            The plot type. The options are "time", "frq", or "wvl" and
+            correspond to the time, frequency, and wavelength domains.
+        pulse : :py:class:`~pynlo.light.Pulse`
+            The output pulse.
+        a_v : array_like
+            The simulated spectra.
+        z_idx : dict
+            The simulated z positions.
+
+        """
+        # Remove Animation Logic
+        for artist in self._artists:
+            artist.set_animated(False)
+
+        # Enable Slider
+        pulse = pulse.copy()
+        def update(z):
+            idx = z_idx[z]
+            pulse.a_v = a_v[idx]
+            self._update_plots(plot, pulse)
+        self._slider.on_changed(update)
+        self._slider.drawon = self._slider.eventson = True
 
 
 class NLSE(Model):
@@ -794,9 +809,8 @@ class NLSE(Model):
     A model for simulating single-mode pulse propagation with the nonlinear
     Schrödinger equation (NLSE).
 
-    This model only implements the 3rd-order Kerr and Raman effects. In
-    general, it does not support 3rd-order sum- and difference-frequency
-    generation.
+    This model only implements the 3rd-order Kerr and Raman effects. It does
+    not in general support 3rd-order sum- and difference-frequency generation.
 
     Parameters
     ----------
@@ -889,8 +903,8 @@ class NLSE(Model):
         """
         The action of the nonlinear operator on the given pulse spectrum.
 
-        This model only implements the 3rd-order Kerr and Raman effects. In
-        general, it does not support 3rd-order sum- and difference-frequency
+        This model only implements the 3rd-order Kerr and Raman effects. It
+        does not in general support 3rd-order sum- and difference-frequency
         generation.
 
         Parameters
@@ -936,7 +950,8 @@ class UPE(Model):
     A model for simulating single-mode pulse propagation with the
     unidirectional propagation equation (UPE).
 
-    This model simultaneously implements 2nd- and 3rd-order nonlinearities.
+    This model simultaneously implements both 2nd- and 3rd-order
+    nonlinearities.
 
     Parameters
     ----------
@@ -962,12 +977,12 @@ class UPE(Model):
     By default, `Pulse` objects only initialize the minimum number of points
     necessary to represent the real-valued time-domain pulse (i.e., 1x). While
     this minimizes the numerical complexity of individual nonlinear operations,
-    aliasing introduces systematic error. More points can be generated for a
+    aliasing can introduce systematic error. More points can be generated for a
     specific `Pulse` object during initialization, or through its
     :py:meth:`~pynlo.utility.TFGrid.rtf_grids` method, by setting the `alias`
     parameter greater than 1. Anti-aliasing is not always necessary as phase
-    matching can suppress aliased interactions, but it is best practice to
-    verify that behavior on a case-by-case basis.
+    matching can suppress the aliased interactions, but it is best practice to
+    verify such behavior on a case-by-case basis.
 
     """
     def __init__(self, pulse, mode):

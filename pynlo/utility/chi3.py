@@ -138,9 +138,14 @@ def raman(n, dt, r_weights, b_weights=None, analytic=True):
     Calculate the frequency-domain Raman and instantaneous nonlinear response
     function.
 
-    This calculates the normalized Raman response using approximated formulas
-    in the time domain. The total Raman fraction from the resonant and boson
-    contributions should be less than 1.
+    The equations used are the approximated formulations as summarized in
+    section 2.3.3 of Agrawal's Nonlinear Fiber Optics [1]_. More accurate
+    simulations may be obtainable using digitized experimental measurements,
+    such as those shown in figure 2.2 of [1]_. The coefficients listed in
+    Agrawal for silica-based fibers are as follows::
+
+        r_weights = [0.245*(1-0.21), 12.2e-15, 32e-15] # resonant contribution
+        b_weights = [0.245*0.21, 96e-15] # boson contribution
 
     Parameters
     ----------
@@ -179,23 +184,14 @@ def raman(n, dt, r_weights, b_weights=None, analytic=True):
 
     Notes
     -----
-    The equations used are the approximated formulations as summarized in
-    section 2.3.3 of Agrawal's Nonlinear Fiber Optics [1]_. More accurate
-    simulations may be obtainable using digitized experimental measurements,
-    such as those shown in figure 2.2 of [1]_. The coefficients listed in
-    Agrawal for silica-based fibers are as follows::
-
-        r_weights = [0.245*(1-0.21), 12.2e-15, 32e-15] # resonant contribution
-        b_weights = [0.245*0.21, 96e-15] # boson contribution
-
     For the carrier-resolved or real-valued representation, an additional
     factor of 3/2 is necessary to properly normalize the Raman response. The
     formulas used in this method have been fit to the analytic representation,
     which is normalized assuming that all three self-phase modulation pathways
     fold through baseband. In the real-valued domain however, only two pass
     through baseband. The third pathway is through the second harmonic. Thus,
-    in the real-valued representation the Raman response must be normalized to
-    produce the same nonlinear response against 2/3 the spectral amplitude.
+    in the real-valued representation the Raman response must be renormalized
+    to produce the same nonlinear response against 2/3 the spectral amplitude.
 
     References
     ----------

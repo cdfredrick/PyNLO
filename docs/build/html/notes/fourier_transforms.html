@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../" >
 
   <head>
     <meta charset="utf-8" />
@@ -18,27 +18,28 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-    <script src="../_static/doctools.js"></script>
-    <script src="../_static/sphinx_highlight.js"></script>
-    <script src="../_static/design-tabs.js"></script>
+    <script src="../_static/documentation_options.js?v=32c6448d"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/design-tabs.js?v=36754332"></script>
     <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
     <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -56,7 +57,15 @@
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -91,15 +100,17 @@
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
 <div class="bd-header__inner bd-page-width">
   <label class="sidebar-toggle primary-toggle" for="__primary">
     <span class="fa-solid fa-bars"></span>
   </label>
   
-  <div class="navbar-header-items__start">
+  
+  <div class="col-lg-3 navbar-header-items__start">
     
       <div class="navbar-item">
+
   
 
 <a class="navbar-brand logo" href="../index.html">
@@ -107,31 +118,26 @@
   
   
   
+  
     
     
       
     
     
-    <img src="../_static/pynlo-light.svg" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../_static/pynlo-dark.svg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../_static/pynlo-light.svg" class="logo__image only-light" alt="PyNLO 1.dev documentation - Home"/>
+    <script>document.write(`<img src="../_static/pynlo-dark.svg" class="logo__image only-dark" alt="PyNLO 1.dev documentation - Home"/>`);</script>
   
   
 </a></div>
     
   </div>
   
-  
   <div class="col-lg-9 navbar-header-items">
     
     <div class="me-auto navbar-header-items__center">
       
-        <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+        <div class="navbar-item">
+<nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -164,23 +170,27 @@
       
         <div class="navbar-item navbar-persistent--container">
           
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
         </div>
       
       
         <div class="navbar-item">
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -191,27 +201,33 @@ document.write(`
   
   
     <div class="navbar-persistent--mobile">
-<script>
-document.write(`
-  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass"></i>
-  </button>
-`);
-</script>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
     </div>
   
 
   
-    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+    <label class="sidebar-toggle secondary-toggle" for="__secondary" tabindex="0">
       <span class="fa-solid fa-outdent"></span>
     </label>
   
 </div>
 
-    </nav>
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -222,13 +238,8 @@ document.write(`
     
       <div class="sidebar-header-items__center">
         
-          <div class="navbar-item"><nav class="navbar-nav">
-  <p class="sidebar-header-items__title"
-     role="heading"
-     aria-level="1"
-     aria-label="Site Navigation">
-    Site Navigation
-  </p>
+          <div class="navbar-item">
+<nav class="navbar-nav">
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
@@ -261,12 +272,13 @@ document.write(`
       <div class="sidebar-header-items__end">
         
           <div class="navbar-item">
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script></div>
@@ -276,7 +288,8 @@ document.write(`
   </div>
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
-        <div class="sidebar-primary-item"><nav class="bd-docs-nav bd-links"
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
   <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
@@ -313,8 +326,8 @@ document.write(`
 
 
 
-<nav aria-label="Breadcrumbs">
-  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+<nav aria-label="Breadcrumb">
+  <ul class="bd-breadcrumbs">
     
     <li class="breadcrumb-item breadcrumb-home">
       <a href="../index.html" class="nav-link" aria-label="Home">
@@ -339,14 +352,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section id="Fourier-Transforms">
-<h1>Fourier Transforms<a class="headerlink" href="#Fourier-Transforms" title="Permalink to this heading">#</a></h1>
+<h1>Fourier Transforms<a class="headerlink" href="#Fourier-Transforms" title="Link to this heading">#</a></h1>
 <section id="The-Fourier-Family">
-<h2>The Fourier Family<a class="headerlink" href="#The-Fourier-Family" title="Permalink to this heading">#</a></h2>
+<h2>The Fourier Family<a class="headerlink" href="#The-Fourier-Family" title="Link to this heading">#</a></h2>
 <section id="Fourier-Series">
-<h3>Fourier Series<a class="headerlink" href="#Fourier-Series" title="Permalink to this heading">#</a></h3>
+<h3>Fourier Series<a class="headerlink" href="#Fourier-Series" title="Link to this heading">#</a></h3>
 <p>Due to the orthogonality of sine and cosine functions, <a class="reference external" href="https://mathworld.wolfram.com/FourierSeries.html">Fourier series</a> can be used to represent arbitrary periodic functions through spectral decomposition:</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -375,7 +388,7 @@ d\nu = 1/\Delta t,
 <span class="math notranslate nohighlight">\(\exp\left[+ i \left(2 \pi \, t \, \nu \right) \right]\)</span>.</p>
 </section>
 <section id="Discrete-Fourier-Transforms">
-<h3>Discrete Fourier Transforms<a class="headerlink" href="#Discrete-Fourier-Transforms" title="Permalink to this heading">#</a></h3>
+<h3>Discrete Fourier Transforms<a class="headerlink" href="#Discrete-Fourier-Transforms" title="Link to this heading">#</a></h3>
 <p>An important numeric simplification arises due to the <a class="reference external" href="https://mathworld.wolfram.com/SamplingTheorem.html">sampling theorem</a>. A <strong>continuous, periodic</strong> signal can be discretely sampled <em>without any loss of information</em> if the sample rate is more than twice the highest frequency in the signal. When this condition holds, the above relationships can be cast as <a class="reference external" href="https://mathworld.wolfram.com/DiscreteFourierTransform.html">discrete Fourier transforms</a> (DFTs):</p>
 <div class="math notranslate nohighlight">
 \[\begin{align}
@@ -407,7 +420,7 @@ information at the positive Nyquist frequency is aliased down to the negative. W
 function. For this case, due to the complex-conjugate symmetry inherent to the Fourier transform of a real function the positive and negative Nyquist terms are real and equal, so a DFT sampled at the Nyquist frequency will return two times the amplitude of the actual Nyquist components. The full real-valued function can then be reconstructed by taking half of the amplitude of the negative Nyquist component and placing it in a frequency bin at the positive Nyquist component.</p>
 </section>
 <section id="Continuous-Fourier-Transforms">
-<h3>Continuous Fourier Transforms<a class="headerlink" href="#Continuous-Fourier-Transforms" title="Permalink to this heading">#</a></h3>
+<h3>Continuous Fourier Transforms<a class="headerlink" href="#Continuous-Fourier-Transforms" title="Link to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://mathworld.wolfram.com/FourierTransform.html">continuous Fourier transform</a> (FT) is derived by extending the Fourier series’ time window to infinity:</p>
 <div class="math notranslate nohighlight">
 \[\begin{gather}
@@ -423,7 +436,7 @@ F\!\left[\nu\right] &amp;= \int_{-\infty}^{\infty} f\!\left[t\right] e^{-i \left
 </section>
 </section>
 <section id="Useful-Relationships">
-<h2>Useful Relationships<a class="headerlink" href="#Useful-Relationships" title="Permalink to this heading">#</a></h2>
+<h2>Useful Relationships<a class="headerlink" href="#Useful-Relationships" title="Link to this heading">#</a></h2>
 <p>The relationships of this section are true for both discrete and continuous Fourier transforms. The following generalized notation will be used going forward:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -435,7 +448,7 @@ F\!\left[\nu\right] &amp;= \int_{-\infty}^{\infty} f\!\left[t\right] e^{-i \left
 \end{align}\end{split}\]</div>
 <p>For the discrete case, the summation is assumed to be across all points up to the Nyquist time or frequency.</p>
 <section id="Linearity">
-<h3>Linearity<a class="headerlink" href="#Linearity" title="Permalink to this heading">#</a></h3>
+<h3>Linearity<a class="headerlink" href="#Linearity" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 a \, f\!\left[t\right] + b \, g\!\left[t\right] &amp;= \mathscr{F}^{-1}\!\Bigl[ a \, F\!\left[\nu\right] + b \, G\!\left[\nu\right] \Bigr]
@@ -444,7 +457,7 @@ a \, F\!\left[\nu\right] + b \, G\!\left[\nu\right] &amp;= \mathscr{F}\!\Bigl[ a
 \end{align}\]</div>
 </section>
 <section id="Shifting-and-Scaling">
-<h3>Shifting and Scaling<a class="headerlink" href="#Shifting-and-Scaling" title="Permalink to this heading">#</a></h3>
+<h3>Shifting and Scaling<a class="headerlink" href="#Shifting-and-Scaling" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
 f\!\left[t-t_0\right] &amp;= \mathscr{F}^{-1}\!\left[F\!\left[\nu\right] e^{-i \left(2 \pi \, t_0 \, \nu\right)}\right]
@@ -457,7 +470,7 @@ F\!\left[a \, \nu \right] &amp;= \mathscr{F}\!\left[\frac{1}{\left\vert a \right
 \end{align}\end{split}\]</div>
 </section>
 <section id="Derivatives-and-Integrals">
-<h3>Derivatives and Integrals<a class="headerlink" href="#Derivatives-and-Integrals" title="Permalink to this heading">#</a></h3>
+<h3>Derivatives and Integrals<a class="headerlink" href="#Derivatives-and-Integrals" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{align}
 \frac{d^{n}}{dt^{n}} f\!\left[t\right] &amp;= \mathscr{F}^{-1}\!\Bigl[ \left(+i \, 2 \pi \, \nu\right)^{n} F\!\left[\nu\right] \Bigr]
@@ -467,7 +480,7 @@ F\!\left[a \, \nu \right] &amp;= \mathscr{F}\!\left[\frac{1}{\left\vert a \right
 <p>Positive integer values of <span class="math notranslate nohighlight">\(n\)</span> represent derivatives and negative integers represent integrals (antiderivatives). All other values of <span class="math notranslate nohighlight">\(n\)</span> represent derivatives and integrals in the realm of fractional calculus.</p>
 </section>
 <section id="Convolutions">
-<h3>Convolutions<a class="headerlink" href="#Convolutions" title="Permalink to this heading">#</a></h3>
+<h3>Convolutions<a class="headerlink" href="#Convolutions" title="Link to this heading">#</a></h3>
 <p>Convolution is defined as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -485,7 +498,7 @@ F\!\left[a \, \nu \right] &amp;= \mathscr{F}\!\left[\frac{1}{\left\vert a \right
 <p>The support of a convolution is the sum of the support of its parts. In order to avoid aliasing when on a discrete grid, the sum of the supports of the functions to be convolved should be less than the range of the gridded time or frequency domains.</p>
 </section>
 <section id="Cross-Correlation">
-<h3>Cross-Correlation<a class="headerlink" href="#Cross-Correlation" title="Permalink to this heading">#</a></h3>
+<h3>Cross-Correlation<a class="headerlink" href="#Cross-Correlation" title="Link to this heading">#</a></h3>
 <p>Cross-correlation is defined as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -503,7 +516,7 @@ F\!\left[a \, \nu \right] &amp;= \mathscr{F}\!\left[\frac{1}{\left\vert a \right
 \end{align}\]</div>
 </section>
 <section id="Normalization">
-<h3>Normalization<a class="headerlink" href="#Normalization" title="Permalink to this heading">#</a></h3>
+<h3>Normalization<a class="headerlink" href="#Normalization" title="Link to this heading">#</a></h3>
 <div class="math notranslate nohighlight">
 \[\begin{gather}
 E = \int_{-\infty}^{\infty} \Bigl\vert f\!\left[t\right] \Bigr\vert^{2} dt = \int_{-\infty}^{\infty} \Bigl\vert F\!\left[\nu\right] \Bigr\vert^{2} d\nu
@@ -511,7 +524,7 @@ E = \int_{-\infty}^{\infty} \Bigl\vert f\!\left[t\right] \Bigr\vert^{2} dt = \in
 <p>This follows from <a class="reference external" href="https://mathworld.wolfram.com/ParsevalsTheorem.html">Parseval’s Theorem</a> for Fourier series, or equivalently, from <a class="reference external" href="https://mathworld.wolfram.com/PlancherelsTheorem.html">Plancherel’s Theorem</a> for continuous Fourier transforms. In optics, these expressions yield the total energy of a pulse or spectrum.</p>
 </section>
 <section id="Real-Functions-and-the-Analytic-Representation">
-<h3>Real Functions and the Analytic Representation<a class="headerlink" href="#Real-Functions-and-the-Analytic-Representation" title="Permalink to this heading">#</a></h3>
+<h3>Real Functions and the Analytic Representation<a class="headerlink" href="#Real-Functions-and-the-Analytic-Representation" title="Link to this heading">#</a></h3>
 <p>If <span class="math notranslate nohighlight">\(f\!\left[t\right]\)</span> is real, from the even and odd symmetry of the cosine and sine functions (<span class="math notranslate nohighlight">\(e^{i \omega t} = \cos\left[\omega t\right] + i \sin\left[\omega t\right]\)</span>), the real and imaginary components of <span class="math notranslate nohighlight">\(F\!\left[\nu\right]\)</span> have even and odd symmetry about the origin, i.e. <span class="math notranslate nohighlight">\(F\!\left[-\nu\right] = \overline{F}\!\left[\nu\right]\)</span>. This symmetry can be used to simplify the representation of real functions as all information can be reconstructed from either the
 positive or negative half of the spectrum. One possible simplification takes advantage of the normalization relationship:</p>
 <div class="math notranslate nohighlight">
@@ -552,7 +565,7 @@ A\!\left[\nu^{\prime}\right] = \mathscr{F}\!\Bigl[ a\!\left[t^{\prime}\right] \B
 </section>
 </section>
 <section id="Numeric-Implementation-of-DFTs">
-<h2>Numeric Implementation of DFTs<a class="headerlink" href="#Numeric-Implementation-of-DFTs" title="Permalink to this heading">#</a></h2>
+<h2>Numeric Implementation of DFTs<a class="headerlink" href="#Numeric-Implementation-of-DFTs" title="Link to this heading">#</a></h2>
 <p>Unfortunately, most numeric implementations of DFTs obscure the intuitive aspects of these transforms and so require careful handling. Below are the typical discrete Fourier transform and inverse as defined by popular numeric packages (see <a class="reference external" href="https://numpy.org/doc/stable/reference/routines.fft.html">numpy.fft</a> or <a class="reference external" href="https://docs.scipy.org/doc/scipy/tutorial/fft.html">scipy.fft</a>):</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{align}
@@ -566,7 +579,7 @@ A\!\left[\nu^{\prime}\right] = \mathscr{F}\!\Bigl[ a\!\left[t^{\prime}\right] \B
 <li><p>The shifting of the summation indices’ range to strictly positive integers disrupts the monotonic order of the coordinate indices <em>and must be accounted for whenever using fft or ifft operations</em>.</p></li>
 </ul>
 <section id="fftshift-and-ifftshift">
-<h3>fftshift and ifftshift<a class="headerlink" href="#fftshift-and-ifftshift" title="Permalink to this heading">#</a></h3>
+<h3>fftshift and ifftshift<a class="headerlink" href="#fftshift-and-ifftshift" title="Link to this heading">#</a></h3>
 <p>The summation, or array indices range from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N-1\)</span>, but due to aliasing the effective coordinate indices still range from <span class="math notranslate nohighlight">\(-\lfloor N/2 \rfloor\)</span> to <span class="math notranslate nohighlight">\(\lfloor(N-1)/2\rfloor\)</span>. The coordinate indices follow the array indices up to the midpoint, but at array index <span class="math notranslate nohighlight">\(\lfloor (N-1)/2 \rfloor +1\)</span> the coordinate grid aliases to <span class="math notranslate nohighlight">\(-\lfloor N/2 \rfloor\)</span>. Array indices from <span class="math notranslate nohighlight">\(\lfloor (N-1)/2 \rfloor +1\)</span> to <span class="math notranslate nohighlight">\(N-1\)</span> represent negative time or frequency
 coordinates.</p>
 <p>To avoid numeric artifacts or other erroneous results, fft array ordering must be maintained when using fft and ifft functions. To aid in that endeavor, numeric packages contain <strong>fftshift</strong> and <strong>ifftshift</strong> functions which rearrange arrays such that they go from standard fft ordering to arrays with monotonically ordered coordinates and vice versa. In this regard, fftshift is used to translate fft ordering to monotonic ordering, and ifftshift is used to translate monotonic ordering to fft
@@ -628,7 +641,7 @@ ordering.</p>
 </table>
 </section>
 <section id="Real-DFTs">
-<h3>Real DFTs<a class="headerlink" href="#Real-DFTs" title="Permalink to this heading">#</a></h3>
+<h3>Real DFTs<a class="headerlink" href="#Real-DFTs" title="Link to this heading">#</a></h3>
 <p>Analytic formulations are useful when representing physical quantities, and interface nicely with complex-valued fft and ifft functions. However, there are times when the real-valued representation can be more efficient or practical, such as when dealing with nonlinear operations. Numeric packages include fft implementations that specifically transform real input and that calculate and return only the positive half of a spectrum. With the help of array indexing operations, these <strong>rfft</strong> and
 <strong>irfft</strong> operations allow simple translation between analytic and real-valued representations:</p>
 <div class="math notranslate nohighlight">
@@ -663,10 +676,10 @@ second condition states that the power is only preserved if one Nyquist componen
 transformations from one representation to the other need only use a uniform <span class="math notranslate nohighlight">\(\sqrt{2}\)</span> scale factor at all points.</p>
 </section>
 <section id="FFT-Cookbook">
-<h3>FFT Cookbook<a class="headerlink" href="#FFT-Cookbook" title="Permalink to this heading">#</a></h3>
+<h3>FFT Cookbook<a class="headerlink" href="#FFT-Cookbook" title="Link to this heading">#</a></h3>
 <p>Use the following set of rules to navigate the normalization and array ordering quirks of fft and ifft functions.</p>
 <section id="Analytic-Representation">
-<h4>Analytic Representation<a class="headerlink" href="#Analytic-Representation" title="Permalink to this heading">#</a></h4>
+<h4>Analytic Representation<a class="headerlink" href="#Analytic-Representation" title="Link to this heading">#</a></h4>
 <p>Given the total number of points <span class="math notranslate nohighlight">\(N\)</span>, define the time and frequency step sizes <span class="math notranslate nohighlight">\(dt\)</span> and <span class="math notranslate nohighlight">\(d\nu\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{gather}
@@ -682,7 +695,7 @@ t_m = (m - \lfloor N/2 \rfloor) \, dt
 <p>If planning to transform between the analytic and real-valued representations, <span class="math notranslate nohighlight">\(\nu_0\)</span> must be integer divisible by <span class="math notranslate nohighlight">\(d\nu\)</span> and <span class="math notranslate nohighlight">\(\nu_n\)</span> should be greater than <span class="math notranslate nohighlight">\(0\)</span> at all points.</p>
 </section>
 <section id="Real-Valued-Representation">
-<h4>Real-Valued Representation<a class="headerlink" href="#Real-Valued-Representation" title="Permalink to this heading">#</a></h4>
+<h4>Real-Valued Representation<a class="headerlink" href="#Real-Valued-Representation" title="Link to this heading">#</a></h4>
 <p>The coordinate grids for the associated real-valued representation <span class="math notranslate nohighlight">\({t_r}_m\)</span> and <span class="math notranslate nohighlight">\({\nu_r}_n\)</span> use array index <span class="math notranslate nohighlight">\(m\)</span> ranging from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(N_r-1\)</span> and array index <span class="math notranslate nohighlight">\(n\)</span> ranging from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(\lfloor N_r/2 \rfloor\)</span>. Choose the total number of points <span class="math notranslate nohighlight">\(N_r\)</span> to allow transforming from the analytic representation without aliasing:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}\begin{gather}
@@ -694,11 +707,11 @@ dt_r \, d\nu = 1/N_r
 \end{gather}\end{split}\]</div>
 </section>
 <section id="Array-Ordering">
-<h4>Array Ordering<a class="headerlink" href="#Array-Ordering" title="Permalink to this heading">#</a></h4>
+<h4>Array Ordering<a class="headerlink" href="#Array-Ordering" title="Link to this heading">#</a></h4>
 <p>There are two alternate paths that ensure fft and ifft functions always receive the correct ordering and that the ordering of the coordinate grids and amplitude arrays are always aligned. The first is to order all arrays such that the coordinate grids are in a monotonic order and then wrap calls to fft or ifft with ifftshift and fftshift operations. The second is to order all arrays in fft order and then only use fftshift operations when one wants to display arrays with monotonically ordered
 coordinate arrays.</p>
 <section id="Monotonic-Order:">
-<h5>Monotonic Order:<a class="headerlink" href="#Monotonic-Order:" title="Permalink to this heading">#</a></h5>
+<h5>Monotonic Order:<a class="headerlink" href="#Monotonic-Order:" title="Link to this heading">#</a></h5>
 <ul>
 <li><p>Keep the time and frequency grids as defined above.</p></li>
 <li><p>Construct amplitude arrays <span class="math notranslate nohighlight">\(a\left[t\right]_m\)</span> and <span class="math notranslate nohighlight">\(A\left[\nu\right]_n\)</span> using the monotonic order of the coordinate arrays.</p></li>
@@ -729,7 +742,7 @@ F\left[\nu_r\right]_n =
 </ul>
 </section>
 <section id="FFT-Order:">
-<h5>FFT Order:<a class="headerlink" href="#FFT-Order:" title="Permalink to this heading">#</a></h5>
+<h5>FFT Order:<a class="headerlink" href="#FFT-Order:" title="Link to this heading">#</a></h5>
 <ul>
 <li><p>Store the time and frequency grids in standard fft order:</p>
 <div class="math notranslate nohighlight">
@@ -779,11 +792,10 @@ F\left[\nu_r\right]_n =
               
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../notes.html"
@@ -803,10 +815,7 @@ F\left[\nu_r\right]_n =
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -815,11 +824,14 @@ F\left[\nu_r\right]_n =
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
+
   <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> On this page
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#The-Fourier-Family">The Fourier Family</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Fourier-Series">Fourier Series</a></li>
@@ -868,8 +880,8 @@ F\left[\nu_r\right]_n =
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
 <div class="bd-footer__inner bd-page-width">
@@ -877,17 +889,19 @@ F\left[\nu_r\right]_n =
     <div class="footer-items__start">
       
         <div class="footer-item">
+
   <p class="copyright">
     
-      © Copyright 2023, PyNLO authors.
+      © Copyright 2024, PyNLO authors.
       <br/>
     
   </p>
 </div>
       
         <div class="footer-item">
+
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
     <br/>
   </p>
 </div>
@@ -895,10 +909,12 @@ F\left[\nu_r\right]_n =
     </div>
   
   
+  
     <div class="footer-items__end">
       
-        <div class="footer-item"><p class="theme-version">
-  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.2.
 </p></div>
       
     </div>
