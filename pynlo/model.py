@@ -627,7 +627,8 @@ class Model():
             ax0.set_title("Instantaneous Power")
             ax0.set_ylabel("W")
             ax0.set_xlabel("Delay (ps)")
-            ax1.set_ylabel("Frequency (THz)")
+            ax1.set_title("Instantaneous Frequency")
+            ax1.set_ylabel("THz")
             ax1.set_xlabel("Delay (ps)")
 
             # Y Boundaries
@@ -654,7 +655,8 @@ class Model():
             ax0.set_title("Power Spectrum")
             ax0.set_ylabel("J / THz")
             ax0.set_xlabel("Frequency (THz)")
-            ax1.set_ylabel("Delay (ps)")
+            ax1.set_title("Group Delay")
+            ax1.set_ylabel("ps")
             ax1.set_xlabel("Frequency (THz)")
 
             # Y Boundaries
@@ -681,7 +683,8 @@ class Model():
             ax0.set_title("Power Spectrum")
             ax0.set_ylabel("J / nm")
             ax0.set_xlabel("Wavelength (nm)")
-            ax1.set_ylabel("Delay (ps)")
+            ax1.set_title("Group Delay")
+            ax1.set_ylabel("ps")
             ax1.set_xlabel("Wavelength (nm)")
 
             # Y Boundaries
