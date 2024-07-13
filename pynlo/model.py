@@ -238,6 +238,7 @@ class Model():
         if z_grid.size==1:
             # Since only the end point was given, the start point is the origin
             z_grid = np.append(0.0, z_grid)
+        assert all(np.diff(z_grid) > 0), "`z_grid` must be monotonically increasing."
 
         if n_records is None:
             n_records = z_grid.size

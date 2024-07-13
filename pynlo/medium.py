@@ -65,7 +65,7 @@ class Mode():
     Forward traveling waves of a mode are defined using the following
     conventions:
 
-    .. math:: E, H \\sim a \\, e^{i(\\omega t - \\kappa z)} + \\text{c.c} \\\\
+    .. math:: E, H \\sim a \\, e^{i(\\omega t - \\kappa z)} + \\text{c.c.} \\\\
               \\kappa = \\beta + i \\frac{\\alpha}{2}, \\quad
               \\beta = n \\frac{\\omega}{c}
 
