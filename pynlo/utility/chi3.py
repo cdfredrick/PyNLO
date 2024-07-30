@@ -168,10 +168,10 @@ def raman(n, dt, r_weights, b_weights=None, analytic=True):
         decay time. More than one peak may be entered using an (n, 2) shaped
         array.
     analytic : bool, optional
-        A flag that sets the proper normalization for use with the analytic or
-        real-valued representation. The default normalizes for the analytic
-        representation, which is the proper format for use with the `NLSE`
-        model. Set this parameter to `False` if using the `UPE` model.
+        A flag that sets the proper normalization for use with either the
+        analytic or real-valued representation. The default of `True` should be
+        only be used with the `NLSE` model. Set this parameter to `False` if
+        using the `UPE` model.
 
     Returns
     -------
