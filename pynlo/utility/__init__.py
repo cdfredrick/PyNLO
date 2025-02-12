@@ -18,6 +18,7 @@ __all__ = ["chi1", "chi2", "chi3", "fft",
 
 import collections
 import copy
+import math
 
 import numpy as np
 from scipy.constants import pi, h
@@ -60,7 +61,7 @@ def taylor_series(x0, fn):
     """
     window = np.array([-1, 1])
     domain = window + x0
-    poly_coefs = [coef/np.math.factorial(n) for (n, coef) in enumerate(fn)]
+    poly_coefs = [coef/math.factorial(n) for (n, coef) in enumerate(fn)]
     pwr_series = np.polynomial.Polynomial(poly_coefs, domain=domain, window=window)
     return pwr_series
 
