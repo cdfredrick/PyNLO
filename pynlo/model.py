@@ -267,7 +267,7 @@ class Model():
 
         # Step Size
         if dz is None:
-            dz = self.estimate_step_size(pulse_out.a_v, z, local_error)
+            dz = self.estimate_step_size(local_error=local_error, a_v=pulse_out.a_v, z=z)
             print("Initial Step Size:\t{:.3g}m".format(dz))
 
         # Plotting
@@ -301,7 +301,7 @@ class Model():
                     if z==z_grid[-1]:
                         # End Animation
                         self._finish_plots(plot, pulse_out, a_v, z_idx)
-
+        self._dz = dz # record final step size
         sim_res = SimulationResult(
             pulse=pulse_out, z=z_record, a_t=a_t, a_v=a_v)
         return sim_res
@@ -376,6 +376,8 @@ class Model():
             if error_ratio > 2:
                 # Reject this step and calculate with a smaller dz
                 dz = dz/2
+                if dz < 1e-15*z: # minimum step size
+                    assert dz > z*1e-15, "Minimum step size reached, the specified local error is unachievable"
                 cont = False
             else:
                 # Update parameters for the next loop
@@ -385,7 +387,7 @@ class Model():
                 if (not final_step) or (error_ratio > 1):
                     dz = dz / max(error_ratio, 0.5)
                 else:
-                    dz = dz_adaptive # if final step, use adaptive step size
+                    dz = dz_adaptive # return to adaptive step size if final step
                 cont = True
 
         return a_v, z, dz, k5_v, cont
