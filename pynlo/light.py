@@ -27,11 +27,11 @@ from pynlo.utility.misc import ndproperty, replace
 
 # %% Collections
 
-PowerSpectralWidth = collections.namedtuple("PowerSpectralWidth", ["fwhm", "rms", "eqv"])
+PowerSpectralWidth = collections.namedtuple("PowerSpectralWidth", ["fwhm", "rms", "eff"])
 
-PowerEnvelopeWidth = collections.namedtuple("PowerEnvelopeWidth", ["fwhm", "rms", "eqv"])
+PowerEnvelopeWidth = collections.namedtuple("PowerEnvelopeWidth", ["fwhm", "rms", "eff"])
 
-Autocorrelation = collections.namedtuple("Autocorrelation", ["t_grid", "ac_t", "fwhm", "rms", "eqv"])
+Autocorrelation = collections.namedtuple("Autocorrelation", ["t_grid", "ac_t", "fwhm", "rms", "eff"])
 
 Spectrogram = collections.namedtuple("Spectrogram", ["v_grid", "t_grid", "spg", "extent"])
 
@@ -484,8 +484,8 @@ class Pulse(TFGrid):
             The full width at half maximum of the power spectrum.
         rms : float
             The full root-mean-square width of the power spectrum.
-        eqv : float
-            The equivalent width of the power spectrum.
+        eff : float
+            The effective width of the power spectrum.
 
         """
         #---- Power
@@ -515,11 +515,11 @@ class Pulse(TFGrid):
         v_var = np.sum((v_grid - v_avg)**2 * p_v*dv)/p_norm
         v_rms = 2 * v_var**0.5
 
-        #---- Equivalent
-        v_eqv = 1/np.sum((p_v/p_norm)**2 * dv)
+        #---- Effective
+        v_eff = 1/np.sum((p_v/p_norm)**2 * dv)
 
         #---- Construct PowerSpectralWidth
-        v_widths = PowerSpectralWidth(fwhm=v_fwhm, rms=v_rms, eqv=v_eqv)
+        v_widths = PowerSpectralWidth(fwhm=v_fwhm, rms=v_rms, eff=v_eff)
         return v_widths
 
     #---- Time Domain Properties
@@ -726,8 +726,8 @@ class Pulse(TFGrid):
             The full width at half maximum of the power envelope.
         rms : float
             The full root-mean-square width of the power envelope.
-        eqv : float
-            The equivalent width of the power envelope.
+        eff : float
+            The effective width of the power envelope.
 
         """
         #---- Power
@@ -757,11 +757,11 @@ class Pulse(TFGrid):
         t_var = np.sum((t_grid - t_avg)**2 * p_t*dt)/p_norm
         t_rms = 2 * t_var**0.5
 
-        #---- Equivalent
-        t_eqv = 1/np.sum((p_t/p_norm)**2 * dt)
+        #---- Effective
+        t_eff = 1/np.sum((p_t/p_norm)**2 * dt)
 
         #---- Construct PowerEnvelopeWidth
-        t_widths = PowerEnvelopeWidth(fwhm=t_fwhm, rms=t_rms, eqv=t_eqv)
+        t_widths = PowerEnvelopeWidth(fwhm=t_fwhm, rms=t_rms, eff=t_eff)
         return t_widths
 
     #---- Energy Properties
@@ -837,8 +837,8 @@ class Pulse(TFGrid):
             The full width at half maximum of the intensity autocorrelation.
         rms : float
             The full root-mean-square width of the intensity autocorrelation.
-        eqv : float
-            The equivalent width of the intensity autocorrelation.
+        eff : float
+            The effective width of the intensity autocorrelation.
 
         """
         #---- Intensity Autocorrelation
@@ -870,11 +870,11 @@ class Pulse(TFGrid):
         t_var = np.sum((t_grid - t_avg)**2 * ac_t*dt)/ac_norm
         t_rms = 2 * t_var**0.5
 
-        #---- Equivalent
-        t_eqv = 1/np.sum((ac_t/ac_norm)**2 * dt)
+        #---- Effective
+        t_eff = 1/np.sum((ac_t/ac_norm)**2 * dt)
 
         #---- Construct Autocorrelation
-        ac = Autocorrelation(t_grid=t_grid, ac_t=ac_t, fwhm=t_fwhm, rms=t_rms, eqv=t_eqv)
+        ac = Autocorrelation(t_grid=t_grid, ac_t=ac_t, fwhm=t_fwhm, rms=t_rms, eff=t_eff)
         return ac
 
     def spectrogram(self, t_fwhm=None, v_range=None, n_t=None, t_range=None):
