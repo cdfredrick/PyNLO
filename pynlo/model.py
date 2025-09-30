@@ -447,6 +447,7 @@ class Model():
         if k5_v is None:
             if self.mode.z_nonlinear.any and not cont: self.update_nonlinearity()
             k5_v = self._nonlinear_operator(a_v)
+            if self.mode.z_arbitrary: k5_v += self.mode.dadz(a_v)
 
         ai_v = ip_v * a_v # into interaction picture
         ki1_v = ip_v * k5_v # into interaction picture
@@ -458,9 +459,11 @@ class Model():
 
         ai2_v = rk1(ai_v, ki1_v, 0.5*dz)
         ki2_v = self._nonlinear_operator(ai2_v)
+        if self.mode.z_arbitrary: ki2_v += self.mode.dadz(ai2_v)
 
         ai3_v = rk1(ai_v, ki2_v, 0.5*dz)
         ki3_v = self._nonlinear_operator(ai3_v)
+        if self.mode.z_arbitrary: ki3_v += self.mode.dadz(ai3_v)
 
         #---- k4
         if self.mode.z_mode:
@@ -473,12 +476,14 @@ class Model():
         ai4_v = rk1(ai_v, ki3_v, dz)
         a4_v = ip_v * ai4_v # out of interaction picture
         k4_v = self._nonlinear_operator(a4_v)
+        if self.mode.z_arbitrary: k4_v += self.mode.dadz(a4_v)
 
         #---- RK4
         a_RK4_v, b_v = rk4(ai_v, ki1_v, ki2_v, ki3_v, k4_v, ip_v, dz)
 
         #---- k5
         k5_v = self._nonlinear_operator(a_RK4_v)
+        if self.mode.z_arbitrary: k5_v += self.mode.dadz(a_RK4_v)
 
         #---- RK3
         a_RK3_v = rk3(b_v, k4_v, k5_v, dz)

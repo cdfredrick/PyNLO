@@ -57,8 +57,12 @@ class Mode():
     r3 : array_like of complex or callable, optional
         The effective 3rd-order nonlinear response function containing both
         the Raman and instantaneous nonlinearities.
+    dadz : callable, optional
+        Arbitrarly defined linear or nonlinear response. The function must
+        accept the spectral amplitude as the first argument and the position
+        within the mode as the second argument.
     z : float, optional
-        The initial position within the mode. The default is 0.
+        The position within the mode. The default is 0.
 
     Notes
     -----
@@ -72,7 +76,7 @@ class Mode():
     """
     def __init__(self, v_grid, beta, alpha=None,
                  g2=None, g2_inv=None, g3=None, rv_grid=None, r3=None,
-                 z=0.0):
+                 dadz=None, z=0.0):
         #---- Position
         self._z = z
 
@@ -133,6 +137,10 @@ class Mode():
             self._rv_grid = None
             self._r3 = None
 
+        #---- Arbitrary Response Function
+        if dadz is not None: assert callable(dadz), "`dadz` must be a function"
+        self._dadz = dadz
+
         #---- Z Dependence
         self._z_linear = _LinearZ(
             any=callable(alpha) or callable(beta),
@@ -141,7 +149,9 @@ class Mode():
             any=callable(g2) or callable(g3) or callable(r3),
             g2=callable(g2), pol=g2_inv is not None,
             g3=callable(g3), r3=callable(r3))
-        self._z_mode = self.z_linear.any or self.z_nonlinear.any or self.z_nonlinear.pol
+        self._z_arbitrary = callable(dadz)
+        self._z_mode = (self.z_linear.any or self.z_nonlinear.any
+                        or self.z_nonlinear.pol or self._z_arbitrary)
 
     #---- General Properties
     @property
@@ -234,6 +244,11 @@ class Mode():
 
         """
         return self._z_nonlinear
+
+    @property
+    def z_arbitrary(self):
+        """The z dependance of the arbitary term."""
+        return self._z_arbitrary
 
     #---- 1st-Order Properties
     @property
@@ -493,6 +508,10 @@ class Mode():
         None or ndarray of complex
         """
         return self._r3(self.z) if callable(self._r3) else self._r3
+
+    #---- Arbitrary Response
+    def dadz(self, a_v):
+        return self._dadz(a_v, self.z) if self._z_arbitrary else self._dadz
 
     #---- Misc
     def copy(self):
