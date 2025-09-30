@@ -113,7 +113,7 @@ def g3_split(n_eff, a_eff, chi3_eff):
     return np.array([1/2 * ((e0*a_eff)/(c*n_eff))**0.5 * chi3_eff,
                      1/(e0*c*n_eff*a_eff)**0.5])
 
-def g3_spm(n_eff, a_eff, chi3_eff):
+def g3_spm(n_eff, a_eff, chi3_eff, v0_idx=None):
     """
     The 3rd-order nonlinear parameter weighted for self-phase modulation.
 
@@ -131,7 +131,10 @@ def g3_spm(n_eff, a_eff, chi3_eff):
     g3 : ndarray
 
     """
-    return 1/2 * chi3_eff/(e0*c**2 * n_eff**2 * a_eff)
+    if v0_idx is None:
+        return 1/2 * chi3_eff/(e0*c**2 * n_eff**2 * a_eff)
+    else:
+        return 1/2 * chi3_eff/(e0*c**2 * n_eff*n_eff[v0_idx] * a_eff[v0_idx])
 
 def raman(n, dt, r_weights, b_weights=None, analytic=True):
     """

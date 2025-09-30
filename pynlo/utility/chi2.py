@@ -95,7 +95,7 @@ def g2_path(n_eff, a_eff, chi2_eff, paths):
         else:
             g2 = np.mean([g2s[0, idx] * g2s[1, cpl[0]]*g2s[1, cpl[0]] for cpl in path])
             g2_p.append(g2)
-    return np.arary(g2_p)
+    return np.array(g2_p)
 
 def g2_shg(v0, v_grid, n_eff, a_eff, chi2_eff):
     """
@@ -236,8 +236,8 @@ def domain_inversions(z, dk, n=1):
     aperiodic = dk.size > 1
     if aperiodic:
         # Aperiodic Poling
-        assert np.all(np.diff(z) > 0), "The points in `z` must be ordered monotonically."
         assert z.size == dk.size, "`dk` must have the same number of points as `z`."
+        assert np.all(np.diff(z) > 0), "The points in `z` must be ordered monotonically."
         assert z.size > n, "The number of points must be greater than the interpolation order."
     else:
         # Periodic Poling
@@ -300,20 +300,20 @@ def dominant_paths(v_grid, beta, beta_qpm=None, full=False): #TODO: add extent (
         input frequencies of the dominant input paths. If no valid path exists
         for a particular output frequency its input indices are given as
         ``[None, None]``.
-    (dk, dk_sfg, dk_dfg) : tuple
+    (dk, v_sfg, dk_sfg, v_dfg, dk_dfg) : tuple
         These values are only returned if ``full=True`` \n
         dk : list
             The wavenumber mismatch for each path in `paths`.
         v_sfg : ndarray of float
-            The frequencies that correspond to all SFG combinations.
+            The output frequency of each SFG combination.
         dk_sfg : ndarray of float
-            The wavenumber mismatch for all SFG combinations. The mismatch of
-            invalid paths are given as ``np.nan``.
+            The wavenumber mismatch for all SFG combinations. Invalid paths for
+            the given frequency grid are given as NaN.
         v_dfg : ndarray of float
-            The frequencies that correspond to all DFG combinations.
+            The output frequency of each DFG combination.
         dk_dfg : ndarray of float
-            The wavenumber mismatch for all DFG combinations. The mismatch of
-            invalid paths are given as NaN.
+            The wavenumber mismatch for all DFG combinations. Invalid paths for
+            the given frequency grid are given as NaN.
 
     """
     #---- Setup
@@ -403,6 +403,8 @@ def dominant_paths(v_grid, beta, beta_qpm=None, full=False): #TODO: add extent (
             dk.append(None)
 
     if full:
+        v_sfg[np.isnan(dk_sfg)] = np.nan
+        v_dfg[np.isnan(dk_dfg)] = np.nan
         return paths, (dk, v_sfg, dk_sfg, v_dfg, dk_dfg)
     else:
         return paths
