@@ -92,7 +92,7 @@ def fft(x, fsc=1.0, n=None, axis=-1, overwrite_x=False):
         The transformed array.
 
     """
-    return mkl_fft.fft(x, n=n, axis=axis, overwrite_x=overwrite_x, forward_scale=fsc)
+    return mkl_fft.fft(x, n=n, axis=axis, overwrite_x=overwrite_x, fwd_scale=fsc)
 
 def ifft(x, fsc=1.0, n=None, axis=-1, overwrite_x=False):
     """
@@ -122,7 +122,7 @@ def ifft(x, fsc=1.0, n=None, axis=-1, overwrite_x=False):
         The transformed array.
 
     """
-    return mkl_fft.ifft(x, n=n, axis=axis, overwrite_x=overwrite_x, forward_scale=fsc)
+    return mkl_fft.ifft(x, n=n, axis=axis, overwrite_x=overwrite_x, fwd_scale=fsc)
 
 #---- Real FFTs
 def rfft(x, fsc=1.0, n=None, axis=-1):
@@ -151,7 +151,7 @@ def rfft(x, fsc=1.0, n=None, axis=-1):
         The transformed array.
 
     """
-    return mkl_fft.rfft_numpy(x, n=n, axis=axis, forward_scale=fsc)
+    return mkl_fft.rfft(x, n=n, axis=axis, fwd_scale=fsc)
 
 def irfft(x, fsc=1.0, n=None, axis=-1):
     """
@@ -185,4 +185,4 @@ def irfft(x, fsc=1.0, n=None, axis=-1):
         The transformed array.
 
     """
-    return mkl_fft.irfft_numpy(x, n=n, axis=axis, forward_scale=fsc)
+    return mkl_fft.irfft(x, n=n, axis=axis, fwd_scale=fsc)
