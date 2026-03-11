@@ -360,11 +360,11 @@ class TFGrid():
     ----------
     n : int
         The number of grid points.
-    v_ref : float
-        The target central frequency of the grid.
     dv : float
         The frequency step size. This is equal to the reciprocal of the total
         time window.
+    v_ref : float
+        The target central frequency of the grid.
     alias : int, optional
         The number of harmonics supported by the real-valued time domain grid
         without aliasing. The default is 1, which only generates enough points
@@ -399,7 +399,7 @@ class TFGrid():
     the DFT.
 
     """
-    def __init__(self, n, v_ref, dv, alias=1):
+    def __init__(self, n, dv, v_ref, alias=1):
         assert isinstance(n, (int, np.integer)), "The number of points must be an integer."
         assert (n > 1),  "The number of points must be greater than 1."
         assert (dv > 0), "The frequency grid step size must be greater than 0."
@@ -455,7 +455,7 @@ class TFGrid():
             "The target maximum frequency must be greater than the target minimum frequency.")
         dv = (v_max - v_min)/(n-1)
         v_ref = 0.5*(v_min + v_max)
-        self = cls(n, v_ref, dv, **kwargs)
+        self = cls(n, dv, v_ref, **kwargs)
         return self
 
     #---- General Properties

@@ -49,11 +49,11 @@ class Pulse(TFGrid):
     ----------
     n : int
         The number of grid points.
-    v_ref : float
-        The target central frequency of the grid.
     dv : float
         The frequency step size. This is equal to the reciprocal of the time
         window.
+    v_ref : float
+        The target central frequency of the grid.
     v0 : float, optional
         The comoving-frame reference frequency. The default value is the center
         frequency of the resulting grid.
@@ -91,9 +91,9 @@ class Pulse(TFGrid):
     does not otherwise affect the properties of the pulse.
 
     """
-    def __init__(self, n, v_ref, dv, v0=None, a_v=None, alias=1):
+    def __init__(self, n, dv, v_ref, v0=None, a_v=None, alias=1):
         #---- Initialize Grids
-        super().__init__(n, v_ref, dv, alias=alias)
+        super().__init__(n, dv, v_ref, alias=alias)
         self.__a_v = np.zeros_like(self.v_grid, dtype=complex)
         if v0 is None:
             self.v0 = self.v_grid[self.n//2] # same as v_ref
