@@ -66,7 +66,7 @@ def ifftshift(x, axis=-1):
 # %% Transforms
 
 #---- FFTs
-def fft(x, fsc=1.0, n=None, axis=-1, overwrite_x=False):
+def fft(x, fsc=1.0, n=None, axis=-1, overwrite=None):
     """
     Use MKL to perform a 1D FFT of the input array along the given axis.
 
@@ -75,16 +75,16 @@ def fft(x, fsc=1.0, n=None, axis=-1, overwrite_x=False):
     x : array_like
         Input array, can be complex.
     fsc : float, optional
-        The forward transform scale factor. The default is 1.0.
+        The forward-transform scale factor. The default is 1.0.
     n : int, optional
         Length of the transformed axis of the output. If `n` is smaller than
         the length of the input, the input is cropped. If it is larger, the
         input is padded with zeros.
     axis : int, optional
         Axis over which to compute the FFT. The default is the last axis.
-    overwrite_x : bool, optional
-        If True, the contents of x may be overwritten during the computation.
-        The default is False.
+    overwrite : array_like or bool, optional
+        The output array used for in-place computation. If True, the contents
+        of x will be overwritten. The default is None.
 
     Returns
     -------
@@ -92,9 +92,10 @@ def fft(x, fsc=1.0, n=None, axis=-1, overwrite_x=False):
         The transformed array.
 
     """
-    return mkl_fft.fft(x, n=n, axis=axis, overwrite_x=overwrite_x, fwd_scale=fsc)
+    if overwrite is True: overwrite = x
+    return mkl_fft._pydfti._c2c_fft1d_impl(x, n=n, axis=axis, out=overwrite, direction=1, fsc=fsc)
 
-def ifft(x, fsc=1.0, n=None, axis=-1, overwrite_x=False):
+def ifft(x, fsc=1.0, n=None, axis=-1, overwrite=None):
     """
     Use MKL to perform a 1D IFFT of the input array along the given axis.
 
@@ -103,8 +104,8 @@ def ifft(x, fsc=1.0, n=None, axis=-1, overwrite_x=False):
     x : array_like
         Input array, can be complex.
     fsc : float, optional
-        The forward transform scale factor. Internally, this function sets the
-        reverse transform scale factor as ``1/(n*fsc)``. The default is 1.0.
+        The forward-transform scale factor. Internally, this function sets the
+        reverse-transform scale factor as ``1/(n*fsc)``. The default is 1.0.
     n : int, optional
         Length of the transformed axis of the output. If `n` is smaller than
         the length of the input, the input is cropped. If it is larger, the
@@ -112,9 +113,9 @@ def ifft(x, fsc=1.0, n=None, axis=-1, overwrite_x=False):
     axis : int, optional
         Axis over which to compute the inverse FFT. The default is the last
         axis.
-    overwrite_x : bool, optional
-        If True, the contents of x may be overwritten during the computation.
-        The default is False.
+    overwrite : array_like or bool, optional
+        The output array used for in-place computation. If True, the contents
+        of x will be overwritten. The default is None.
 
     Returns
     -------
@@ -122,10 +123,11 @@ def ifft(x, fsc=1.0, n=None, axis=-1, overwrite_x=False):
         The transformed array.
 
     """
-    return mkl_fft.ifft(x, n=n, axis=axis, overwrite_x=overwrite_x, fwd_scale=fsc)
+    if overwrite is True: overwrite = x
+    return mkl_fft._pydfti._c2c_fft1d_impl(x, n=n, axis=axis, out=overwrite, direction=-1, fsc=fsc)
 
 #---- Real FFTs
-def rfft(x, fsc=1.0, n=None, axis=-1):
+def rfft(x, fsc=1.0, n=None, axis=-1, overwrite=None):
     """
     Use MKL to perform a 1D FFT of the real input array along the given axis.
     The output array is complex and only contains positive frequencies.
@@ -137,13 +139,15 @@ def rfft(x, fsc=1.0, n=None, axis=-1):
     x : array_like
         Input array, must be real.
     fsc : float, optional
-        The forward transform scale factor. The default is 1.0.
+        The forward-transform scale factor. The default is 1.0.
     n : int, optional
         Number of points to use along the transformed axis of the input. If
         `n` is smaller than the length of the input, the input is cropped. If
         it is larger, the input is padded with zeros.
     axis : int, optional
         Axis over which to compute the FFT. The default is the last axis.
+    overwrite : array_like, optional
+        The output array used for in-place computation. The default is None.
 
     Returns
     -------
@@ -151,9 +155,9 @@ def rfft(x, fsc=1.0, n=None, axis=-1):
         The transformed array.
 
     """
-    return mkl_fft.rfft(x, n=n, axis=axis, fwd_scale=fsc)
+    return mkl_fft._pydfti._r2c_fft1d_impl(x, n=n, axis=axis, out=overwrite, fsc=fsc)
 
-def irfft(x, fsc=1.0, n=None, axis=-1):
+def irfft(x, fsc=1.0, n=None, axis=-1, overwrite=None):
     """
     Use MKL to perform a 1D IFFT of the input array along the given axis. The
     input is assumed to contain only positive frequencies, and the output is
@@ -168,8 +172,8 @@ def irfft(x, fsc=1.0, n=None, axis=-1):
     x : array_like
         Input array, can be complex.
     fsc : float, optional
-        The forward transform scale factor. Internally, this function sets the
-        reverse transform scale factor as ``1/(n*fsc)``. The default is 1.0.
+        The forward-transform scale factor. Internally, this function sets the
+        reverse-transform scale factor as ``1/(n*fsc)``. The default is 1.0.
     n : int, optional
         Length of the transformed axis of the output. For `n` output points,
         ``n//2+1`` input points are necessary. If the input is longer than
@@ -178,6 +182,8 @@ def irfft(x, fsc=1.0, n=None, axis=-1):
     axis : int, optional
         Axis over which to compute the inverse FFT. The default is the last
         axis.
+    overwrite : array_like, optional
+        The output array used for in-place computation. The default is None.
 
     Returns
     -------
@@ -185,4 +191,4 @@ def irfft(x, fsc=1.0, n=None, axis=-1):
         The transformed array.
 
     """
-    return mkl_fft.irfft(x, n=n, axis=axis, fwd_scale=fsc)
+    return mkl_fft._pydfti._c2r_fft1d_impl(x, n=n, axis=axis, out=overwrite, fsc=fsc)

@@ -242,7 +242,7 @@ def resample_v(v_grid, f_v, n):
         n_0 = len(v_grid)
         dt_0 = 1/(n_0*dv_0)
         v_ref_0 = v_grid[n_0//2]
-        f_t = fft.fftshift(fft.ifft(fft.ifftshift(f_v), fsc=dt_0, overwrite_x=True))
+        f_t = fft.fftshift(fft.ifft(fft.ifftshift(f_v), fsc=dt_0, overwrite=True))
 
     #---- Resample
     dn_n = n//2 - n_0//2 # leading time bins
@@ -261,7 +261,7 @@ def resample_v(v_grid, f_v, n):
         v_grid = dv*np.arange(len(f_v))
     else:
         # Analytic Representation
-        f_v = fft.fftshift(fft.fft(fft.ifftshift(f_t), fsc=dt, overwrite_x=True))
+        f_v = fft.fftshift(fft.fft(fft.ifftshift(f_t), fsc=dt, overwrite=True))
         v_grid = dv*(np.arange(n) - (n//2))
         v_grid += v_ref_0
 
@@ -331,12 +331,12 @@ def resample_t(t_grid, f_t, n):
         f_t = fft.fftshift(fft.irfft(f_v, fsc=dt, n=n))
     else:
         # Analytic Representation
-        f_v = fft.fftshift(fft.fft(fft.ifftshift(f_t), fsc=dt_0, overwrite_x=True))
+        f_v = fft.fftshift(fft.fft(fft.ifftshift(f_t), fsc=dt_0, overwrite=True))
         if n > n_0:
             f_v = np.pad(f_v, (0, n-n_0), mode="constant", constant_values=0)
         elif n < n_0:
             f_v = f_v[:n]
-        f_t = fft.fftshift(fft.ifft(fft.ifftshift(f_v), fsc=dt, overwrite_x=True))
+        f_t = fft.fftshift(fft.ifft(fft.ifftshift(f_v), fsc=dt, overwrite=True))
 
     #---- Construct ResampledT
     resampled = _ResampledT(t_grid=t_grid, f_t=f_t, dt=dt)

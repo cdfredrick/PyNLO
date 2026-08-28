@@ -843,7 +843,7 @@ class Pulse(TFGrid):
         """
         #---- Intensity Autocorrelation
         ac_v = np.abs(fft.fftshift(fft.fft(self._p_t, fsc=self.dt)))**2
-        ac_t = fft.fftshift(fft.ifft(fft.ifftshift(ac_v), fsc=self.dt, overwrite_x=True).real)
+        ac_t = fft.fftshift(fft.ifft(fft.ifftshift(ac_v), fsc=self.dt, overwrite=True).real)
 
         #---- Resample
         if m is None:
@@ -943,7 +943,7 @@ class Pulse(TFGrid):
             dt = 1/(n*self.dv)
 
             a_v = self.a_v[v_min_selector:v_max_selector+1]
-            a_t = fft.fftshift(fft.ifft(fft.ifftshift(a_v), fsc=dt, overwrite_x=True))
+            a_t = fft.fftshift(fft.ifft(fft.ifftshift(a_v), fsc=dt, overwrite=True))
             t_grid = dt*(np.arange(n) - (n//2))
 
         #---- Set Gate
@@ -982,12 +982,12 @@ class Pulse(TFGrid):
         gate_pulses_v = (g_v[:, np.newaxis]
                          * np.exp(-1j*2*pi*delay_t_grid[np.newaxis, :]*v_grid[:, np.newaxis]))
         gate_pulses_t = fft.fftshift(fft.ifft(
-            fft.ifftshift(gate_pulses_v, axis=0), fsc=dt, axis=0, overwrite_x=True), axis=0)
+            fft.ifftshift(gate_pulses_v, axis=0), fsc=dt, axis=0, overwrite=True), axis=0)
 
         #---- Spectrogram
         spg_t = a_t[:, np.newaxis] * gate_pulses_t
         spg_v = fft.fftshift(fft.fft(
-            fft.ifftshift(spg_t, axis=0), fsc=dt, axis=0, overwrite_x=True), axis=0)
+            fft.ifftshift(spg_t, axis=0), fsc=dt, axis=0, overwrite=True), axis=0)
         p_spg = spg_v.real**2 + spg_v.imag**2
 
         #---- Extent
